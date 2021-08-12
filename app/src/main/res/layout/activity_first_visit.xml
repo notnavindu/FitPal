@@ -8,15 +8,16 @@
     tools:context=".FirstVisit">
 
     <RelativeLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:padding="32dp">
 
-        <ImageView android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/back_button"
+            android:layout_alignParentLeft="true"
             android:paddingTop="3dp"
-            android:layout_alignParentLeft="true"/>
+            android:src="@drawable/back_button" />
 
         <TextView
             android:id="@+id/textView16"
@@ -29,11 +30,11 @@
             android:textFontWeight="500"
             android:textSize="18dp" />
 
-        <ImageView android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/notify_button"
             android:layout_alignParentRight="true"
-            />
+            android:src="@drawable/notify_button" />
 
     </RelativeLayout>
 
@@ -74,7 +75,7 @@
                 <EditText
                     android:id="@+id/nameInput"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="48dp"
                     android:inputType="text"
                     android:textSize="12dp"
                     android:hint="JhonD"
@@ -99,7 +100,7 @@
                 <EditText
                     android:id="@+id/birthdayInput"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="48dp"
                     android:inputType="date"
                     android:textSize="12dp"
                     android:hint="2nd May 2017"
@@ -124,7 +125,7 @@
                 <EditText
                     android:id="@+id/genderInput"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="48dp"
                     android:inputType="text"
                     android:textSize="12dp"
                     android:hint="Male"
@@ -150,7 +151,7 @@
                     <EditText
                         android:id="@+id/heightInput"
                         android:layout_width="wrap_content"
-                        android:layout_height="45dp"
+                        android:layout_height="48dp"
                         android:inputType="text"
                         android:textSize="12dp"
                         android:hint="162 cm"
@@ -175,7 +176,7 @@
                     <EditText
                         android:id="@+id/weightInput"
                         android:layout_width="wrap_content"
-                        android:layout_height="45dp"
+                        android:layout_height="48dp"
                         android:inputType="text"
                         android:textSize="12dp"
                         android:hint="88 kg"

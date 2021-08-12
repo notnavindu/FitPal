@@ -75,7 +75,7 @@
                 <EditText
                     android:id="@+id/questionInput"
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
+                    android:layout_height="48dp"
                     android:inputType="text"
                     android:textSize="12dp"
                     android:hint="Question"
