@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/DEV/Android/FitPal/app/src/main/res/layout/activity_add_question.xml" value="0.22592592592592592" />
-        <entry key="..\:/DEV/Android/FitPal/app/src/main/res/layout/activity_first_visit.xml" value="0.264" />
-        <entry key="..\:/DEV/Android/FitPal/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/FitPal/app/src/main/res/layout/activity_main.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/layan/AndroidStudioProjects/FitPal/app/src/main/res/drawable/button.xml" value="0.3890625" />
+        <entry key="..\:/Users/layan/AndroidStudioProjects/FitPal/app/src/main/res/drawable/button_border.xml" value="0.3890625" />
+        <entry key="..\:/Users/layan/AndroidStudioProjects/FitPal/app/src/main/res/drawable/input_field.xml" value="0.3890625" />
+        <entry key="..\:/Users/layan/AndroidStudioProjects/FitPal/app/src/main/res/layout/activity_first_visit.xml" value="0.3729166666666667" />
+        <entry key="..\:/Users/layan/AndroidStudioProjects/FitPal/app/src/main/res/layout/activity_main.xml" value="0.3574074074074074" />
+        <entry key="..\:/Users/layan/AndroidStudioProjects/FitPal/app/src/main/res/layout/example_view.xml" value="0.3729166666666667" />
       </map>
     </option>
   </component>
