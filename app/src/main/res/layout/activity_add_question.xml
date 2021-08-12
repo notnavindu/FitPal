@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/off_white"
+    tools:context=".AddQuestion"
+    >
+
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:padding="32dp">
+
+        <ImageView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_button"
+            android:paddingTop="3dp"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:text="Ask a Question"
+            android:textColor="@color/black"
+            android:textFontWeight="500"
+            android:textSize="18dp" />
+
+        <ImageView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/notify_button"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center_horizontal" android:paddingVertical="32dp" android:paddingHorizontal="32dp" android:layout_marginVertical="64dp">
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ask Your Question"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+
+            />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Get your questions answered by a community of like-minded people"
+            android:textAlignment="center"
+            android:paddingTop="4dp"
+            />
+
+        <LinearLayout android:orientation="vertical" android:layout_height="wrap_content" android:layout_width="match_parent" android:paddingHorizontal="8dp" android:paddingVertical="24dp">
+
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Question"
+                    android:paddingVertical="8dp"
+                    android:textColor="@color/orange_dark"
+                    />
+
+                <EditText
+                    android:id="@+id/questionInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:inputType="text"
+                    android:textSize="12dp"
+                    android:hint="Question"
+                    android:textColorHint="@color/orange_light"
+                    android:background="@drawable/input_field"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="4dp"
+
+                    ></EditText>
+            </LinearLayout>
+
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:paddingVertical="8dp"
+                    android:textColor="@color/orange_dark"
+                    />
+
+                <EditText
+                    android:id="@+id/descriptionInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="92dp"
+                    android:inputType="textMultiLine"
+                    android:textSize="12dp"
+                    android:hint="Description"
+                    android:textColorHint="@color/orange_light"
+                    android:background="@drawable/input_field"
+                    android:paddingHorizontal="16dp"
+
+                    ></EditText>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:padding="4dp"
+                android:background="@drawable/button"
+                android:onClick="onSubmit"
+                android:text="Ask Question"
+                android:textAllCaps="false"
+                app:backgroundTint="@color/orange_medium"></Button>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+

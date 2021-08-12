@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DEV/Android/FitPal/app/src/main/res/layout/activity_add_question.xml" value="0.22592592592592592" />
+        <entry key="..\:/DEV/Android/FitPal/app/src/main/res/layout/activity_first_visit.xml" value="0.264" />
+        <entry key="..\:/DEV/Android/FitPal/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/FitPal/app/src/main/res/layout/activity_main.xml" value="0.20104166666666667" />
       </map>
     </option>

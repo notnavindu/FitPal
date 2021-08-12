@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.unicodedev.fitpal"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.unicodedev.fitpal">
 
     <application
         android:allowBackup="true"
@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/app_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FitPal">
+        <activity android:name=".FirstVisit"></activity>
+        <activity android:name=".AddQuestion" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
