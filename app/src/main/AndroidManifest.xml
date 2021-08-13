@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/app_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FitPal">
-        <activity android:name=".FirstVisit"></activity>
+        <activity
+            android:name=".ForumQuestion"
+            android:exported="true" />
+        <activity
+            android:name=".MyQuestions"
+            android:exported="true" />
+        <activity
+            android:name=".Forum"
+            android:exported="true" />
+        <activity android:name=".FirstVisit" />
         <activity android:name=".AddQuestion" />
         <activity
             android:name=".MainActivity"

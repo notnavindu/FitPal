@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSubmit2(View view) {
-        Intent i = new Intent(this, FirstVisit.class);
+        Intent i = new Intent(this, ForumQuestion.class);
         startActivity(i);
     }
 }

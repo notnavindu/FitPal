@@ -63,19 +63,19 @@
 
             <ImageView
                 android:id="@+id/community"
-                android:contentDescription="community"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="community"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:src="@drawable/community" />
 
             <ImageView
                 android:id="@+id/home"
-                android:contentDescription="home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/community"
+                android:contentDescription="home"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:src="@drawable/home" />
