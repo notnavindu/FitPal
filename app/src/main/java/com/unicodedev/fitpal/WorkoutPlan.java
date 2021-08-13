@@ -1,16 +1,15 @@
 package com.unicodedev.fitpal;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 
-public class Forum extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
+public class WorkoutPlan extends AppCompatActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forum);
+        setContentView(R.layout.activity_workout_main);
     }
 
     public void onSubmit(View view) {
