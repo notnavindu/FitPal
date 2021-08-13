@@ -17,26 +17,27 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:paddingTop="3dp"
-            android:src="@drawable/back_button" />
+            android:src="@drawable/back_button"
+            android:contentDescription="@string/backBtn" />
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_weight="1"
-            android:text="Fitpal"
+            android:text="@string/app_name"
             android:textColor="@color/black"
-            android:textFontWeight="500"
-            android:textSize="18dp" />
+            android:textSize="18sp"
+            tools:ignore="RelativeOverlap" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/notify_button" />
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/notify_button"
+            android:contentDescription="@string/notify" />
 
     </RelativeLayout>
 
@@ -52,15 +53,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="48dp"
-                android:text="All"
+                android:paddingEnd="48dp"
+                android:text="@string/all"
                 android:textColor="@color/orange_dark"
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                tools:ignore="RtlSymmetry" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Popular"
+                android:text="@string/popular"
                 android:textColor="@color/orange_dark"
                 android:textSize="15sp"/>
         </LinearLayout>
@@ -69,9 +71,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="My Questions"
+            android:text="@string/my_questions"
             android:textColor="@color/orange_dark"
-            android:textSize="15sp"/>
+            android:textSize="15sp"
+            tools:ignore="RelativeOverlap" />
     </RelativeLayout>
 
     <!--    Main Content-->
@@ -93,7 +96,6 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:outlineAmbientShadowColor="@color/black"
                 app:cardCornerRadius="8dp"
                 android:layout_marginTop="16dp">
 
@@ -119,7 +121,6 @@
                                 android:elevation="10dp"
                                 app:cardCornerRadius="30dp"
 
-
                                 >
 
                                 <ImageView
@@ -127,7 +128,8 @@
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
                                     android:scaleType="centerCrop"
-                                    android:src="@drawable/profile_pic">
+                                    android:src="@drawable/profile_pic"
+                                    android:contentDescription="@string/profile_pic">
 
                                 </ImageView>
 
@@ -150,13 +152,14 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentStart="true"
-                                    android:text="Sumudu Mendis"/>
+                                    android:text="@string/user_name"/>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
-                                    android:text="13 hrs ago"/>
+                                    android:text="@string/upload_time"
+                                    tools:ignore="RelativeOverlap" />
                             </RelativeLayout>
 
                             <LinearLayout
@@ -168,7 +171,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="How i do this? Stuck for 3 hours!! Help!!"
+                                    android:text="@string/user_question"
                                     android:textColor="@color/black"
                                     android:textSize="16sp"/>
                             </LinearLayout>
@@ -191,36 +194,41 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                tools:ignore="UseCompoundDrawables">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/chat_icons"/>
+                                    android:src="@drawable/chat_icons"
+                                    android:contentDescription="@string/replyBtn" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:paddingLeft="8dp"
-                                    android:text="30"/>
+                                    android:paddingStart="8dp"
+                                    android:text="@string/reply_number"
+                                    tools:ignore="RtlSymmetry" />
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
-                                android:paddingLeft="18dp">
+                                android:paddingStart="18dp"
+                                tools:ignore="RtlSymmetry,UseCompoundDrawables">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/upvote_icon"/>
+                                    android:src="@drawable/upvote_icon"
+                                    android:contentDescription="@string/upvoteBtn" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:paddingLeft="8dp"
-                                    android:text="120"/>
+                                    android:paddingStart="8dp"
+                                    android:text="@string/upvote_number"/>
                             </LinearLayout>
 
 
@@ -235,7 +243,8 @@
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/tick_icon"/>
+                                android:src="@drawable/tick_icon"
+                                android:contentDescription="@string/answeredBtn" />
 
                         </LinearLayout>
 
@@ -249,7 +258,6 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:outlineAmbientShadowColor="@color/black"
                 app:cardCornerRadius="8dp"
                 android:layout_marginTop="16dp">
 
@@ -283,7 +291,8 @@
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
                                     android:scaleType="centerCrop"
-                                    android:src="@drawable/profile_pic">
+                                    android:src="@drawable/profile_pic"
+                                    android:contentDescription="@string/profile_pic">
 
                                 </ImageView>
 
@@ -306,13 +315,14 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentStart="true"
-                                    android:text="Sumudu Mendis"/>
+                                    android:text="@string/user_name"/>
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
-                                    android:text="13 hrs ago"/>
+                                    android:text="@string/upload_time"
+                                    tools:ignore="RelativeOverlap" />
                             </RelativeLayout>
 
                             <LinearLayout
@@ -324,7 +334,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="How i do this? Stuck for 3 hours!! Help!!"
+                                    android:text="@string/user_question"
                                     android:textColor="@color/black"
                                     android:textSize="16sp"/>
                             </LinearLayout>
@@ -342,41 +352,48 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            tools:ignore="UselessParent">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                tools:ignore="UseCompoundDrawables">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/chat_icons"/>
+                                    android:src="@drawable/chat_icons"
+                                    android:contentDescription="@string/replyBtn" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:paddingLeft="8dp"
-                                    android:text="30"/>
+                                    android:paddingStart="8dp"
+                                    android:text="@string/reply_number"
+                                    tools:ignore="RtlSymmetry" />
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
-                                android:paddingLeft="18dp">
+                                android:paddingStart="18dp"
+                                tools:ignore="RtlSymmetry,UseCompoundDrawables">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/upvote_icon"/>
+                                    android:src="@drawable/upvote_icon"
+                                    android:contentDescription="@string/upvoteBtn" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:paddingLeft="8dp"
-                                    android:text="120" />
+                                    android:paddingStart="8dp"
+                                    android:text="@string/upvote_number"
+                                    tools:ignore="RtlSymmetry" />
                             </LinearLayout>
 
 
@@ -405,7 +422,6 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:outlineAmbientShadowColor="@color/black"
                 app:cardCornerRadius="8dp"
                 android:layout_marginTop="16dp">
 
@@ -439,7 +455,8 @@
                                     android:layout_height="wrap_content"
                                     android:padding="4dp"
                                     android:scaleType="centerCrop"
-                                    android:src="@drawable/profile_pic">
+                                    android:src="@drawable/profile_pic"
+                                    android:contentDescription="@string/profile_pic">
 
                                 </ImageView>
 
@@ -462,13 +479,14 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentStart="true"
-                                    android:text="Sumudu Mendis" />
+                                    android:text="@string/user_name" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
-                                    android:text="13 hrs ago" />
+                                    android:text="@string/upload_time"
+                                    tools:ignore="RelativeOverlap" />
                             </RelativeLayout>
 
                             <LinearLayout
@@ -480,7 +498,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="How i do this? Stuck for 3 hours!! Help!!"
+                                    android:text="@string/user_question"
                                     android:textColor="@color/black"
                                     android:textSize="16sp"/>
                             </LinearLayout>
@@ -498,41 +516,47 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            tools:ignore="UselessParent">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                tools:ignore="UseCompoundDrawables">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/chat_icons"/>
+                                    android:src="@drawable/chat_icons"
+                                    android:contentDescription="@string/replyBtn" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:paddingLeft="8dp"
-                                    android:text="30"/>
+                                    android:paddingStart="8dp"
+                                    android:text="@string/reply_number"
+                                    tools:ignore="RtlSymmetry" />
                             </LinearLayout>
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
-                                android:paddingLeft="18dp">
+                                android:paddingStart="18dp"
+                                tools:ignore="RtlSymmetry,UseCompoundDrawables">
 
                                 <ImageView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/upvote_icon"/>
+                                    android:src="@drawable/upvote_icon"
+                                    android:contentDescription="@string/upvoteBtn" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:paddingLeft="8dp"
-                                    android:text="120"/>
+                                    android:paddingStart="8dp"
+                                    android:text="@string/upvote_number"/>
                             </LinearLayout>
 
 
@@ -560,18 +584,19 @@
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
+
         <LinearLayout android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:paddingBottom="80dp"
-            android:paddingRight="32dp"
-            >
+            android:paddingEnd="32dp"
+            tools:ignore="RelativeOverlap,RtlSymmetry">
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floatingActionButton5"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="@color/orange_medium"
@@ -581,7 +606,9 @@
                 app:fabSize="normal"
                 app:rippleColor="#F8F5F5"
                 app:srcCompat="@drawable/add_icon"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck"
+                android:contentDescription="@string/add_btn"
+                android:focusable="true" />
         </LinearLayout>
 
         <LinearLayout
@@ -603,7 +630,7 @@
                     android:id="@+id/community"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="community"
+                    android:contentDescription="@string/community"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:src="@drawable/community" />
@@ -613,7 +640,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@+id/community"
-                    android:contentDescription="home"
+                    android:contentDescription="@string/home"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:src="@drawable/home" />
@@ -623,7 +650,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@+id/home"
-                    android:contentDescription="profile"
+                    android:contentDescription="@string/profile"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:src="@drawable/profile" />
@@ -633,7 +660,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@+id/profile"
-                    android:contentDescription="settings"
+                    android:contentDescription="@string/settings"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:src="@drawable/settings" />
