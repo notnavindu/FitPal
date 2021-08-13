@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSubmit2(View view) {
-        Intent i = new Intent(this, ForumQuestion.class);
+        Intent i = new Intent(this, Forum.class);
         startActivity(i);
     }
 }
