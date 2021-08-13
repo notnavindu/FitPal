@@ -18,23 +18,24 @@
             android:layout_height="wrap_content"
             android:src="@drawable/back_button"
             android:paddingTop="3dp"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/notify" />
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_weight="1"
-            android:text="Ask a Question"
+            android:text="@string/ask_a_question"
             android:textColor="@color/black"
-            android:textFontWeight="500"
-            android:textSize="18dp" />
+            android:textSize="18sp"
+            tools:ignore="RelativeOverlap" />
 
         <ImageView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/notify_button"
-            android:layout_alignParentRight="true"/>
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/notify" />
 
     </RelativeLayout>
 
@@ -44,9 +45,9 @@
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ask Your Question"
+            android:text="@string/ask_your_question"
             android:textColor="@color/black"
-            android:textSize="24dp"
+            android:textSize="24sp"
 
             />
 
@@ -54,7 +55,7 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Get your questions answered by a community of like-minded people"
+            android:text="@string/ask_question_description"
             android:textAlignment="center"
             android:paddingTop="4dp"
             />
@@ -67,7 +68,7 @@
                     android:id="@+id/textView20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Question"
+                    android:text="@string/question_topic"
                     android:paddingVertical="8dp"
                     android:textColor="@color/orange_dark"
                     />
@@ -77,14 +78,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:inputType="text"
-                    android:textSize="12dp"
-                    android:hint="Question"
+                    android:textSize="12sp"
+                    android:hint="@string/question_topic"
                     android:textColorHint="@color/orange_light"
                     android:background="@drawable/input_field"
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="4dp"
-
-                    ></EditText>
+                    android:importantForAutofill="no" />
             </LinearLayout>
 
 
@@ -93,7 +93,7 @@
                     android:id="@+id/textView19"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Description"
+                    android:text="@string/description_hint"
                     android:paddingVertical="8dp"
                     android:textColor="@color/orange_dark"
                     />
@@ -103,13 +103,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="92dp"
                     android:inputType="textMultiLine"
-                    android:textSize="12dp"
-                    android:hint="Description"
+                    android:textSize="12sp"
+                    android:hint="@string/description_hint"
                     android:textColorHint="@color/orange_light"
                     android:background="@drawable/input_field"
                     android:paddingHorizontal="16dp"
-
-                    ></EditText>
+                    android:importantForAutofill="no" />
             </LinearLayout>
 
             <Button
@@ -119,9 +118,9 @@
                 android:padding="4dp"
                 android:background="@drawable/button"
                 android:onClick="onSubmit"
-                android:text="Ask Question"
+                android:text="@string/ask_question"
                 android:textAllCaps="false"
-                app:backgroundTint="@color/orange_medium"></Button>
+                app:backgroundTint="@color/orange_medium"/>
 
         </LinearLayout>
 
