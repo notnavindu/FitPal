@@ -58,7 +58,8 @@
             android:layout_marginBottom="10dp"
             android:text="@string/workout_choose_a_workout"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:id="@+id/workoutRow1"
@@ -70,6 +71,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
                 android:contentDescription="@string/upper_body"
                 android:src="@mipmap/upper_body" />
 
@@ -77,6 +80,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
                 android:contentDescription="@string/lower_body"
                 android:src="@mipmap/lower_body" />
 
@@ -92,6 +97,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
                 android:contentDescription="@string/full_body"
                 android:src="@mipmap/full_body" />
 
@@ -99,6 +106,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
                 android:contentDescription="@string/ab_workout"
                 android:src="@mipmap/abs" />
 
@@ -114,6 +123,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
                 android:contentDescription="@string/home_workout"
                 android:src="@mipmap/home" />
 
@@ -121,6 +132,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
                 android:contentDescription="@string/cardio"
                 android:src="@mipmap/cardio" />
 
@@ -136,18 +149,22 @@
             android:layout_marginBottom="10dp"
             android:text="@string/workout_add_your_own"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold"/>
 
         <LinearLayout
             android:id="@+id/workoutRow4"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/addYourOwn">
+            android:layout_height="match_parent"
+            android:layout_below="@+id/addYourOwn"
+            android:layout_marginBottom="10dp">
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:clickable="true"
+                android:focusable="true"
                 android:contentDescription="@string/your_workouts"
                 android:src="@mipmap/your_workouts" />
 
