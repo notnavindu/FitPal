@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,11 +23,11 @@
             android:src="@drawable/back_button" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/navigation_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/your_workouts"
+            android:text="Diet Plan"
             android:textColor="@color/black"
             android:textSize="18sp"
             tools:ignore="RelativeOverlap" />
@@ -44,138 +43,149 @@
     </RelativeLayout>
 
     <!--content-->
-
-
-    <!-- Taskbar -->
-    <RelativeLayout
-        android:id="@+id/contentContainer"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/bottomAppBar"
-        android:layout_below="@+id/upperAppBar"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:paddingHorizontal="32dp">
+        android:layout_centerInParent="true"
+        android:layout_marginVertical="6dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="16dp">
 
         <TextView
-            android:id="@+id/title_exercise"
+            android:id="@+id/title_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/app_workout_main"
+            android:text="Select Your Diet Plan"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="24sp" />
 
-        <LinearLayout
-            android:id="@+id/workoutContainer"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/addFoods_description"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/title_exercise"
-            android:layout_marginVertical="10dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/workout"
-                android:elevation="3dp"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <TextView
-                    android:id="@+id/exercise1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/workout1"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/workout"
-                android:elevation="3dp"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <TextView
-                    android:id="@+id/exercise2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/workout2"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/workout"
-                android:elevation="3dp"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <TextView
-                    android:id="@+id/exercise3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/workout3"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_marginBottom="10dp"
-            android:orientation="horizontal"
-            android:paddingVertical="5dp"
-            >
+            android:paddingTop="4dp"
+            android:text="Move towards your taget weight according to your preferred intensity."
+            android:textAlignment="center" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingVertical="4dp">
+
+            <TextView
+                android:id="@+id/current_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:text="Current Weight"
+                android:textColor="@color/orange_dark" />
 
             <EditText
-                android:id="@+id/input_add_workouts"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="9"
+                android:id="@+id/current_weight_input"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/current_weight"
+                android:autofillHints="number"
                 android:background="@drawable/input_field"
-                android:hint="@string/add_workouts"
+                android:hint="140 kg"
                 android:inputType="text"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="4dp"
                 android:textColorHint="@color/orange_light"
-                android:textSize="12sp"
-                tools:ignore="TextContrastCheck" />
+                android:textSize="12sp" />
+        </RelativeLayout>
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingVertical="4dp">
+
+            <TextView
+                android:id="@+id/target_weight"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:clickable="true"
-                android:backgroundTint="@color/orange_medium"
-                android:contentDescription="@string/add_btn"
-                android:focusable="true"
-                app:srcCompat="@drawable/ic_baseline_add_24" />
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:text="Food item"
+                android:textColor="@color/orange_dark" />
 
-        </LinearLayout>
+            <EditText
+                android:id="@+id/target_weight_input"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/target_weight"
+                android:autofillHints="number"
+                android:background="@drawable/input_field"
+                android:hint="60 kg"
+                android:inputType="text"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="4dp"
+                android:textColorHint="@color/orange_light"
+                android:textSize="12sp" />
+        </RelativeLayout>
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingVertical="4dp">
 
+            <TextView
+                android:id="@+id/intensity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:text="Intensity"
+                android:textColor="@color/orange_dark" />
+
+            <EditText
+                android:id="@+id/intensity_input"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/intensity"
+                android:autofillHints="number"
+                android:background="@drawable/input_field"
+                android:hint="Beast"
+                android:inputType="text"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="4dp"
+                android:textColorHint="@color/orange_light"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="It will take" />
+
+        <TextView
+            android:id="@+id/diet_plan_days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="60 Days"
+            android:textColor="@color/orange_medium"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/update_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:padding="4dp"
+            android:text="Start Now"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+    <!-- Taskbar -->
     <LinearLayout
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"

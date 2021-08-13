@@ -185,6 +185,7 @@
                 android:layout_height="match_parent"
                 android:clickable="true"
                 android:contentDescription="@string/add_btn"
+                android:backgroundTint="@color/orange_medium"
                 android:focusable="true"
                 app:srcCompat="@drawable/ic_baseline_add_24"
                 android:layout_marginBottom="10dp"
