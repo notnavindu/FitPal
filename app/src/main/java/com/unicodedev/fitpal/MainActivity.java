@@ -13,25 +13,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
-        ImageView socialButton = (ImageView) findViewById(R.id.home_social_button);
-        socialButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), Social.class);
-                startActivity(i);
-            }
-        });
+        setContentView(R.layout.activity_main);
     }
 
-    public void onSubmit(View view) {
-        Intent i = new Intent(this, AddQuestion.class);
-        startActivity(i);
-    }
-
-    public void onSubmit2(View view) {
-        Intent i = new Intent(this, Forum.class);
+    public void goToHome(View view) {
+        Intent i = new Intent(this, HomeActivity.class);
         startActivity(i);
     }
 }
