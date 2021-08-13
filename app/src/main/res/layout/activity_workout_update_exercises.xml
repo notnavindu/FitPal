@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/off_white">
 
-    <!--navigation bar-->
+    <!-- navigation bar -->
     <RelativeLayout
         android:id="@+id/upperAppBar"
         android:layout_width="match_parent"
@@ -15,10 +15,10 @@
 
         <ImageView
             android:id="@+id/backBtn"
-            android:contentDescription="@string/backBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
+            android:contentDescription="@string/backBtn"
             android:paddingTop="3dp"
             android:src="@drawable/back_button" />
 
@@ -27,137 +27,142 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/app_name"
+            android:text="@string/update_workouts"
             android:textColor="@color/black"
             android:textSize="18sp"
             tools:ignore="RelativeOverlap" />
 
         <ImageView
             android:id="@+id/notificationBtn"
-            android:contentDescription="@string/notify"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
+            android:contentDescription="@string/notify"
             android:src="@drawable/notify_button" />
 
     </RelativeLayout>
 
     <!--content-->
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/bottomAppBar"
-        android:layout_below="@+id/upperAppBar"
-        android:paddingHorizontal="32dp">
+        android:layout_centerInParent="true"
+        android:layout_marginVertical="6dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="16dp">
 
         <TextView
-            android:id="@+id/chooseAWorkout"
+            android:id="@+id/title_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_marginBottom="10dp"
-            android:text="@string/workout_choose_a_workout"
+            android:text="@string/title_update"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="24sp" />
 
-        <LinearLayout
-            android:id="@+id/workoutRow1"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/chooseAWorkout">
+            android:orientation="vertical"
+            android:paddingVertical="4dp">
 
-            <ImageView
+            <TextView
+                android:id="@+id/exercise_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:contentDescription="@string/upper_body"
-                android:src="@mipmap/upper_body" />
+                android:paddingVertical="8dp"
+                android:text="@string/exercise_name"
+                android:textColor="@color/orange_dark" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:contentDescription="@string/lower_body"
-                android:src="@mipmap/lower_body" />
+            <EditText
+                android:id="@+id/nameInput"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/exercise_name"
+                android:autofillHints="name"
+                android:background="@drawable/input_field"
+                android:hint="@string/bench_press"
+                android:inputType="text"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="4dp"
+                android:textColorHint="@color/orange_light"
+                android:textSize="12sp" />
+        </RelativeLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/workoutrow2"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/workoutRow1">
+            android:orientation="vertical"
+            android:paddingVertical="4dp">
 
-            <ImageView
+            <TextView
+                android:id="@+id/repetition"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:contentDescription="@string/full_body"
-                android:src="@mipmap/full_body" />
+                android:paddingVertical="8dp"
+                android:text="@string/exercise_repetition"
+                android:textColor="@color/orange_dark" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:contentDescription="@string/ab_workout"
-                android:src="@mipmap/abs" />
+            <EditText
+                android:id="@+id/repetitionInput"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/repetition"
+                android:autofillHints="number"
+                android:background="@drawable/input_field"
+                android:hint="@string/repetition_hint"
+                android:inputType="text"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="4dp"
+                android:textColorHint="@color/orange_light"
+                android:textSize="12sp" />
+        </RelativeLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/workoutRow3"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/workoutrow2">
+            android:orientation="vertical"
+            android:paddingVertical="4dp">
 
-            <ImageView
+            <TextView
+                android:id="@+id/sets"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:contentDescription="@string/home_workout"
-                android:src="@mipmap/home" />
+                android:paddingVertical="8dp"
+                android:text="@string/exercise_sets"
+                android:textColor="@color/orange_dark" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:contentDescription="@string/cardio"
-                android:src="@mipmap/cardio" />
+            <EditText
+                android:id="@+id/setsInput"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_below="@+id/sets"
+                android:autofillHints="number"
+                android:background="@drawable/input_field"
+                android:hint="@string/sets_hint"
+                android:inputType="text"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="4dp"
+                android:textColorHint="@color/orange_light"
+                android:textSize="12sp" />
+        </RelativeLayout>
 
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/addYourOwn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/workoutRow3"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="@string/workout_add_your_own"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <LinearLayout
-            android:id="@+id/workoutRow4"
+        <Button
+            android:id="@+id/update_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/addYourOwn">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:contentDescription="@string/your_workouts"
-                android:src="@mipmap/your_workouts" />
-
-        </LinearLayout>
+            android:layout_marginTop="32dp"
+            android:padding="4dp"
+            android:text="@string/update_btn"
+            android:textAllCaps="false" />
 
 
-    </RelativeLayout>
 
+    </LinearLayout>
 
-    <!--taskbar-->
+    <!-- Taskbar -->
     <LinearLayout
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
@@ -175,19 +180,19 @@
 
             <ImageView
                 android:id="@+id/community"
-                android:contentDescription="@string/community"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/community"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:src="@drawable/community" />
 
             <ImageView
                 android:id="@+id/home"
-                android:contentDescription="@string/home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/community"
+                android:contentDescription="@string/home"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:src="@drawable/home" />
@@ -214,8 +219,6 @@
 
         </RelativeLayout>
 
-
     </LinearLayout>
-
 
 </RelativeLayout>
