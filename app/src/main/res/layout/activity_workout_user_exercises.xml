@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/your_workouts"
+            android:text="@string/app_workout_main"
             android:textColor="@color/black"
             android:textSize="18sp"
             tools:ignore="RelativeOverlap" />
@@ -44,17 +44,11 @@
     </RelativeLayout>
 
     <!--content-->
-
-
-    <!-- Taskbar -->
     <RelativeLayout
-        android:id="@+id/contentContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bottomAppBar"
         android:layout_below="@+id/upperAppBar"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
         android:paddingHorizontal="32dp">
 
         <TextView
@@ -63,12 +57,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/app_workout_main"
+            android:text="@string/upper_body"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
         <LinearLayout
-            android:id="@+id/workoutContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/title_exercise"
@@ -79,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/workout"
+                android:background="@drawable/exercise"
                 android:elevation="3dp"
                 android:orientation="vertical"
                 android:padding="10dp">
@@ -88,9 +81,14 @@
                     android:id="@+id/exercise1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/workout1"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"/>
+                    android:text="@string/exercise1"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sets"
+                    android:textSize="11sp" />
 
             </LinearLayout>
 
@@ -99,7 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/workout"
+                android:background="@drawable/exercise"
                 android:elevation="3dp"
                 android:orientation="vertical"
                 android:padding="10dp">
@@ -108,10 +106,14 @@
                     android:id="@+id/exercise2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/workout2"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"
-                    />
+                    android:text="@string/exercise2"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sets"
+                    android:textSize="11sp" />
 
             </LinearLayout>
 
@@ -120,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/workout"
+                android:background="@drawable/exercise"
                 android:elevation="3dp"
                 android:orientation="vertical"
                 android:padding="10dp">
@@ -129,52 +131,66 @@
                     android:id="@+id/exercise3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/workout3"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"/>
+                    android:text="@string/exercise3"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sets"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/exercise"
+                android:elevation="3dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/exercise4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exercise4"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sets"
+                    android:textSize="11sp" />
 
             </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal"
-            android:paddingVertical="5dp"
-            >
-
-            <EditText
-                android:id="@+id/input_add_workouts"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="9"
-                android:background="@drawable/input_field"
-                android:hint="@string/add_workouts"
-                android:inputType="text"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="4dp"
-                android:textColorHint="@color/orange_light"
-                android:textSize="12sp"
-                tools:ignore="TextContrastCheck" />
+            android:layout_alignParentEnd="true">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floatingActionButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:clickable="true"
                 android:contentDescription="@string/add_btn"
                 android:focusable="true"
-                app:srcCompat="@drawable/ic_baseline_add_24" />
+                app:srcCompat="@drawable/ic_baseline_add_24"
+                android:layout_marginBottom="10dp"
+                />
 
         </LinearLayout>
 
     </RelativeLayout>
 
+    <!-- Taskbar -->
     <LinearLayout
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
