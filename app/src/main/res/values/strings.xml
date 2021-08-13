@@ -54,5 +54,53 @@
     <string name="update_btn">Update</string>
 
 
+    <!--    forum-->
+    <string name="replyBtn">Reply Button</string>
+    <string name="answeredBtn">Answered Button</string>
+    <string name="upvoteBtn">Upvote Button</string>
+
+    <!--    forum-question-->
+    <string name="forum_main">Forum</string>
+    <string name="profile_pic">Profile Picture</string>
+    <string name="user_name">Sumudu Mendis</string>
+    <string name="upload_time"> 13 hrs ago</string>
+    <string name="user_question">How i do this? Stuck for 3 hours!! Help!!</string>
+    <string name="question_description">I was trying to do a thing and wasn’t able to do one specific part of it. How to do???</string>
+    <string name="reply_number">30</string>
+    <string name="upvote_number">124</string>
+    <string name="reply_hint">Write Your Answer</string>
+    <string name="replies">Replies</string>
+    <string name="best_answer"> Best Answer</string>
+
+    <!--    forum main-->
+    <string name="all">All</string>
+    <string name="popular">Popular</string>
+    <string name="my_questions">My Questions</string>
+
+    <!--    forum add question-->
+    <string name="ask_a_question">Ask a Question</string>
+    <string name="ask_your_question">Ask Your Question</string>
+    <string name="ask_question_description">Get your questions answered by a community of like-minded people</string>
+    <string name="question_topic">Question</string>
+    <string name="description_hint">Description</string>
+    <string name="ask_question">Ask Question</string>
+
+    <!--    forum my questions-->
+    <string name="delete">Delete</string>
+
+    <!--    first visit-->
+    <string name="almost_done">You are almost done!</string>
+    <string name="first_visit_topic_description">Fill in your details for a personalized experience</string>
+    <string name="nick_name">Nick Name</string>
+    <string name="name_hint">JhonD</string>
+    <string name="birthday">Birthday</string>
+    <string name="date_hint">2nd May 2017</string>
+    <string name="gender_topic">Gender</string>
+    <string name="gender_hint">Male</string>
+    <string name="height_topic">Height</string>
+    <string name="height_hint">162 cm</string>
+    <string name="weight_hint">88 kg</string>
+    <string name="weight_topic">Weight</string>
+    <string name="confirm">Confirm</string>
 
 </resources>

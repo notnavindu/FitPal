@@ -15,26 +15,27 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:paddingTop="3dp"
-            android:src="@drawable/back_button" />
+            android:src="@drawable/back_button"
+            android:contentDescription="@string/backBtn" />
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_weight="1"
-            android:text="Fitpal"
+            android:text="@string/app_name"
             android:textColor="@color/black"
-            android:textFontWeight="500"
-            android:textSize="18dp" />
+            android:textSize="18sp"
+            tools:ignore="RelativeOverlap" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/notify_button" />
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/notify_button"
+            android:contentDescription="@string/notify" />
 
     </RelativeLayout>
 
@@ -44,9 +45,9 @@
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="You are almost done!"
+            android:text="@string/almost_done"
             android:textColor="@color/black"
-            android:textSize="24dp"
+            android:textSize="24sp"
 
             />
 
@@ -54,7 +55,7 @@
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fill in your details for a personalized experience"
+            android:text="@string/first_visit_topic_description"
             android:textAlignment="center"
             android:paddingTop="4dp"
             />
@@ -67,7 +68,7 @@
                     android:id="@+id/textView20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nick Name"
+                    android:text="@string/nick_name"
                     android:paddingVertical="8dp"
                     android:textColor="@color/orange_dark"
                     />
@@ -77,14 +78,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:inputType="text"
-                    android:textSize="12dp"
-                    android:hint="JhonD"
+                    android:textSize="12sp"
+                    android:hint="@string/name_hint"
                     android:textColorHint="@color/orange_light"
                     android:background="@drawable/input_field"
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="4dp"
-
-                    />
+                    android:autofillHints="name" />
             </LinearLayout>
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
@@ -92,7 +92,7 @@
                     android:id="@+id/textView21"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Birthday"
+                    android:text="@string/birthday"
                     android:paddingVertical="8dp"
                     android:textColor="@color/orange_dark"
                     />
@@ -102,14 +102,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:inputType="date"
-                    android:textSize="12dp"
-                    android:hint="2nd May 2017"
+                    android:textSize="12sp"
+                    android:hint="@string/date_hint"
                     android:textColorHint="@color/orange_light"
                     android:background="@drawable/input_field"
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="4dp"
-
-                    ></EditText>
+                    android:autofillHints="day" />
             </LinearLayout>
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
@@ -117,7 +116,7 @@
                     android:id="@+id/textView22"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Gender"
+                    android:text="@string/gender_topic"
                     android:paddingVertical="8dp"
                     android:textColor="@color/orange_dark"
                     />
@@ -127,23 +126,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:inputType="text"
-                    android:textSize="12dp"
-                    android:hint="Male"
+                    android:textSize="12sp"
+                    android:hint="@string/gender_hint"
                     android:textColorHint="@color/orange_light"
                     android:background="@drawable/input_field"
                     android:paddingHorizontal="16dp"
                     android:paddingVertical="4dp"
-
-                    ></EditText>
+                    android:autofillHints="gender" />
             </LinearLayout>
 
             <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:paddingVertical="4dp">
-                <LinearLayout android:layout_width="wrap_content" android:layout_alignParentLeft="true" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
+                <LinearLayout android:layout_width="wrap_content" android:layout_alignParentStart="true" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
                     <TextView
                         android:id="@+id/textView23"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Height"
+                        android:text="@string/height_topic"
                         android:paddingVertical="8dp"
                         android:textColor="@color/orange_dark"
                         />
@@ -152,23 +150,24 @@
                         android:id="@+id/heightInput"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
-                        android:inputType="text"
-                        android:textSize="12dp"
-                        android:hint="162 cm"
+                        android:inputType="number"
+                        android:textSize="12sp"
+                        android:hint="@string/height_hint"
                         android:textColorHint="@color/orange_light"
                         android:background="@drawable/input_field"
-                        android:paddingRight="84dp"
-                        android:paddingLeft="16dp"
+                        android:paddingEnd="84dp"
+                        android:paddingStart="16dp"
                         android:paddingVertical="4dp"
-
-                        ></EditText>
+                        android:autofillHints="height"
+                        />
                 </LinearLayout>
-                <LinearLayout android:layout_width="wrap_content"  android:layout_alignParentRight="true" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
+                <LinearLayout android:layout_width="wrap_content"  android:layout_alignParentEnd="true" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp"
+                    tools:ignore="RelativeOverlap">
                     <TextView
                         android:id="@+id/textView24"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Weight"
+                        android:text="@string/weight_topic"
                         android:paddingVertical="8dp"
                         android:textColor="@color/orange_dark"
                         />
@@ -177,16 +176,15 @@
                         android:id="@+id/weightInput"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
-                        android:inputType="text"
-                        android:textSize="12dp"
-                        android:hint="88 kg"
+                        android:inputType="number"
+                        android:textSize="12sp"
+                        android:hint="@string/weight_hint"
                         android:textColorHint="@color/orange_light"
                         android:background="@drawable/input_field"
-                        android:paddingRight="84dp"
-                        android:paddingLeft="16dp"
+                        android:paddingEnd="84dp"
+                        android:paddingStart="16dp"
                         android:paddingVertical="4dp"
-
-                        ></EditText>
+                        android:autofillHints="weight" />
                 </LinearLayout>
             </RelativeLayout>
 
@@ -197,9 +195,9 @@
                 android:background="@drawable/button"
                 android:onClick="onSubmit"
                 android:padding="4dp"
-                android:text="Confirm"
+                android:text="@string/confirm"
                 android:textAllCaps="false"
-                app:backgroundTint="@color/orange_medium"></Button>
+                app:backgroundTint="@color/orange_medium"/>
 
         </LinearLayout>
 
