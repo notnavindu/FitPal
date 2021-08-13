@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/off_white">
 
 
@@ -297,66 +298,29 @@
 
     </ScrollView>
 
-    <!-- task bar -->
     <LinearLayout
-        android:id="@+id/bottomAppBar"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:background="@color/orange_medium"
-        android:gravity="center_horizontal"
-        android:paddingBottom="15dp"
-        android:elevation="5dp"
-        android:paddingTop="15dp">
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        >
 
-        <RelativeLayout
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:ignore="UselessParent">
-
-            <ImageView
-                android:id="@+id/community"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/community"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/community" />
-
-            <ImageView
-                android:id="@+id/home"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/community"
-                android:contentDescription="@string/home"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/home" />
-
-            <ImageView
-                android:id="@+id/profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/home"
-                android:contentDescription="@string/profile"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/profile" />
-
-            <ImageView
-                android:id="@+id/settings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/profile"
-                android:contentDescription="@string/settings"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:src="@drawable/settings" />
-
-        </RelativeLayout>
-
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:backgroundTint="@color/orange_medium"
+            android:contentDescription="@string/add_btn"
+            android:focusable="true"
+            app:srcCompat="@drawable/ic_baseline_add_24"
+            android:layout_marginBottom="10dp"
+            />
 
     </LinearLayout>
+
 
 
 </RelativeLayout>
