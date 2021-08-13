@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">FitPal</string>
+    <string name="backBtn">Back</string>
+    <string name="notify">Notify</string>
+    <string name="community">community</string>
+    <string name="home">home</string>
+    <string name="profile">profile</string>
+    <string name="settings">settings</string>
+    <string name="textHello">Hello world</string>
+
+
+    <!--workout-->
+    <!-- main -->
+    <string name="app_workout_main">Workouts</string>
+    <string name="workout_choose_a_workout">Choose a Workout</string>
+    <string name="workout_add_your_own">Or Add your own</string>
+    <string name="upper_body">Upper body</string>
+    <string name="lower_body">Lower body</string>
+    <string name="full_body">Full body</string>
+    <string name="ab_workout">Ab workout</string>
+    <string name="home_workout">Home Workout</string>
+    <string name="cardio">Cardio</string>
+    <string name="your_workouts">Your Workouts</string>
+
+    <!-- default exercise -->
+
+    <string name="exercise1">Bench press</string>
+    <string name="exercise2">Dumbbell flies</string>
+    <string name="exercise3">Decline bench press</string>
+    <string name="exercise4">Incline bench press</string>
+    <string name="sets">reps/sets 12*3</string>
 </resources>
