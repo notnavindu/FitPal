@@ -18,9 +18,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
+            android:contentDescription="@string/backBtn"
             android:paddingTop="3dp"
-            android:src="@drawable/back_button"
-            android:contentDescription="@string/backBtn" />
+            android:src="@drawable/back_button" />
 
         <TextView
             android:id="@+id/textView16"
@@ -36,12 +36,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/notify_button"
-            android:contentDescription="@string/notify" />
+            android:contentDescription="@string/notify"
+            android:src="@drawable/notify_button" />
 
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/screen_link_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="32dp">
@@ -64,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/popular"
                 android:textColor="@color/orange_dark"
-                android:textSize="15sp"/>
+                android:textSize="15sp" />
         </LinearLayout>
 
         <TextView
@@ -81,518 +82,542 @@
     <!--    Main Content-->
 
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="12dp">
 
-        <!--        Cards-->
         <LinearLayout
+            android:id="@+id/main_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="32dp"
-            >
+            android:orientation="horizontal" />
 
-            <!--            Single Card-->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cardCornerRadius="8dp"
-                android:layout_marginTop="16dp">
+        <!--        Cards-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="4dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="8dp">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:elevation="10dp"
-                                app:cardCornerRadius="30dp"
-
-                                >
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="4dp"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/profile_pic"
-                                    android:contentDescription="@string/profile_pic">
-
-                                </ImageView>
-
-                            </androidx.cardview.widget.CardView>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:paddingHorizontal="8dp">
-
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:padding="4dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentStart="true"
-                                    android:text="@string/user_name"/>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentEnd="true"
-                                    android:text="@string/upload_time"
-                                    tools:ignore="RelativeOverlap" />
-                            </RelativeLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:padding="4dp">
-
-                                <TextView
-                                    android:id="@+id/card_title"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/user_question"
-                                    android:textColor="@color/black"
-                                    android:textSize="16sp"/>
-                            </LinearLayout>
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="16dp"
-                        android:paddingVertical="6dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                tools:ignore="UseCompoundDrawables">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/chat_icons"
-                                    android:contentDescription="@string/replyBtn" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingStart="8dp"
-                                    android:text="@string/reply_number"
-                                    tools:ignore="RtlSymmetry" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:paddingStart="18dp"
-                                tools:ignore="RtlSymmetry,UseCompoundDrawables">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/upvote_icon"
-                                    android:contentDescription="@string/upvoteBtn" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingStart="8dp"
-                                    android:text="@string/upvote_number"/>
-                            </LinearLayout>
-
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/tick_icon"
-                                android:contentDescription="@string/answeredBtn" />
-
-                        </LinearLayout>
-
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cardCornerRadius="8dp"
-                android:layout_marginTop="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="4dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="8dp">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:elevation="10dp"
-                                app:cardCornerRadius="30dp"
-
-
-                                >
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="4dp"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/profile_pic"
-                                    android:contentDescription="@string/profile_pic">
-
-                                </ImageView>
-
-                            </androidx.cardview.widget.CardView>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:paddingHorizontal="8dp">
-
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:padding="4dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentStart="true"
-                                    android:text="@string/user_name"/>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentEnd="true"
-                                    android:text="@string/upload_time"
-                                    tools:ignore="RelativeOverlap" />
-                            </RelativeLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:padding="4dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/user_question"
-                                    android:textColor="@color/black"
-                                    android:textSize="16sp"/>
-                            </LinearLayout>
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="16dp"
-                        android:paddingVertical="6dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            tools:ignore="UselessParent">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                tools:ignore="UseCompoundDrawables">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/chat_icons"
-                                    android:contentDescription="@string/replyBtn" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingStart="8dp"
-                                    android:text="@string/reply_number"
-                                    tools:ignore="RtlSymmetry" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:paddingStart="18dp"
-                                tools:ignore="RtlSymmetry,UseCompoundDrawables">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/upvote_icon"
-                                    android:contentDescription="@string/upvoteBtn" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingStart="8dp"
-                                    android:text="@string/upvote_number"
-                                    tools:ignore="RtlSymmetry" />
-                            </LinearLayout>
-
-
-                        </LinearLayout>
-
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_alignParentEnd="true"-->
-<!--                            android:orientation="horizontal">-->
-
-<!--                            <ImageView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:src="@drawable/tick_icon"></ImageView>-->
-
-<!--                        </LinearLayout>-->
-
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cardCornerRadius="8dp"
-                android:layout_marginTop="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="4dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="8dp">
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:elevation="10dp"
-                                app:cardCornerRadius="30dp"
-
-
-                                >
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:padding="4dp"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/profile_pic"
-                                    android:contentDescription="@string/profile_pic">
-
-                                </ImageView>
-
-                            </androidx.cardview.widget.CardView>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:paddingHorizontal="8dp">
-
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:padding="4dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentStart="true"
-                                    android:text="@string/user_name" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentEnd="true"
-                                    android:text="@string/upload_time"
-                                    tools:ignore="RelativeOverlap" />
-                            </RelativeLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:padding="4dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/user_question"
-                                    android:textColor="@color/black"
-                                    android:textSize="16sp"/>
-                            </LinearLayout>
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingHorizontal="16dp"
-                        android:paddingVertical="6dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            tools:ignore="UselessParent">
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                tools:ignore="UseCompoundDrawables">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/chat_icons"
-                                    android:contentDescription="@string/replyBtn" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingStart="8dp"
-                                    android:text="@string/reply_number"
-                                    tools:ignore="RtlSymmetry" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:paddingStart="18dp"
-                                tools:ignore="RtlSymmetry,UseCompoundDrawables">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/upvote_icon"
-                                    android:contentDescription="@string/upvoteBtn" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:paddingStart="8dp"
-                                    android:text="@string/upvote_number"/>
-                            </LinearLayout>
-
-
-                        </LinearLayout>
-
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_alignParentEnd="true"-->
-<!--                            android:orientation="horizontal">-->
-
-<!--                            <ImageView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:src="@drawable/tick_icon"></ImageView>-->
-
-<!--                        </LinearLayout>-->
-
-
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-        </LinearLayout>
-
-        <LinearLayout android:layout_width="wrap_content"
+        <ScrollView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/main_section"
+            android:layout_above="@id/bottomAppBar"
+            tools:ignore="NotSibling">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="32dp">
+
+
+                <!-- Single Card-->
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="8dp"
+                    app:cardCornerRadius="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:elevation="10dp"
+                                    app:cardCornerRadius="30dp"
+
+                                    >
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:contentDescription="@string/profile_pic"
+                                        android:padding="4dp"
+                                        android:scaleType="centerCrop"
+                                        android:src="@drawable/profile_pic"
+                                        tools:ignore="TooDeepLayout">
+
+                                    </ImageView>
+
+                                </androidx.cardview.widget.CardView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingHorizontal="8dp">
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentStart="true"
+                                        android:text="@string/user_name" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:text="@string/upload_time"
+                                        tools:ignore="RelativeOverlap" />
+                                </RelativeLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
+
+                                    <TextView
+                                        android:id="@+id/card_title"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/user_question"
+                                        android:textColor="@color/black"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="6dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    tools:ignore="UseCompoundDrawables">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:contentDescription="@string/replyBtn"
+                                        android:src="@drawable/chat_icons" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="8dp"
+                                        android:text="@string/reply_number"
+                                        tools:ignore="RtlSymmetry" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:paddingStart="18dp"
+                                    tools:ignore="RtlSymmetry,UseCompoundDrawables">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:contentDescription="@string/upvoteBtn"
+                                        android:src="@drawable/upvote_icon" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="8dp"
+                                        android:text="@string/upvote_number" />
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:contentDescription="@string/answeredBtn"
+                                    android:src="@drawable/tick_icon" />
+
+                            </LinearLayout>
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="8dp"
+                    app:cardCornerRadius="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:elevation="10dp"
+                                    app:cardCornerRadius="30dp"
+
+                                    >
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:contentDescription="@string/profile_pic"
+                                        android:padding="4dp"
+                                        android:scaleType="centerCrop"
+                                        android:src="@drawable/profile_pic">
+
+                                    </ImageView>
+
+                                </androidx.cardview.widget.CardView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingHorizontal="8dp">
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentStart="true"
+                                        android:text="@string/user_name" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:text="@string/upload_time"
+                                        tools:ignore="RelativeOverlap" />
+                                </RelativeLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
+
+                                    <TextView
+                                        android:id="@+id/card_title2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/user_question"
+                                        android:textColor="@color/black"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="6dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    tools:ignore="UseCompoundDrawables">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:contentDescription="@string/replyBtn"
+                                        android:src="@drawable/chat_icons" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="8dp"
+                                        android:text="@string/reply_number"
+                                        tools:ignore="RtlSymmetry" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:paddingStart="18dp"
+                                    tools:ignore="RtlSymmetry,UseCompoundDrawables">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:contentDescription="@string/upvoteBtn"
+                                        android:src="@drawable/upvote_icon" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="8dp"
+                                        android:text="@string/upvote_number" />
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:contentDescription="@string/answeredBtn"
+                                    android:src="@drawable/tick_icon" />
+
+                            </LinearLayout>
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="8dp"
+                    app:cardCornerRadius="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp">
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:elevation="10dp"
+                                    app:cardCornerRadius="30dp"
+
+                                    >
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:contentDescription="@string/profile_pic"
+                                        android:padding="4dp"
+                                        android:scaleType="centerCrop"
+                                        android:src="@drawable/profile_pic">
+
+                                    </ImageView>
+
+                                </androidx.cardview.widget.CardView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingHorizontal="8dp">
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentStart="true"
+                                        android:text="@string/user_name" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:text="@string/upload_time"
+                                        tools:ignore="RelativeOverlap" />
+                                </RelativeLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:padding="4dp">
+
+                                    <TextView
+                                        android:id="@+id/card_title3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/user_question"
+                                        android:textColor="@color/black"
+                                        android:textSize="16sp" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="6dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    tools:ignore="UseCompoundDrawables">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:contentDescription="@string/replyBtn"
+                                        android:src="@drawable/chat_icons" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="8dp"
+                                        android:text="@string/reply_number"
+                                        tools:ignore="RtlSymmetry" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:paddingStart="18dp"
+                                    tools:ignore="RtlSymmetry,UseCompoundDrawables">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:contentDescription="@string/upvoteBtn"
+                                        android:src="@drawable/upvote_icon" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingStart="8dp"
+                                        android:text="@string/upvote_number" />
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:contentDescription="@string/answeredBtn"
+                                    android:src="@drawable/tick_icon"
+                                    tools:ignore="TooManyViews" />
+
+                            </LinearLayout>
+
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:paddingBottom="80dp"
+            android:layout_alignParentBottom="true"
             android:paddingEnd="32dp"
+            android:paddingBottom="80dp"
             tools:ignore="RelativeOverlap,RtlSymmetry">
 
 
@@ -600,10 +625,12 @@
                 android:id="@+id/addQuestionBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:clickable="true"
                 android:backgroundTint="@color/orange_medium"
+                android:clickable="true"
                 android:contentDescription="@string/add_btn"
                 android:focusable="true"
+                app:elevation="0dp"
+                app:tint="@android:color/white"
                 app:srcCompat="@drawable/ic_baseline_add_24" />
         </LinearLayout>
 
