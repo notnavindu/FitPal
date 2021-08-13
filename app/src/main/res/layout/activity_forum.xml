@@ -604,6 +604,7 @@
                 android:backgroundTint="@color/orange_medium"
                 android:contentDescription="@string/add_btn"
                 android:focusable="true"
+                app:elevation="0dp"
                 app:srcCompat="@drawable/ic_baseline_add_24" />
         </LinearLayout>
 
