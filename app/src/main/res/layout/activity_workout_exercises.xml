@@ -55,10 +55,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:text="@string/upper_body"
             android:textColor="@color/black"
-            android:textSize="18sp"
-            android:layout_marginBottom="10dp"/>
+            android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -72,15 +72,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/exercise"
+                android:elevation="3dp"
                 android:orientation="vertical"
-                android:padding="10dp"
-                android:elevation="3dp">
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/exercise1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/exercise1"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
                 <TextView
@@ -94,19 +95,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/exercise"
-                android:orientation="vertical"
-                android:padding="10dp"
-                android:layout_marginTop="10dp"
                 android:elevation="3dp"
-                >
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/exercise2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/exercise2"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
                 <TextView
@@ -120,19 +121,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/exercise"
-                android:orientation="vertical"
-                android:padding="10dp"
-                android:layout_marginTop="10dp"
                 android:elevation="3dp"
-                >
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/exercise3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/exercise3"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
                 <TextView
@@ -146,19 +147,19 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/exercise"
-                android:orientation="vertical"
-                android:padding="10dp"
-                android:layout_marginTop="10dp"
                 android:elevation="3dp"
-                >
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/exercise4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/exercise4"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
                 <TextView
