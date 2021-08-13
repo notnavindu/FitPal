@@ -10,6 +10,7 @@
     <color name='off_white'>#F0F0F0</color>
     <color name='gray_dark'>#555555</color>
     <color name='gray_light'>#A0A0A0</color>
+    <color name='gray_lighter'>#D8D8D8</color>
 
 
 </resources>

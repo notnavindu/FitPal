@@ -60,8 +60,7 @@
             android:text="@string/add_workouts"
             android:textColor="@color/black"
             android:textSize="24sp"
-
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView18"
