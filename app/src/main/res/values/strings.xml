@@ -22,11 +22,17 @@
     <string name="cardio">Cardio</string>
     <string name="your_workouts">Your Workouts</string>
 
-    <!-- default exercise -->
+    <string name="add_btn">Add</string>
 
+    <!-- default exercise -->
     <string name="exercise1">Bench press</string>
     <string name="exercise2">Dumbbell flies</string>
     <string name="exercise3">Decline bench press</string>
     <string name="exercise4">Incline bench press</string>
     <string name="sets">reps/sets 12*3</string>
+
+<!-- user workouts -->
+    <string name="workout1">Chest workout</string>
+    <string name="workout2">Leg workout</string>
+    <string name="workout3">Upper body workout</string>
 </resources>
