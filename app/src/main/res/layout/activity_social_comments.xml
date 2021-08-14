@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/off_white">
+
+    <!-- navigation bar -->
+    <RelativeLayout
+        android:id="@+id/upperAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="20dp">
+
+        <ImageView
+            android:id="@+id/backBtn"
+            android:contentDescription="@string/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:paddingTop="3dp"
+            android:src="@drawable/back_button" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:ignore="RelativeOverlap" />
+
+        <ImageView
+            android:id="@+id/notificationBtn"
+            android:contentDescription="@string/notify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/notify_button" />
+
+    </RelativeLayout>
+
+    <!--content-->
+    <LinearLayout
+        android:id="@+id/comments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/upperAppBar"
+        android:layout_marginBottom="100dp"
+        android:padding="20sp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="@string/comments"
+            android:textColor="@color/black" />
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="5dp"
+            card_view:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <RelativeLayout
+                    android:id="@+id/profile_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/profile_image"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/user_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="10dp"
+                            android:text="John Doe"
+                            android:textColor="@color/black"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/posted_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="10dp"
+                            android:text="kdjhfksdj hfksjdh knvlxjch lkdjfhg "
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="#ffffff"
+                        android:backgroundTint="#ffffff"
+                        android:backgroundTintMode="src_over"
+                        android:src="@drawable/face"
+                        card_view:shapeAppearanceOverlay="@style/roundedImageView" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginVertical="5dp"
+            card_view:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <RelativeLayout
+                    android:id="@+id/profile_data2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/profile_image2"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/user_name2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="10dp"
+                            android:text="John Doe"
+                            android:textColor="@color/black"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/posted_date2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="10dp"
+                            android:text="kdjhfksdj hfksjdh knvlxjch lkdjfhg "
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/profile_image2"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="#ffffff"
+                        android:backgroundTint="#ffffff"
+                        android:backgroundTintMode="src_over"
+                        android:src="@drawable/face"
+                        card_view:shapeAppearanceOverlay="@style/roundedImageView" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+
+    </LinearLayout>
+
+    <!-- Taskbar -->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingTop="30dp"
+        android:paddingBottom="8dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:paddingHorizontal="10dp">
+
+        <EditText
+            android:id="@+id/input_add_workouts"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="9"
+            android:background="@drawable/input_field"
+            android:hint="@string/reply_hint"
+            android:inputType="text"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="4dp"
+            android:textColorHint="@color/orange_light"
+            android:textSize="12sp"
+            tools:ignore="TextContrastCheck"
+            android:importantForAutofill="no" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:elevation="10dp"
+            android:clickable="true"
+            android:backgroundTint="@color/orange_medium"
+            android:contentDescription="@string/add_btn"
+            android:focusable="true"
+            android:paddingBottom="20dp"
+            app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
