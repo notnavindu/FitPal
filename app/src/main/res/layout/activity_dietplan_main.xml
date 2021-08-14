@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Diet Plan"
+            android:text="@string/diet_plan"
             android:textColor="@color/black"
             android:textSize="18sp"
             tools:ignore="RelativeOverlap" />
@@ -59,7 +59,7 @@
             android:id="@+id/textViewDietPlan1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Diet Plan"
+            android:text="@string/diet_plan"
             android:textColor="@color/orange_dark"
             android:textSize="16sp"/>
 
@@ -67,7 +67,7 @@
             android:id="@+id/textViewStartDiet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Start Your Diet Now"
+            android:text="@string/start_your_diet_now"
             android:textColor="@color/black"
             android:textSize="25sp"/>
 
@@ -75,7 +75,7 @@
             android:id="@+id/btnStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Start"
+            android:text="@string/start"
             android:textSize="15sp"/>
 
         <!--Card-->
@@ -94,13 +94,14 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    tools:ignore="UselessParent">
 
                     <TextView
                         android:id="@+id/textViewCardTopic"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Calculate Your Fat Percentage"
+                        android:text="@string/calculate_your_fat_percentage"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="10dp"
                         android:textSize="20sp"
@@ -109,7 +110,7 @@
                         android:id="@+id/textViewCardContent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Get an idea of the essential and stored far in your body and see where your dream body takes you to!"
+                        android:text="@string/get_an_idea_of_the_essential_and_stored_far_in_your_body_and_see_where_your_dream_body_takes_you_to"
                         android:textSize="15sp"
                         android:layout_marginBottom="5dp"
                         android:textColor="@color/black"
@@ -118,7 +119,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
-                        android:text="Calculate"
+                        android:text="@string/calculate"
                         android:paddingTop="10dp"
                         android:layout_marginTop="10dp"/>
 
@@ -134,7 +135,7 @@
             android:id="@+id/textViewCardTopic2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Meal of the Day"
+            android:text="@string/meal_of_the_day"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:paddingTop="25dp"/>
@@ -148,10 +149,11 @@
                 android:padding="10dp">
 
              <ImageView
+                 android:id="@+id/mealOfTheDay"
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:src="@drawable/meal_of_the_day"
-                />
+                 android:contentDescription="@string/meal_of_the_day" />
 
 
             </LinearLayout>
