@@ -10,24 +10,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitPal">
         <activity
+            android:name=".workout.AddWorkoutActivity"
+            android:exported="true" />
+        <activity
+            android:name=".workout.UpdateExerciseActivity"
+            android:exported="true" />
+        <activity
+            android:name=".workout.UserExercisesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".workout.YourWorkoutsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".workout.ExerciseActivity"
+            android:exported="true" />
+        <activity
             android:name=".Forum"
             android:exported="true" />
         <activity android:name=".social.SocialHome" />
         <activity android:name=".social.CreatePost" />
         <activity android:name=".social.Comments" />
-        <activity android:name=".WorkoutPlan"/>
-        <activity android:name=".DietPlan"/>
-        <activity android:name=".HomeActivity"/>
+        <activity android:name=".workout.WorkoutPlan" />
+        <activity android:name=".DietPlan" />
+        <activity android:name=".HomeActivity" />
         <activity
             android:name=".ForumQuestion"
             android:exported="true" />
         <activity
             android:name=".MyQuestions"
             android:exported="true" />
-
         <activity android:name=".FirstVisit" />
         <activity android:name=".AddQuestion" />
-
         <activity
             android:name=".MainActivity"
             android:exported="true">

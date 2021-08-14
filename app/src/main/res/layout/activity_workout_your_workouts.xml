@@ -28,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins"
             android:text="@string/your_workouts"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -63,10 +64,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:fontFamily="@font/poppins_semibold"
             android:text="@string/app_workout_main"
             android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textSize="18sp" />
 
         <LinearLayout
             android:id="@+id/workoutContainer"
@@ -77,6 +78,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/singleWorkout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -89,6 +91,7 @@
                     android:id="@+id/exercise1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
                     android:text="@string/workout1"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
@@ -109,6 +112,7 @@
                     android:id="@+id/exercise2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
                     android:text="@string/workout2"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
@@ -129,6 +133,7 @@
                     android:id="@+id/exercise3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
                     android:text="@string/workout3"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
@@ -153,6 +158,7 @@
                 android:layout_marginEnd="10dp"
                 android:layout_weight="9"
                 android:background="@drawable/input_field"
+                android:fontFamily="@font/poppins"
                 android:hint="@string/add_workouts"
                 android:inputType="text"
                 android:paddingHorizontal="16dp"
