@@ -26,7 +26,7 @@
         <activity android:name=".social.SocialHome" />
         <activity android:name=".social.CreatePost" />
         <activity android:name=".social.Comments" />
-        <activity android:name=".WorkoutPlan" />
+        <activity android:name=".workout.WorkoutPlan" />
         <activity android:name=".dietplan.DietPlanMain" />
         <activity android:name=".HomeActivity" />
         <activity

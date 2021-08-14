@@ -16,7 +16,7 @@ public class SelectDietPlan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dietplan_select_plan);
 
-        View addFoodBtn = findViewById(R.id.fat_calculate_btn);
+        View addFoodBtn = findViewById(R.id.start_diet_btn);
         addFoodBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -75,16 +75,16 @@
             android:textColor="@color/black"
             android:textSize="25sp" />
 
+
+        <!--Card-->
         <Button
-            android:fontFamily="@font/font_poppins"
             android:id="@+id/start_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/font_poppins"
             android:text="@string/start"
             android:textSize="15sp" />
 
-
-        <!--Card-->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
