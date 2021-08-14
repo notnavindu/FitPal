@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitPal">
         <activity
-            android:name=".Forum"
+            android:name=".forum.ForumMain"
             android:exported="true" />
         <activity android:name=".social.SocialHome" />
         <activity android:name=".social.CreatePost" />
@@ -19,14 +19,14 @@
         <activity android:name=".DietPlan"/>
         <activity android:name=".HomeActivity"/>
         <activity
-            android:name=".ForumQuestion"
+            android:name=".forum.ForumQuestion"
             android:exported="true" />
         <activity
-            android:name=".MyQuestions"
+            android:name=".forum.ForumMyQuestions"
             android:exported="true" />
 
         <activity android:name=".FirstVisit" />
-        <activity android:name=".AddQuestion" />
+        <activity android:name=".forum.ForumAddQuestion" />
 
         <activity
             android:name=".MainActivity"

@@ -1,14 +1,16 @@
-package com.unicodedev.fitpal;
+package com.unicodedev.fitpal.forum;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MyQuestions extends AppCompatActivity {
+import com.unicodedev.fitpal.R;
+
+public class ForumQuestion extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_questions);
+        setContentView(R.layout.activity_forum_question);
     }
 }

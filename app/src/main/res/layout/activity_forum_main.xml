@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/off_white"
     android:orientation="vertical"
-    tools:context=".Forum">
+    tools:context=".forum.ForumMain">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -27,6 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins"
             android:text="@string/app_name"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -54,6 +55,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
                 android:paddingEnd="48dp"
                 android:text="@string/all"
                 android:textColor="@color/orange_dark"
@@ -63,6 +65,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
                 android:text="@string/popular"
                 android:textColor="@color/orange_dark"
                 android:textSize="15sp" />
@@ -73,6 +76,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
+            android:fontFamily="@font/poppins"
             android:text="@string/my_questions"
             android:textColor="@color/orange_dark"
             android:textSize="15sp"
@@ -98,14 +102,16 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/main_section"
             android:layout_above="@id/bottomAppBar"
+            android:layout_below="@+id/main_section"
             tools:ignore="NotSibling">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingHorizontal="32dp">
+                android:paddingHorizontal="32dp"
+                android:paddingVertical="4dp">
 
 
                 <!-- Single Card-->
@@ -113,8 +119,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginVertical="6dp"
                     app:cardCornerRadius="8dp">
 
                     <LinearLayout
@@ -137,9 +142,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:elevation="10dp"
-                                    app:cardCornerRadius="30dp"
-
-                                    >
+                                    app:cardCornerRadius="30dp">
 
                                     <ImageView
                                         android:layout_width="wrap_content"
@@ -171,13 +174,17 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_alignParentStart="true"
-                                        android:text="@string/user_name" />
+                                        android:fontFamily="@font/poppins"
+                                        android:text="@string/user_name"
+                                        android:textSize="12sp" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_alignParentEnd="true"
+                                        android:fontFamily="@font/poppins"
                                         android:text="@string/upload_time"
+                                        android:textSize="12sp"
                                         tools:ignore="RelativeOverlap" />
                                 </RelativeLayout>
 
@@ -191,9 +198,10 @@
                                         android:id="@+id/card_title"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins"
                                         android:text="@string/user_question"
                                         android:textColor="@color/black"
-                                        android:textSize="16sp" />
+                                        android:textSize="15sp" />
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -226,6 +234,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins"
                                         android:paddingStart="8dp"
                                         android:text="@string/reply_number"
                                         tools:ignore="RtlSymmetry" />
@@ -247,6 +256,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins"
                                         android:paddingStart="8dp"
                                         android:text="@string/upvote_number" />
                                 </LinearLayout>
@@ -275,11 +285,11 @@
 
 
                 </androidx.cardview.widget.CardView>
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginVertical="6dp"
                     app:cardCornerRadius="8dp">
 
                     <LinearLayout
@@ -302,9 +312,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:elevation="10dp"
-                                    app:cardCornerRadius="30dp"
-
-                                    >
+                                    app:cardCornerRadius="30dp">
 
                                     <ImageView
                                         android:layout_width="wrap_content"
@@ -312,7 +320,8 @@
                                         android:contentDescription="@string/profile_pic"
                                         android:padding="4dp"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/profile_pic">
+                                        android:src="@drawable/profile_pic"
+                                        tools:ignore="TooDeepLayout">
 
                                     </ImageView>
 
@@ -335,13 +344,17 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_alignParentStart="true"
-                                        android:text="@string/user_name" />
+                                        android:fontFamily="@font/poppins"
+                                        android:text="@string/user_name"
+                                        android:textSize="12sp" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_alignParentEnd="true"
+                                        android:fontFamily="@font/poppins"
                                         android:text="@string/upload_time"
+                                        android:textSize="12sp"
                                         tools:ignore="RelativeOverlap" />
                                 </RelativeLayout>
 
@@ -355,9 +368,10 @@
                                         android:id="@+id/card_title2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins"
                                         android:text="@string/user_question"
                                         android:textColor="@color/black"
-                                        android:textSize="16sp" />
+                                        android:textSize="15sp" />
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -390,6 +404,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins"
                                         android:paddingStart="8dp"
                                         android:text="@string/reply_number"
                                         tools:ignore="RtlSymmetry" />
@@ -411,6 +426,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins"
                                         android:paddingStart="8dp"
                                         android:text="@string/upvote_number" />
                                 </LinearLayout>
@@ -439,11 +455,11 @@
 
 
                 </androidx.cardview.widget.CardView>
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginVertical="6dp"
                     app:cardCornerRadius="8dp">
 
                     <LinearLayout
@@ -466,9 +482,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:elevation="10dp"
-                                    app:cardCornerRadius="30dp"
-
-                                    >
+                                    app:cardCornerRadius="30dp">
 
                                     <ImageView
                                         android:layout_width="wrap_content"
@@ -476,7 +490,8 @@
                                         android:contentDescription="@string/profile_pic"
                                         android:padding="4dp"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/profile_pic">
+                                        android:src="@drawable/profile_pic"
+                                        tools:ignore="TooDeepLayout">
 
                                     </ImageView>
 
@@ -499,13 +514,17 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_alignParentStart="true"
-                                        android:text="@string/user_name" />
+                                        android:fontFamily="@font/poppins"
+                                        android:text="@string/user_name"
+                                        android:textSize="12sp" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_alignParentEnd="true"
+                                        android:fontFamily="@font/poppins"
                                         android:text="@string/upload_time"
+                                        android:textSize="12sp"
                                         tools:ignore="RelativeOverlap" />
                                 </RelativeLayout>
 
@@ -519,9 +538,10 @@
                                         android:id="@+id/card_title3"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins"
                                         android:text="@string/user_question"
                                         android:textColor="@color/black"
-                                        android:textSize="16sp" />
+                                        android:textSize="15sp" />
                                 </LinearLayout>
 
                             </LinearLayout>
@@ -554,6 +574,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins"
                                         android:paddingStart="8dp"
                                         android:text="@string/reply_number"
                                         tools:ignore="RtlSymmetry" />
@@ -575,6 +596,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins"
                                         android:paddingStart="8dp"
                                         android:text="@string/upvote_number" />
                                 </LinearLayout>
@@ -582,20 +604,19 @@
 
                             </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:orientation="horizontal">
+                            <!--                            <LinearLayout-->
+                            <!--                                android:layout_width="wrap_content"-->
+                            <!--                                android:layout_height="wrap_content"-->
+                            <!--                                android:layout_alignParentEnd="true"-->
+                            <!--                                android:orientation="horizontal">-->
 
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:contentDescription="@string/answeredBtn"
-                                    android:src="@drawable/tick_icon"
-                                    tools:ignore="TooManyViews" />
+                            <!--                                <ImageView-->
+                            <!--                                    android:layout_width="wrap_content"-->
+                            <!--                                    android:layout_height="wrap_content"-->
+                            <!--                                    android:contentDescription="@string/answeredBtn"-->
+                            <!--                                    android:src="@drawable/tick_icon" />-->
 
-                            </LinearLayout>
+                            <!--                            </LinearLayout>-->
 
 
                         </RelativeLayout>
@@ -604,7 +625,6 @@
 
 
                 </androidx.cardview.widget.CardView>
-
 
 
             </LinearLayout>
@@ -630,8 +650,8 @@
                 android:contentDescription="@string/add_btn"
                 android:focusable="true"
                 app:elevation="0dp"
-                app:tint="@android:color/white"
-                app:srcCompat="@drawable/ic_baseline_add_24" />
+                app:srcCompat="@drawable/ic_baseline_add_24"
+                app:tint="@android:color/white" />
         </LinearLayout>
 
         <LinearLayout

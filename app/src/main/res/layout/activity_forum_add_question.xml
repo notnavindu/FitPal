@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/off_white"
-    tools:context=".AddQuestion"
+    tools:context=".forum.ForumAddQuestion"
     >
 
     <RelativeLayout
@@ -26,6 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins"
             android:text="@string/ask_a_question"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -43,6 +44,7 @@
 
         <TextView
             android:id="@+id/textView17"
+            android:fontFamily="@font/poppins_semibold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ask_your_question"
@@ -53,6 +55,8 @@
 
         <TextView
             android:id="@+id/textView18"
+            android:paddingHorizontal="4dp"
+            android:fontFamily="@font/poppins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ask_question_description"
@@ -64,17 +68,19 @@
 
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
+
                 <TextView
                     android:id="@+id/textView20"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/question_topic"
+                    android:fontFamily="@font/poppins"
                     android:paddingVertical="8dp"
-                    android:textColor="@color/orange_dark"
-                    />
+                    android:text="@string/question_topic"
+                    android:textColor="@color/orange_dark" />
 
                 <EditText
                     android:id="@+id/questionInput"
+                    android:fontFamily="@font/poppins"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:inputType="text"
@@ -91,6 +97,7 @@
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
                 <TextView
                     android:id="@+id/textView19"
+                    android:fontFamily="@font/poppins"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/description_hint"
@@ -100,6 +107,7 @@
 
                 <EditText
                     android:id="@+id/descriptionInput"
+                    android:fontFamily="@font/poppins"
                     android:layout_width="match_parent"
                     android:layout_height="92dp"
                     android:inputType="textMultiLine"
@@ -112,6 +120,7 @@
             </LinearLayout>
 
             <Button
+                android:fontFamily="@font/poppins_semibold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
