@@ -66,12 +66,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/font_poppins"
                     android:paddingTop="20dp"
                     android:text="Hello John!"
                     android:textColor="@color/orange_medium"
-                    android:textFontWeight="900"
-                    android:textSize="30dp"
-                    android:textStyle="bold" />
+                    android:textFontWeight="600"
+                    android:textSize="30sp"
+                    />
 
                 <TextView
                     android:id="@+id/niceDayText"
@@ -94,6 +95,7 @@
                 android:paddingTop="20dp">
 
                 <ImageView
+                    android:contentDescription="diet"
                     android:id="@+id/home_diet_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -102,6 +104,7 @@
                     android:src="@drawable/home_diet_button" />
 
                 <ImageView
+                    android:contentDescription="workout"
                     android:id="@+id/home_workout_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,6 +123,7 @@
                 android:paddingBottom="150dp">
 
                 <ImageView
+                    android:contentDescription="social"
                     android:id="@+id/home_social_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -128,6 +132,7 @@
                     android:src="@drawable/home_social_button" />
 
                 <ImageView
+                    android:contentDescription="forum"
                     android:id="@+id/home_forum_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
