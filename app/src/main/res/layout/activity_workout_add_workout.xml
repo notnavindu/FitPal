@@ -30,7 +30,8 @@
             android:text="@string/your_workouts"
             android:textColor="@color/black"
             android:textSize="18sp"
-            tools:ignore="RelativeOverlap" />
+            tools:ignore="RelativeOverlap"
+            android:fontFamily="@font/poppins"/>
 
         <ImageView
             android:id="@+id/notificationBtn"
@@ -60,7 +61,7 @@
             android:text="@string/add_workouts"
             android:textColor="@color/black"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/poppins_semibold" />
 
         <TextView
             android:id="@+id/textView18"
@@ -69,7 +70,8 @@
             android:layout_marginBottom="10dp"
             android:paddingTop="4dp"
             android:text="@string/add_workouts_description"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:fontFamily="@font/poppins"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -83,7 +85,8 @@
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
                 android:text="@string/exercise_name"
-                android:textColor="@color/orange_dark" />
+                android:textColor="@color/orange_dark"
+                android:fontFamily="@font/poppins"/>
 
             <EditText
                 android:id="@+id/nameInput"
@@ -97,7 +100,8 @@
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="4dp"
                 android:textColorHint="@color/orange_light"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:fontFamily="@font/poppins"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -112,7 +116,8 @@
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
                 android:text="@string/exercise_repetition"
-                android:textColor="@color/orange_dark" />
+                android:textColor="@color/orange_dark"
+                android:fontFamily="@font/poppins"/>
 
             <EditText
                 android:id="@+id/repetitionInput"
@@ -126,7 +131,8 @@
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="4dp"
                 android:textColorHint="@color/orange_light"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:fontFamily="@font/poppins"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -141,12 +147,14 @@
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
                 android:text="@string/exercise_sets"
+                android:fontFamily="@font/poppins"
                 android:textColor="@color/orange_dark" />
 
             <EditText
                 android:id="@+id/setsInput"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
+                android:fontFamily="@font/poppins"
                 android:layout_below="@+id/sets"
                 android:autofillHints="number"
                 android:background="@drawable/input_field"
@@ -165,6 +173,7 @@
             android:layout_marginTop="32dp"
             android:padding="4dp"
             android:text="@string/add_workout_btn"
+            android:fontFamily="@font/poppins_semibold"
             android:textAllCaps="false" />
 
         <Button
@@ -174,6 +183,7 @@
             android:layout_marginTop="2dp"
             android:backgroundTint="@color/gray_light"
             android:text="@string/finish_workout_btn"
+            android:fontFamily="@font/poppins_semibold"
             android:textAllCaps="false" />
 
     </LinearLayout>

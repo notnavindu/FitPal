@@ -7,6 +7,7 @@ import android.widget.ImageView;
 
 import com.unicodedev.fitpal.forum.ForumMain;
 import com.unicodedev.fitpal.social.SocialHome;
+import com.unicodedev.fitpal.workout.WorkoutPlan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
