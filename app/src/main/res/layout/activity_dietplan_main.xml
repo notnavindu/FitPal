@@ -24,11 +24,12 @@
             android:src="@drawable/back_button" />
 
         <TextView
+            android:fontFamily="@font/poppins_bold"
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Diet Plan"
+            android:text="@string/diet_plan"
             android:textColor="@color/black"
             android:textSize="18sp"
             tools:ignore="RelativeOverlap" />
@@ -53,30 +54,35 @@
         android:gravity="center_horizontal"
         android:orientation="vertical"
         android:paddingHorizontal="32dp"
-        android:paddingVertical="16dp">
+        android:paddingVertical="16dp"
+        tools:ignore="ExtraText">
 
         <TextView
+            android:fontFamily="@font/poppins_bold"
             android:id="@+id/textViewDietPlan1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Diet Plan"
+            android:text="@string/diet_plan_2"
             android:textColor="@color/orange_dark"
             android:textSize="16sp" />
 
         <TextView
+            android:fontFamily="@font/poppins_semibold"
             android:id="@+id/textViewStartDiet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Start Your Diet Now"
+            android:text="@string/start_your_diet_plan"
             android:textColor="@color/black"
             android:textSize="25sp" />
 
         <Button
+            android:fontFamily="@font/font_poppins"
             android:id="@+id/btnStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Start"
+            android:text="@string/start"
             android:textSize="15sp" />
+
 
         <!--Card-->
         <androidx.cardview.widget.CardView
@@ -94,34 +100,48 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    tools:ignore="UselessParent">
 
                     <TextView
+                        android:fontFamily="@font/poppins_semibold"
                         android:id="@+id/textViewCardTopic"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+
                         android:layout_marginTop="5dp"
+
                         android:layout_marginBottom="10dp"
-                        android:text="Calculate Your Fat Percentage"
+                        android:text="@string/calculate_your_fat_percentage"
+
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
                     <TextView
+                        android:fontFamily="@font/poppins"
                         android:id="@+id/textViewCardContent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
                         android:layout_marginBottom="5dp"
                         android:paddingHorizontal="25dp"
-                        android:text="Get an idea of the essential and stored far in your body and see where your dream body takes you to!"
+
+
+                        android:text="@string/get_an_idea_of_the_essential_and_stored_fat_in_your_body_and_see_where_your_dream_body_takes_you_to"
                         android:textColor="@color/black"
+
                         android:textSize="15sp" />
 
                     <Button
+                        android:fontFamily="@font/poppins_semibold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
                         android:layout_marginTop="10dp"
                         android:paddingTop="10dp"
-                        android:text="Calculate"
+
+                        android:text="@string/calculate"
+
                         android:textColor="@color/white" />
 
 
@@ -132,11 +152,16 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
+            android:fontFamily="@font/poppins_semibold"
             android:id="@+id/textViewCardTopic2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:paddingTop="25dp"
-            android:text="Meal of the Day"
+
+            android:text="@string/meal_of_the_day"
+
+
             android:textColor="@color/black"
             android:textSize="20sp" />
 
@@ -147,9 +172,12 @@
             android:orientation="vertical"
             android:padding="10dp">
 
+
             <ImageView
+                android:id="@+id/mealOfTheDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/meal_of_the_day_2"
                 android:src="@drawable/meal_of_the_day" />
 
 
