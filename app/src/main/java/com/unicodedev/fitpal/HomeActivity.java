@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.unicodedev.fitpal.dietplan.DietPlanMain;
 import com.unicodedev.fitpal.forum.ForumMain;
 import com.unicodedev.fitpal.social.SocialHome;
 import com.unicodedev.fitpal.workout.WorkoutPlan;
@@ -35,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
         dietPlanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), DietPlan.class);
+                Intent i = new Intent(getApplicationContext(), DietPlanMain.class);
                 startActivity(i);
             }
         });

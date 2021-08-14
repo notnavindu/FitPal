@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.unicodedev.fitpal">
+    package="com.unicodedev.fitpal" >
 
     <application
         android:allowBackup="true"
@@ -8,29 +8,38 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/app_logo_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FitPal">
+        android:theme="@style/Theme.FitPal" >
+        <activity
+            android:name=".dietplan.Plan" />
+        <activity
+            android:name=".dietplan.FatCalculator"
+            android:exported="true" />
+        <activity
+            android:name=".dietplan.SelectDietPlan"
+            android:exported="true" />
+        <activity
+            android:name=".dietplan.AddFood"
+            android:exported="true" />
         <activity
             android:name=".forum.ForumMain"
             android:exported="true" />
         <activity android:name=".social.SocialHome" />
         <activity android:name=".social.CreatePost" />
         <activity android:name=".social.Comments" />
-        <activity android:name=".WorkoutPlan"/>
-        <activity android:name=".DietPlan"/>
-        <activity android:name=".HomeActivity"/>
+        <activity android:name=".WorkoutPlan" />
+        <activity android:name=".dietplan.DietPlanMain" />
+        <activity android:name=".HomeActivity" />
         <activity
             android:name=".forum.ForumQuestion"
             android:exported="true" />
         <activity
-            android:name=".forum.ForumMyQuestions"
+            android:name=".forum.MyQuestions"
             android:exported="true" />
-
         <activity android:name=".FirstVisit" />
-        <activity android:name=".forum.ForumAddQuestion" />
-
+        <activity android:name=".forum.AddQuestion" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

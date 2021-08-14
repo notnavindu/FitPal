@@ -175,12 +175,14 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/update_btn"
+            android:id="@+id/start_diet_btn"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:padding="4dp"
-            android:text="Start Now"
+            android:text="@string/start_now"
             android:textAllCaps="false" />
 
     </LinearLayout>
