@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:text="Diet Plan"
             android:textColor="@color/orange_dark"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textViewStartDiet"
@@ -69,14 +69,14 @@
             android:layout_height="wrap_content"
             android:text="Start Your Diet Now"
             android:textColor="@color/black"
-            android:textSize="25sp"/>
+            android:textSize="25sp" />
 
         <Button
             android:id="@+id/btnStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Start"
-            android:textSize="15sp"/>
+            android:textSize="15sp" />
 
         <!--Card-->
         <androidx.cardview.widget.CardView
@@ -100,28 +100,29 @@
                         android:id="@+id/textViewCardTopic"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Calculate Your Fat Percentage"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="10dp"
-                        android:textSize="20sp"
-                        android:textColor="@color/black" />
+                        android:text="Calculate Your Fat Percentage"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
                     <TextView
                         android:id="@+id/textViewCardContent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Get an idea of the essential and stored far in your body and see where your dream body takes you to!"
-                        android:textSize="15sp"
                         android:layout_marginBottom="5dp"
+                        android:paddingHorizontal="25dp"
+                        android:text="Get an idea of the essential and stored far in your body and see where your dream body takes you to!"
                         android:textColor="@color/black"
-                        android:paddingHorizontal="25dp"/>
+                        android:textSize="15sp" />
+
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
-                        android:text="Calculate"
+                        android:layout_marginTop="10dp"
                         android:paddingTop="10dp"
-                        android:layout_marginTop="10dp"/>
-
+                        android:text="Calculate"
+                        android:textColor="@color/white" />
 
 
                 </LinearLayout>
@@ -134,28 +135,25 @@
             android:id="@+id/textViewCardTopic2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="25dp"
             android:text="Meal of the Day"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:paddingTop="25dp"/>
+            android:textSize="20sp" />
 
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-            <LinearLayout
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-             <ImageView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:src="@drawable/meal_of_the_day"
-                />
+                android:src="@drawable/meal_of_the_day" />
 
 
-            </LinearLayout>
-
+        </LinearLayout>
 
 
     </LinearLayout>
