@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.unicodedev.fitpal.social.SocialHome;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeActivity extends AppCompatActivity {
@@ -23,7 +25,7 @@ public class HomeActivity extends AppCompatActivity {
         socialButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), Social.class);
+                Intent i = new Intent(getApplicationContext(), SocialHome.class);
                 startActivity(i);
             }
         });
