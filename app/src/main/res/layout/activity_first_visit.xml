@@ -22,6 +22,7 @@
 
         <TextView
             android:id="@+id/textView16"
+            android:fontFamily="@font/poppins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -43,10 +44,10 @@
 
         <TextView
             android:id="@+id/textView17"
+            android:fontFamily="@font/poppins_semibold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/almost_done"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="24sp"
 
@@ -54,6 +55,7 @@
 
         <TextView
             android:id="@+id/textView18"
+            android:fontFamily="@font/poppins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/first_visit_topic_description"
@@ -67,6 +69,7 @@
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
                 <TextView
                     android:id="@+id/textView20"
+                    android:fontFamily="@font/poppins"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/nick_name"
@@ -76,6 +79,7 @@
 
                 <EditText
                     android:id="@+id/nameInput"
+                    android:fontFamily="@font/poppins"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:inputType="text"
@@ -91,6 +95,7 @@
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
                 <TextView
                     android:id="@+id/textView21"
+                    android:fontFamily="@font/poppins"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/birthday"
@@ -100,6 +105,7 @@
 
                 <EditText
                     android:id="@+id/birthdayInput"
+                    android:fontFamily="@font/poppins"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:inputType="date"
@@ -115,6 +121,7 @@
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
                 <TextView
                     android:id="@+id/textView22"
+                    android:fontFamily="@font/poppins"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/gender_topic"
@@ -124,6 +131,7 @@
 
                 <EditText
                     android:id="@+id/genderInput"
+                    android:fontFamily="@font/poppins"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:inputType="text"
@@ -140,6 +148,7 @@
                 <LinearLayout android:layout_width="wrap_content" android:layout_alignParentStart="true" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
                     <TextView
                         android:id="@+id/textView23"
+                        android:fontFamily="@font/poppins"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/height_topic"
@@ -149,6 +158,7 @@
 
                     <EditText
                         android:id="@+id/heightInput"
+                        android:fontFamily="@font/poppins"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:inputType="number"
@@ -166,6 +176,7 @@
                     tools:ignore="RelativeOverlap">
                     <TextView
                         android:id="@+id/textView24"
+                        android:fontFamily="@font/poppins"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/weight_topic"
@@ -175,6 +186,7 @@
 
                     <EditText
                         android:id="@+id/weightInput"
+                        android:fontFamily="@font/poppins"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:inputType="number"
@@ -191,6 +203,7 @@
 
             <Button
                 android:id="@+id/submit_btn"
+                android:fontFamily="@font/poppins_semibold"
                 android:clickable="true"
                 android:focusable="true"
                 android:layout_width="match_parent"

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.unicodedev.fitpal.forum.ForumMain;
 import com.unicodedev.fitpal.social.SocialHome;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
         forumButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), Forum.class);
+                Intent i = new Intent(getApplicationContext(), ForumMain.class);
                 startActivity(i);
             }
         });
