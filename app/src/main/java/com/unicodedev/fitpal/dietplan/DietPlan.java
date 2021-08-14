@@ -5,24 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.unicodedev.fitpal.R;
 
-public class SelectDietPlan extends AppCompatActivity {
+public class DietPlan extends AppCompatActivity {
 
-    private Button addFoodBtn;
+    private FloatingActionButton addFoodBtn;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dietplan_select_plan);
+        setContentView(R.layout.activity_dietplan_diet_plan);
 
-        addFoodBtn = findViewById(R.id.start_diet_btn);
+        addFoodBtn = findViewById(R.id.add_food_btn);
+
         addFoodBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), DietPlan.class);
+                Intent i = new Intent(getApplicationContext(), AddFood.class);
                 startActivity(i);
             }
         });
