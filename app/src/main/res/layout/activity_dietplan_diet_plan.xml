@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Diet Plan"
+            android:text="@string/diet_plan"
             android:textColor="@color/black"
             android:textSize="18sp"
             tools:ignore="RelativeOverlap" />
@@ -59,9 +59,9 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_weight="8"
                 android:orientation="vertical">
 
@@ -69,14 +69,14 @@
                     android:id="@+id/day_count"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Day 01/60"
+                    android:text="@string/day_range"
                     android:textColor="@color/gray_dark" />
 
                 <TextView
                     android:id="@+id/goal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Calorie Goal: 2000"
+                    android:text="@string/calorie_goal"
                     android:textColor="@color/orange_medium"
                     android:textSize="25sp"
                     android:textStyle="bold" />
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:padding="4dp"
-                android:text="Next"
+                android:text="@string/next"
                 android:textAllCaps="false" />
 
         </LinearLayout>
@@ -113,7 +113,8 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/food_item"
                     android:elevation="3dp"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:baselineAligned="false">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -125,7 +126,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Calorie Goal: 2000"
+                            android:text="@string/calorie_goal"
                             android:textColor="@color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -133,7 +134,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Day 01/60"
+                            android:text="@string/day_range"
                             android:textColor="@color/gray_dark" />
 
                     </LinearLayout>
@@ -164,7 +165,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/food_item"
                     android:elevation="3dp"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:baselineAligned="false">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -176,7 +178,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Calorie Goal: 2000"
+                            android:text="@string/calorie_goal"
                             android:textColor="@color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -184,7 +186,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Day 01/60"
+                            android:text="@string/day_range"
                             android:textColor="@color/gray_dark" />
 
                     </LinearLayout>
@@ -216,7 +218,8 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/food_item"
                     android:elevation="3dp"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:baselineAligned="false">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -228,7 +231,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Calorie Goal: 2000"
+                            android:text="@string/calorie_goal"
                             android:textColor="@color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
@@ -236,7 +239,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Day 01/60"
+                            android:text="@string/day_range"
                             android:textColor="@color/gray_dark" />
 
                     </LinearLayout>
@@ -274,7 +277,7 @@
             android:layout_centerInParent="true">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButtonMain"
+                android:id="@+id/add_food_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dp"

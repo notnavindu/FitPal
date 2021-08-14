@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/off_white"
-    tools:context=".forum.ForumAddQuestion"
+    tools:context=".forum.AddQuestion"
     >
 
     <RelativeLayout

@@ -22,7 +22,7 @@ public class ForumMain extends AppCompatActivity {
         myQuestionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), ForumMyQuestions.class);
+                Intent i = new Intent(getApplicationContext(), MyQuestions.class);
                 startActivity(i);
             }
         });
@@ -31,7 +31,7 @@ public class ForumMain extends AppCompatActivity {
         addQuestionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), ForumAddQuestion.class);
+                Intent i = new Intent(getApplicationContext(), AddQuestion.class);
                 startActivity(i);
             }
         });
