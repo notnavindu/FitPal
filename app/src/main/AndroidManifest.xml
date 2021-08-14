@@ -12,7 +12,9 @@
         <activity
             android:name=".Forum"
             android:exported="true" />
-        <activity android:name=".Social" />
+        <activity android:name=".social.SocialHome" />
+        <activity android:name=".social.CreatePost" />
+        <activity android:name=".social.Comments" />
         <activity android:name=".WorkoutPlan"/>
         <activity android:name=".DietPlan"/>
         <activity android:name=".HomeActivity"/>
