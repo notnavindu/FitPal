@@ -68,56 +68,49 @@
             android:layout_marginVertical="5dp"
             card_view:cardCornerRadius="8dp">
 
-            <LinearLayout
+
+            <RelativeLayout
+                android:id="@+id/profile_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:padding="15dp">
 
-                <RelativeLayout
-                    android:id="@+id/profile_data"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/profile_image"
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/user_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toEndOf="@id/profile_image"
-                        android:orientation="vertical">
+                        android:paddingHorizontal="10dp"
+                        android:text="John Doe"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/user_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingHorizontal="10dp"
-                            android:text="John Doe"
-                            android:textColor="@color/black"
-                            android:textSize="16dp"
-                            android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/posted_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="10dp"
+                        android:text="kdjhfksdj hfksjdh knvlxjch lkdjfhg "
+                        android:textSize="16sp" />
+                </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/posted_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingHorizontal="10dp"
-                            android:text="kdjhfksdj hfksjdh knvlxjch lkdjfhg "
-                            android:textSize="16sp" />
-                    </LinearLayout>
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/profile_image"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="#ffffff"
+                    android:backgroundTint="#ffffff"
+                    android:backgroundTintMode="src_over"
+                    android:src="@drawable/face"
+                    card_view:shapeAppearanceOverlay="@style/roundedImageView" />
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/profile_image"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="#ffffff"
-                        android:backgroundTint="#ffffff"
-                        android:backgroundTintMode="src_over"
-                        android:src="@drawable/face"
-                        card_view:shapeAppearanceOverlay="@style/roundedImageView" />
-
-                </RelativeLayout>
-
-
-            </LinearLayout>
+            </RelativeLayout>
 
 
         </androidx.cardview.widget.CardView>
@@ -130,60 +123,52 @@
             android:layout_marginVertical="5dp"
             card_view:cardCornerRadius="8dp">
 
-            <LinearLayout
+
+            <RelativeLayout
+                android:id="@+id/profile_data2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:padding="15dp">
 
-                <RelativeLayout
-                    android:id="@+id/profile_data2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/profile_image2"
+                    android:orientation="vertical">
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/user_name2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toEndOf="@id/profile_image2"
-                        android:orientation="vertical">
+                        android:paddingHorizontal="10dp"
+                        android:text="John Doe"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/user_name2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingHorizontal="10dp"
-                            android:text="John Doe"
-                            android:textColor="@color/black"
-                            android:textSize="16dp"
-                            android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/posted_date2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="10dp"
+                        android:text="kdjhfksdj hfksjdh knvlxjch lkdjfhg "
+                        android:textSize="16sp" />
+                </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/posted_date2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingHorizontal="10dp"
-                            android:text="kdjhfksdj hfksjdh knvlxjch lkdjfhg "
-                            android:textSize="16sp" />
-                    </LinearLayout>
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/profile_image2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="#ffffff"
+                    android:backgroundTint="#ffffff"
+                    android:backgroundTintMode="src_over"
+                    android:src="@drawable/face"
+                    card_view:shapeAppearanceOverlay="@style/roundedImageView" />
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:id="@+id/profile_image2"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="#ffffff"
-                        android:backgroundTint="#ffffff"
-                        android:backgroundTintMode="src_over"
-                        android:src="@drawable/face"
-                        card_view:shapeAppearanceOverlay="@style/roundedImageView" />
-
-                </RelativeLayout>
-
-
-            </LinearLayout>
+            </RelativeLayout>
 
 
         </androidx.cardview.widget.CardView>
-
 
 
     </LinearLayout>
