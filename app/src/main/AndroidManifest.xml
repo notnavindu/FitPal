@@ -9,9 +9,6 @@
         android:roundIcon="@mipmap/app_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FitPal">
-        <activity
-            android:name=".forum.LoginTestActivity"
-            android:exported="true" />
         <activity android:name=".dietplan.DietPlan" />
         <activity
             android:name=".dietplan.FatCalculator"

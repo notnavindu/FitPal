@@ -14,6 +14,8 @@ import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
@@ -37,80 +39,86 @@ public class FirstVisit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_visit);
 
-        nameInput = findViewById(R.id.nameInput);
-        birthdayInput = findViewById(R.id.birthdayInput);
-        genderInput = findViewById(R.id.genderInput);
-        heightInput = findViewById(R.id.heightInput);
-        weightInput = findViewById(R.id.weightInput);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        submitBtn = findViewById(R.id.submit_btn);
+        if (user != null) {
+            nameInput = findViewById(R.id.nameInput);
+            birthdayInput = findViewById(R.id.birthdayInput);
+            genderInput = findViewById(R.id.genderInput);
+            heightInput = findViewById(R.id.heightInput);
+            weightInput = findViewById(R.id.weightInput);
 
-        // Create date picker and getting user date input
-        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                myCalendar.set(Calendar.YEAR, year);
-                myCalendar.set(Calendar.MONTH, month);
-                myCalendar.set(Calendar.DAY_OF_MONTH, day);
-                updateLabel();
-            }
-        };
+            submitBtn = findViewById(R.id.submit_btn);
 
-        birthdayInput.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new DatePickerDialog(FirstVisit.this, date, myCalendar
-                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
-
-        // On submit event listener
-        submitBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                isChecked = validateFields();
-                if(isChecked){
-                    String name = nameInput.getText().toString();
-                    String birthday = birthdayInput.getText().toString();
-                    String gender = genderInput.getText().toString();
-                    String height = heightInput.getText().toString();
-                    String weight = weightInput.getText().toString();
-
-                    // Add to database
-
-                    String userId = "N5F3ReaLEixRpe9wdSS7";
-
-                    Map<String, Object> data = new HashMap<>();
-
-                    data.put("nickname", name);
-                    data.put("birthday", birthday);
-                    data.put("gender", gender);
-                    data.put("height", height);
-                    data.put("weight", weight);
-
-                    db.collection("Users").document(userId)
-                            .set(data)
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Log.d("FirebaseLog", "DocumentSnapshot successfully written!");
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.w("FirebaseLog", "Error writing document", e);
-                                }
-                            });
-
-                    Intent i = new Intent(getApplicationContext(), HomeActivity.class);
-                    startActivity(i);
+            // Create date picker and getting user date input
+            DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                    myCalendar.set(Calendar.YEAR, year);
+                    myCalendar.set(Calendar.MONTH, month);
+                    myCalendar.set(Calendar.DAY_OF_MONTH, day);
+                    updateLabel();
                 }
+            };
 
-            }
-        });
+            birthdayInput.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new DatePickerDialog(FirstVisit.this, date, myCalendar
+                            .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                            myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+                }
+            });
+
+            // On submit event listener
+            submitBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    isChecked = validateFields();
+                    if(isChecked){
+                        String name = nameInput.getText().toString();
+                        String birthday = birthdayInput.getText().toString();
+                        String gender = genderInput.getText().toString();
+                        String height = heightInput.getText().toString();
+                        String weight = weightInput.getText().toString();
+
+                        // Add to database
+
+                        String userId = user.getUid();
+
+                        Map<String, Object> data = new HashMap<>();
+
+                        data.put("nickname", name);
+                        data.put("birthday", birthday);
+                        data.put("gender", gender);
+                        data.put("height", height);
+                        data.put("weight", weight);
+
+                        db.collection("Users").document(userId)
+                                .set(data)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Log.d("FirebaseLog", "DocumentSnapshot successfully written!");
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.w("FirebaseLog", "Error writing document", e);
+                                    }
+                                });
+
+                        Intent i = new Intent(getApplicationContext(), HomeActivity.class);
+                        startActivity(i);
+                    }
+
+                }
+            });
+        }
+
+
     }
 
     //Form field validations
