@@ -1,5 +1,6 @@
 package com.unicodedev.fitpal;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -11,11 +12,19 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
+
 
 public class FirstVisit extends AppCompatActivity {
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     final Calendar myCalendar = Calendar.getInstance();
 
     EditText nameInput, birthdayInput, genderInput, heightInput, weightInput;
@@ -68,6 +77,33 @@ public class FirstVisit extends AppCompatActivity {
                     String gender = genderInput.getText().toString();
                     String height = heightInput.getText().toString();
                     String weight = weightInput.getText().toString();
+
+                    // Add to database
+
+                    String userId = "N5F3ReaLEixRpe9wdSS7";
+
+                    Map<String, Object> data = new HashMap<>();
+
+                    data.put("nickname", name);
+                    data.put("birthday", birthday);
+                    data.put("gender", gender);
+                    data.put("height", height);
+                    data.put("weight", weight);
+
+                    db.collection("Users").document(userId)
+                            .set(data)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Log.d("FirebaseLog", "DocumentSnapshot successfully written!");
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Log.w("FirebaseLog", "Error writing document", e);
+                                }
+                            });
 
                     Intent i = new Intent(getApplicationContext(), HomeActivity.class);
                     startActivity(i);

@@ -8,7 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.unicodedev.fitpal.forum.LoginTestActivity;
+
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,10 +24,14 @@ public class MainActivity extends AppCompatActivity {
         signinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), FirstVisit.class);
+
+
+
+                Intent i = new Intent(getApplicationContext(), LoginTestActivity.class);
                 startActivity(i);
             }
         });
     }
+
 
 }
