@@ -82,7 +82,7 @@ public class ExerciseActivity extends AppCompatActivity {
                 for (DocumentChange dc : value.getDocumentChanges()) {
                     if (dc.getType() == DocumentChange.Type.ADDED) {
                         Toast.makeText(ExerciseActivity.this, "doc returned", Toast.LENGTH_SHORT).show();
-//                        exerciseArrayList.add(dc.getDocument().toObject(Exercise.class));
+                        exerciseArrayList.add(dc.getDocument().toObject(Exercise.class));
                     }
 
                     adapter.notifyDataSetChanged();
