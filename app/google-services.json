@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "437728040419",
+    "project_id": "fitpal-85bfc",
+    "storage_bucket": "fitpal-85bfc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437728040419:android:a5eefde2a3cc3ff319fcd6",
+        "android_client_info": {
+          "package_name": "com.unicodedev.fitpal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437728040419-imftqfk1npdccmtqkg58ug6b42u5s3lq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.unicodedev.fitpal",
+            "certificate_hash": "5cd3b8f477884881b4580ca9287c80584131efe6"
+          }
+        },
+        {
+          "client_id": "437728040419-l6fpq6b72p07u74oaghmogtjk4ihgesq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.unicodedev.fitpal",
+            "certificate_hash": "c6ff8b12825e7d0378d61185365c23dc11062b88"
+          }
+        },
+        {
+          "client_id": "437728040419-3l95s6t5pfka9a21cgge6937ni2kllb5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbxTYyRR5I0h97O65nqI94Q9jX-M9yWq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437728040419-3l95s6t5pfka9a21cgge6937ni2kllb5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:paddingTop="4dp"
-            android:text="Move towards your taget weight according to your preferred intensity."
+            android:text="Move towards your target weight according to your preferred intensity."
             android:textAlignment="center" />
 
         <RelativeLayout
@@ -143,18 +143,14 @@
                 android:text="Intensity"
                 android:textColor="@color/orange_dark" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/intensity_input"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_below="@+id/intensity"
-                android:autofillHints="number"
                 android:background="@drawable/input_field"
-                android:hint="Beast"
-                android:inputType="text"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="4dp"
-                android:textColorHint="@color/orange_light"
                 android:textSize="12sp" />
 
         </RelativeLayout>
@@ -170,7 +166,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="60 Days"
+            android:hint="60 Days"
             android:textColor="@color/orange_medium"
             android:textSize="30sp" />
 
