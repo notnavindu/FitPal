@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Diet Plan"
+            android:text="@string/diet_plan_3"
             android:textColor="@color/black"
             android:textSize="18sp"
             tools:ignore="RelativeOverlap" />
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="Select Your Diet Plan"
+            android:text="@string/select_your_diet_plan"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:paddingTop="4dp"
-            android:text="Move towards your target weight according to your preferred intensity."
+            android:text="@string/move_towards_your_target_weight_according_to_your_preferred_intensity"
             android:textAlignment="center" />
 
         <RelativeLayout
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
-                android:text="Current Weight"
+                android:text="@string/current_weight"
                 android:textColor="@color/orange_dark" />
 
             <EditText
@@ -92,12 +92,13 @@
                 android:layout_below="@+id/current_weight"
                 android:autofillHints="number"
                 android:background="@drawable/input_field"
-                android:hint="140 kg"
+                android:hint="@string/_140_kg"
                 android:inputType="text"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="4dp"
                 android:textColorHint="@color/orange_light"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                tools:ignore="TextFields" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -111,7 +112,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
-                android:text="Food item"
+                android:text="@string/target_weight"
                 android:textColor="@color/orange_dark" />
 
             <EditText
@@ -121,12 +122,13 @@
                 android:layout_below="@+id/target_weight"
                 android:autofillHints="number"
                 android:background="@drawable/input_field"
-                android:hint="60 kg"
+                android:hint="@string/_60_kg"
                 android:inputType="text"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="4dp"
                 android:textColorHint="@color/orange_light"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                tools:ignore="TextFields" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -140,7 +142,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
-                android:text="Intensity"
+                android:text="@string/intensity"
                 android:textColor="@color/orange_dark" />
 
             <Spinner
@@ -159,14 +161,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="It will take" />
+            android:text="@string/it_will_take" />
 
         <TextView
             android:id="@+id/diet_plan_days"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:hint="60 Days"
+            android:hint="@string/_60_days"
             android:textColor="@color/orange_medium"
             android:textSize="30sp" />
 
