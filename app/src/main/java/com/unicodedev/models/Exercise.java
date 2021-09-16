@@ -1,10 +1,14 @@
 package com.unicodedev.models;
 
 public class Exercise {
-    private String name;
-    private int repetition, sets;
 
-    public Exercise(String name, int repetition, int sets) {
+    String name;
+    long repetition, sets;
+
+    public Exercise() {
+    }
+
+    public Exercise(String name, long repetition, long sets) {
         this.name = name;
         this.repetition = repetition;
         this.sets = sets;
@@ -18,19 +22,19 @@ public class Exercise {
         this.name = name;
     }
 
-    public int getRepetition() {
+    public long getRepetition() {
         return repetition;
     }
 
-    public void setRepetition(int repetition) {
+    public void setRepetition(long repetition) {
         this.repetition = repetition;
     }
 
-    public int getSets() {
+    public long getSets() {
         return sets;
     }
 
-    public void setSets(int sets) {
+    public void setSets(long sets) {
         this.sets = sets;
     }
 }
