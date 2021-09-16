@@ -136,10 +136,5 @@
     <string name="intensity">Intensity</string>
     <string name="it_will_take">It will take</string>
     <string name="_60_days">60 Days</string>
-    <string-array name="intensities">
-        <item />
-        <item>Beginner</item>
-        <item>Moderate</item>
-        <item>Beast</item>
-    </string-array>
+
 </resources>
