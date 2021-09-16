@@ -1,14 +1,14 @@
 package com.unicodedev.fitpal.dietplan;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.unicodedev.fitpal.R;
 
@@ -37,14 +37,10 @@ public class FatCalculator extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        update_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calculateFatPercentage();
-            }
-        });
+        update_btn.setOnClickListener(view -> calculateFatPercentage());
     }
 
+    @SuppressLint("SetTextI18n")
     public void calculateFatPercentage() {
         Calculations calc = new Calculations();
         String gender = gender_input.getText().toString();
@@ -54,12 +50,13 @@ public class FatCalculator extends AppCompatActivity {
 
         if(TextUtils.isEmpty(gender) || TextUtils.isEmpty(age) || TextUtils.isEmpty(height) || TextUtils.isEmpty(weight)){
             Toast.makeText(this, "Please fill the field's", Toast.LENGTH_SHORT).show();
-        }else{
-            Double fatPercentage;
-            Double finalfatPercentage;
-            Double weightTemp = Double.parseDouble(weight);
-            Double heightTemp = Double.parseDouble(height);
-            Integer ageTemp = Integer.parseInt(age);
+        }
+        else{
+            double fatPercentage;
+            double finalfatPercentage;
+            double weightTemp = Double.parseDouble(weight);
+            double heightTemp = Double.parseDouble(height);
+            int ageTemp = Integer.parseInt(age);
             if(gender.equals("male") || gender.equals("Male")){
                 fatPercentage = calc.calculateFatPercentageMale(weightTemp, heightTemp, ageTemp);
                 finalfatPercentage = Math.round(fatPercentage * 100.00) / 100.00;
@@ -70,7 +67,7 @@ public class FatCalculator extends AppCompatActivity {
                 Toast.makeText(this, "Enter a correct gender", Toast.LENGTH_SHORT).show();
                 finalfatPercentage = 0.0;
             }
-            fat_percentage_output.setText(new Double(finalfatPercentage).toString());
+            fat_percentage_output.setText(Double.valueOf(finalfatPercentage).toString() + "%");
         }
     }
 }
