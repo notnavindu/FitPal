@@ -161,6 +161,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:textColor="@color/orange_medium"
             android:text="@string/it_will_take" />
 
         <TextView
@@ -168,8 +169,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:hint="@string/_60_days"
+            android:hint="@string/_60"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/diet_plan_days_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:textColor="@color/orange_medium"
+            android:text="@string/days"
             android:textSize="30sp" />
 
         <Button

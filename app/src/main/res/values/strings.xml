@@ -136,5 +136,7 @@
     <string name="intensity">Intensity</string>
     <string name="it_will_take">It will take</string>
     <string name="_60_days">60 Days</string>
+    <string name="days">Days</string>
+    <string name="_60">60</string>
 
 </resources>
