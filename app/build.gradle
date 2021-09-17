@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+
     implementation platform('com.google.firebase:firebase-bom:28.4.0')
     // Add the dependencies for the desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries
