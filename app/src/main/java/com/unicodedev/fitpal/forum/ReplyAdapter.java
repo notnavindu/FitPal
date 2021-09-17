@@ -1,14 +1,12 @@
 package com.unicodedev.fitpal.forum;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -16,8 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -26,29 +22,27 @@ import com.unicodedev.fitpal.R;
 
 import java.util.ArrayList;
 
-public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyViewHolder> {
-
+public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.MyViewHolder> {
     Context context;
-    ArrayList<QuestionModal> questionArrayList;
+    ArrayList<ReplyModal> replyArrayList;
 
-    public QuestionAdapter(Context context, ArrayList<QuestionModal> questionArrayList) {
+    public ReplyAdapter(Context context, ArrayList<ReplyModal> replyArrayList) {
         this.context = context;
-        this.questionArrayList = questionArrayList;
+        this.replyArrayList = replyArrayList;
     }
 
     @NonNull
     @Override
-    public QuestionAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View v = LayoutInflater.from(context).inflate(R.layout.forum_question_card, parent, false);
-        return new MyViewHolder(v);
+    public ReplyAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(context).inflate(R.layout.forum_reply_card, parent, false);
+        return new ReplyAdapter.MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull QuestionAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        ReplyModal reply = replyArrayList.get(position);
 
-        QuestionModal question = questionArrayList.get(position);
-        String authorID = question.getAuthorID();
+        String authorID = reply.getAuthorID();
 
         if(authorID != null){
 
@@ -79,44 +73,31 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
             });
 
         }
+        holder.time_ago.setText(reply.getTimeAgo());
 
-        holder.title.setText(question.getQuestion());
-        holder.time_ago.setText(question.getTimeAgo());
-        
-        holder.card.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(context, ForumQuestion.class);
-                i.putExtra("questionid", question.getId());
-                context.startActivity(i);
-            }
-        });
-
+        holder.text.setText(reply.getText());
 
     }
 
     @Override
     public int getItemCount() {
-        return questionArrayList.size();
+        return replyArrayList.size();
     }
 
     public  static  class MyViewHolder extends RecyclerView.ViewHolder{
-        
-        CardView card;
-        TextView title, name, time_ago;
-        ImageView profile_image;
 
+        TextView text, name, time_ago;
+        ImageView profile_image;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            title = itemView.findViewById(R.id.card_title);
-            name = itemView.findViewById(R.id.card_name);
+            text = itemView.findViewById(R.id.text);
+            name = itemView.findViewById(R.id.name);
             profile_image = itemView.findViewById(R.id.profile_img);
             time_ago = itemView.findViewById(R.id.time_ago);
-            card = itemView.findViewById(R.id.card);
 
         }
     }
-
 }
+

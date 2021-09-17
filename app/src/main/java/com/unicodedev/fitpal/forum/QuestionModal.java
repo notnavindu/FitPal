@@ -1,10 +1,30 @@
 package com.unicodedev.fitpal.forum;
 
+
+
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.ocpsoft.prettytime.PrettyTime;
+
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class QuestionModal {
-    String authorID, question, description;
+    String authorID, question, description, authorName,id;
     Date publishedOn;
+
+
+
+
 
     public QuestionModal(){}
 
@@ -13,6 +33,8 @@ public class QuestionModal {
         this.question = question;
         this.description = description;
         this.publishedOn = publishedOn;
+
+
     }
 
     public String getAuthorID() {
@@ -46,4 +68,31 @@ public class QuestionModal {
     public void setPublishedOn(Date publishedOn) {
         this.publishedOn = publishedOn;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
+    public String getTimeAgo(){
+        PrettyTime p = new PrettyTime();
+        return p.format(publishedOn);
+
+    }
+
+
+
+
+
 }

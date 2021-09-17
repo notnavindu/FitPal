@@ -32,7 +32,6 @@ import java.util.List;
 
 public class ForumMain extends AppCompatActivity {
 
-
     ProgressDialog progressDialog;
     RecyclerView recyclerView;
     ArrayList<QuestionModal> questionArrayList;
@@ -98,17 +97,31 @@ public class ForumMain extends AppCompatActivity {
                 }
 
                 for(DocumentChange dc: value.getDocumentChanges()){
-                    if(dc.getType() == DocumentChange.Type.ADDED ){
-                        questionArrayList.add(dc.getDocument().toObject(QuestionModal.class));
-                    }
 
-                    questionAdapter.notifyDataSetChanged();
-                    if(progressDialog.isShowing()){
-                        progressDialog.dismiss();
-                    }
+                        if(dc.getType() == DocumentChange.Type.ADDED ){
+                            QuestionModal question = dc.getDocument().toObject(QuestionModal.class);
+                            question.setId(dc.getDocument().getId());
+                            questionArrayList.add(question);
+                        }
+                        if(dc.getType() == DocumentChange.Type.REMOVED){
+                            questionAdapter.notifyDataSetChanged();
+                        }
+
+                        questionAdapter.notifyDataSetChanged();
+                        if(progressDialog.isShowing()){
+                            progressDialog.dismiss();
+                        }
+
+
+
+
                 }
             }
         });
+        if(progressDialog.isShowing()){
+            progressDialog.dismiss();
+        }
+
 
     }
 
