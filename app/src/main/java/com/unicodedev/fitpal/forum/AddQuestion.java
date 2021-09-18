@@ -18,8 +18,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.unicodedev.fitpal.HomeActivity;
 import com.unicodedev.fitpal.R;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AddQuestion extends AppCompatActivity {
@@ -51,6 +54,8 @@ public class AddQuestion extends AppCompatActivity {
                     if(isChecked){
                         String question = questionInput.getText().toString();
                         String description = descriptionInput.getText().toString();
+                        List<String> likes = new ArrayList<>();
+
 
                         String authorId = user.getUid();
                         Date date =java.util.Calendar.getInstance().getTime();
@@ -61,6 +66,7 @@ public class AddQuestion extends AppCompatActivity {
                         data.put("question",question);
                         data.put("description", description);
                         data.put("publishedOn", date);
+                        data.put("likes", likes );
 
 
 
@@ -82,6 +88,7 @@ public class AddQuestion extends AppCompatActivity {
 
                         Intent i = new Intent(getApplicationContext(), MyQuestions.class);
                         startActivity(i);
+                        finish();
                     }
                 }
             });

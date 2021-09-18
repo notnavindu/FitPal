@@ -19,6 +19,8 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -37,11 +39,13 @@ public class ForumMain extends AppCompatActivity {
     ArrayList<QuestionModal> questionArrayList;
     QuestionAdapter questionAdapter;
     FirebaseFirestore db;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_main);
+        user = FirebaseAuth.getInstance().getCurrentUser();
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
@@ -50,7 +54,7 @@ public class ForumMain extends AppCompatActivity {
 
 
         recyclerView = findViewById(R.id.card_recycler_view);
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         TextView myQuestionBtn= (TextView) findViewById(R.id.my_question_button);
@@ -75,7 +79,9 @@ public class ForumMain extends AppCompatActivity {
         questionArrayList = new ArrayList<QuestionModal>();
         questionAdapter = new QuestionAdapter(ForumMain.this, questionArrayList);
 
+
         recyclerView.setAdapter(questionAdapter);
+
 
         getForumQuestions();
 
@@ -84,7 +90,8 @@ public class ForumMain extends AppCompatActivity {
 
     private void getForumQuestions() {
 
-        db.collection("Forum").addSnapshotListener(new EventListener<QuerySnapshot>() {
+        db.collection("Forum").whereNotEqualTo("authorID", user.getUid())
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
@@ -109,11 +116,8 @@ public class ForumMain extends AppCompatActivity {
 
                         questionAdapter.notifyDataSetChanged();
                         if(progressDialog.isShowing()){
-                            progressDialog.dismiss();
-                        }
-
-
-
+                           progressDialog.dismiss();
+                       }
 
                 }
             }

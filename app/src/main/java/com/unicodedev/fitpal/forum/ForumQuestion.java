@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.protobuf.StringValue;
 import com.squareup.picasso.Picasso;
 import com.unicodedev.fitpal.R;
 
@@ -40,6 +42,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ForumQuestion extends AppCompatActivity {
@@ -49,8 +52,9 @@ public class ForumQuestion extends AppCompatActivity {
     ArrayList<ReplyModal> replyArrayList;
     ReplyAdapter replyAdapter;
     String questionid;
-    TextView author_name, question_title, question_description;
-    ImageView profile_image;
+    LinearLayout upvote_area;
+    TextView author_name, question_title, question_description, reply_count, upvote_count;
+    ImageView profile_image, upvote_btn;
     EditText reply_input;
     FloatingActionButton add_reply_btn;
 
@@ -74,8 +78,58 @@ public class ForumQuestion extends AppCompatActivity {
         profile_image = findViewById(R.id.profile_img);
         reply_input = findViewById(R.id.reply_input);
         add_reply_btn = findViewById(R.id.add_reply_btn);
+        reply_count = findViewById(R.id.reply_count);
+        upvote_area = findViewById(R.id.upvote_area);
+        upvote_btn = findViewById(R.id.upvote_btn);
+        upvote_count = findViewById(R.id.upvote_count);
 
         getQuestion();
+
+
+        //Handle Likes
+        db.collection("Forum").document(questionid).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                if(value.exists()){
+                    Object likes = value.getData().get("likes");
+                    List<String> likesArray = (List<String>) likes;
+
+                    if(likesArray.contains(user.getUid())){
+                        // if user has liked
+                        upvote_btn.setImageResource(R.drawable.upvote_icon_active);
+                        upvote_area.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                // handle unlike
+                                likesArray.remove(user.getUid());
+                                db.collection("Forum").document(questionid).update("likes", likesArray);
+
+
+                            }
+                        });
+                    } else{
+                        // if user has not liked
+                        upvote_btn.setImageResource(R.drawable.upvote_icon);
+                        upvote_area.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                // handle like
+                                likesArray.add(user.getUid());
+                                db.collection("Forum").document(questionid).update("likes", likesArray);
+
+                            }
+                        });
+                    }
+
+                    String count = String.valueOf(likesArray.size());
+                    upvote_count.setText(count);
+                }
+
+
+            }
+        });
+
 
         add_reply_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,12 +137,15 @@ public class ForumQuestion extends AppCompatActivity {
                 if(validateFields()){
                     String reply = reply_input.getText().toString();
                     Date date =java.util.Calendar.getInstance().getTime();
+                    List<String> likes = new ArrayList<>();
+
 
                     Map<String, Object> data = new HashMap<>();
                     data.put("authorID", user.getUid() );
                     data.put("questionID", questionid);
                     data.put("text", reply);
                     data.put("publishedOn", date);
+                    data.put("likes", likes);
                     data.put("isBest", false);
 
                     db.collection("Replies").document()
@@ -122,6 +179,7 @@ public class ForumQuestion extends AppCompatActivity {
         recyclerView = findViewById(R.id.card_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setNestedScrollingEnabled(false);
 
         replyArrayList = new ArrayList<ReplyModal>();
         replyAdapter = new ReplyAdapter(ForumQuestion.this, replyArrayList);
@@ -137,7 +195,7 @@ public class ForumQuestion extends AppCompatActivity {
                 addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-
+                int count = 0;
                 if(error != null){
                     if(progressDialog.isShowing()){
                         progressDialog.dismiss();
@@ -146,11 +204,12 @@ public class ForumQuestion extends AppCompatActivity {
                     return;
                 }
 
+
+                count = value.size();
+
                 for(DocumentChange dc: value.getDocumentChanges()){
 
                     if(dc.getType() == DocumentChange.Type.ADDED ){
-
-//                        Toast.makeText(getApplicationContext(), dc.getDocument().toString(), Toast.LENGTH_LONG).show();
 
                         ReplyModal reply = dc.getDocument().toObject(ReplyModal.class);
                         reply.setId(dc.getDocument().getId());
@@ -165,6 +224,9 @@ public class ForumQuestion extends AppCompatActivity {
                         progressDialog.dismiss();
                     }
                 }
+
+                reply_count.setText(String.valueOf(count));
+
             }
 
 

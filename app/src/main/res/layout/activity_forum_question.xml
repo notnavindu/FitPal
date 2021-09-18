@@ -41,7 +41,7 @@
 
     </RelativeLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
@@ -94,7 +94,6 @@
                                         android:layout_height="match_parent"
                                         android:contentDescription="@string/profile_pic"
                                         android:scaleType="centerCrop"
-                                        android:src="@drawable/profile_pic"
                                         tools:ignore="TooDeepLayout">
 
                                     </ImageView>
@@ -120,7 +119,6 @@
                                         android:layout_height="wrap_content"
                                         android:layout_alignParentStart="true"
                                         android:fontFamily="@font/poppins"
-                                        android:text="@string/user_name"
                                         android:textSize="12sp"
                                         tools:ignore="RelativeOverlap" />
 
@@ -137,7 +135,6 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/poppins"
-                                        android:text="@string/user_question"
                                         android:textColor="@color/black"
                                         android:textSize="16sp" />
                                 </LinearLayout>
@@ -158,8 +155,7 @@
                                 android:fontFamily="@font/poppins"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="13sp"
-                                android:text="@string/question_description"/>
+                                android:textSize="13sp"/>
 
                         </LinearLayout>
 
@@ -188,15 +184,16 @@
                                         android:contentDescription="@string/replyBtn" />
 
                                     <TextView
+                                        android:id="@+id/reply_count"
                                         android:fontFamily="@font/poppins"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:paddingStart="8dp"
-                                        android:text="@string/reply_number"
                                         tools:ignore="RtlSymmetry" />
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/upvote_area"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal"
@@ -204,15 +201,17 @@
                                     tools:ignore="RtlSymmetry,UseCompoundDrawables">
 
                                     <ImageView
+                                        android:id="@+id/upvote_btn"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:src="@drawable/upvote_icon"
                                         android:contentDescription="@string/upvoteBtn" />
 
                                     <TextView
-                                        android:fontFamily="@font/poppins"
+                                        android:id="@+id/upvote_count"
                                         android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/poppins"
                                         android:paddingStart="8dp"
                                         android:text="@string/upvote_number" />
                                 </LinearLayout>
@@ -308,7 +307,8 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/card_recycler_view"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        >
 
                     </androidx.recyclerview.widget.RecyclerView>
 
@@ -319,7 +319,7 @@
         </LinearLayout>
 
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
 

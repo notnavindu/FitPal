@@ -1,5 +1,6 @@
 package com.unicodedev.fitpal.forum;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -7,29 +8,40 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
 import com.unicodedev.fitpal.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyViewHolder> {
 
     Context context;
     ArrayList<QuestionModal> questionArrayList;
+
+
 
     public QuestionAdapter(Context context, ArrayList<QuestionModal> questionArrayList) {
         this.context = context;
@@ -46,13 +58,15 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
 
     @Override
     public void onBindViewHolder(@NonNull QuestionAdapter.MyViewHolder holder, int position) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         QuestionModal question = questionArrayList.get(position);
         String authorID = question.getAuthorID();
 
         if(authorID != null){
 
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
             //Getting user ID
             DocumentReference docRef = db.collection("Users").document(authorID);
@@ -78,21 +92,80 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
                 }
             });
 
-        }
+            db.collection("Replies").whereEqualTo("questionID", question.getId())
+                    .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
-        holder.title.setText(question.getQuestion());
-        holder.time_ago.setText(question.getTimeAgo());
-        
-        holder.card.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                    if(error != null){
+                        Log.e("Firestore Log", error.getMessage());
+                        return;
+                    }{
+                        String count = String.valueOf(value.size());
+                        holder.reply_count.setText(count);
+                    }
+
+
+
+                }
+            });
+
+
+            //Handle Likes
+            db.collection("Forum").document(question.getId()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if(value.exists()){
+                        Object likes = value.getData().get("likes");
+                        List<String>  likesArray = (List<String>) likes;
+
+                        if(likesArray.contains(user.getUid())){
+                            // if user has liked
+                            holder.upvote_btn.setImageResource(R.drawable.upvote_icon_active);
+                            holder.upvote_area.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+
+                                    // handle unlike
+                                    likesArray.remove(user.getUid());
+                                    db.collection("Forum").document(question.getId()).update("likes", likesArray);
+
+
+                                }
+                            });
+                        } else{
+                            // if user has not liked
+                            holder.upvote_btn.setImageResource(R.drawable.upvote_icon);
+                            holder.upvote_area.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    // handle like
+                                    likesArray.add(user.getUid());
+                                    db.collection("Forum").document(question.getId()).update("likes", likesArray);
+
+                                }
+                            });
+                        }
+
+                        String count = String.valueOf(likesArray.size());
+                        holder.upvote_count.setText(count);
+                    }
+
+
+                }
+            });
+
+            holder.title.setText(question.getQuestion());
+            holder.time_ago.setText(question.getTimeAgo());
+
+            holder.card.setOnClickListener(view -> {
+
                 Intent i = new Intent(context, ForumQuestion.class);
                 i.putExtra("questionid", question.getId());
                 context.startActivity(i);
-            }
-        });
+            });
 
-
+        }
     }
 
     @Override
@@ -103,8 +176,9 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
     public  static  class MyViewHolder extends RecyclerView.ViewHolder{
         
         CardView card;
-        TextView title, name, time_ago;
-        ImageView profile_image;
+        LinearLayout upvote_area;
+        TextView title, name, time_ago, reply_count, upvote_count;
+        ImageView profile_image, upvote_btn;
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -115,6 +189,10 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
             profile_image = itemView.findViewById(R.id.profile_img);
             time_ago = itemView.findViewById(R.id.time_ago);
             card = itemView.findViewById(R.id.card);
+            reply_count = itemView.findViewById(R.id.reply_count);
+            upvote_btn = itemView.findViewById(R.id.upvote_btn);
+            upvote_area = itemView.findViewById(R.id.upvote_area);
+            upvote_count = itemView.findViewById(R.id.upvote_count);
 
         }
     }
