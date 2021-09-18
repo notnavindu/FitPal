@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.unicodedev.fitpal.R;
 
 public class WorkoutPlan extends AppCompatActivity {
@@ -23,9 +24,50 @@ public class WorkoutPlan extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
+                intent.putExtra("pageTitle", "Upper Body");
                 startActivity(intent);
             }
         });
+//        lowerBody.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
+//                intent.putExtra("pageTitle", "Lower Body");
+//                startActivity(intent);
+//            }
+//        });
+//        fullBody.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
+//                intent.putExtra("pageTitle", "Full Body");
+//                startActivity(intent);
+//            }
+//        });
+//        abWorkout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
+//                intent.putExtra("pageTitle", "Ab Workout");
+//                startActivity(intent);
+//            }
+//        });
+//        homeWorkout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
+//                intent.putExtra("pageTitle", "Home Workout");
+//                startActivity(intent);
+//            }
+//        });
+//        cardio.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
+//                intent.putExtra("pageTitle", "Cardio");
+//                startActivity(intent);
+//            }
+//        });
 
         yourWorkouts.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,8 +76,6 @@ public class WorkoutPlan extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-//        TODO: add other click actions
     }
 
     private void initViews() {
