@@ -24,6 +24,7 @@ import com.unicodedev.fitpal.R;
 import com.unicodedev.models.Exercise;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ExerciseActivity extends AppCompatActivity {
 
@@ -33,6 +34,7 @@ public class ExerciseActivity extends AppCompatActivity {
     ArrayList<Exercise> exerciseArrayList;
     DefaultExerciseAdapter adapter;
     FirebaseFirestore db;
+    private String pageTitle;
 
 
     @Override
@@ -62,12 +64,14 @@ public class ExerciseActivity extends AppCompatActivity {
         adapter = new DefaultExerciseAdapter(ExerciseActivity.this, exerciseArrayList);
         recyclerView.setAdapter(adapter);
 
-        getDefaultExercises();
+        getDefaultExercises(getExerciseType(pageTitle));
 
     }
 
-    private void getDefaultExercises() {
-        db.collection("Exercises").addSnapshotListener(new EventListener<QuerySnapshot>() {
+    private void getDefaultExercises(String exerciseType) {
+
+
+        db.collection(exerciseType).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 if (error != null) {
@@ -81,7 +85,6 @@ public class ExerciseActivity extends AppCompatActivity {
 
                 for (DocumentChange dc : value.getDocumentChanges()) {
                     if (dc.getType() == DocumentChange.Type.ADDED) {
-                        Toast.makeText(ExerciseActivity.this, "doc returned", Toast.LENGTH_SHORT).show();
                         exerciseArrayList.add(dc.getDocument().toObject(Exercise.class));
                     }
 
@@ -92,5 +95,23 @@ public class ExerciseActivity extends AppCompatActivity {
                 }
             }
         });
+
+    }
+
+    private String getExerciseType(String pageTitle) {
+        switch (pageTitle) {
+            case "Upper Body":
+                return "upper-body";
+            case "Lower Body":
+                return "lower-body";
+            case "Full Body":
+                return "full-body";
+            case "Ab Workout":
+                return "ab-workout";
+            case "Home Workout":
+                return "home-workout";
+            default:
+                return "cardio";
+        }
     }
 }

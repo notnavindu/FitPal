@@ -38,7 +38,7 @@ public class DefaultExerciseAdapter extends RecyclerView.Adapter<DefaultExercise
 
         Exercise exercise = exerciseArrayList.get(position);
         holder.exerciseName.setText(exercise.getName());
-        holder.repsAndSets.setText(exercise.getRepetition() + "");
+        holder.repsAndSets.setText("reps/sets " + exercise.getRepetition() + "*" + exercise.getSets());
     }
 
     @Override
