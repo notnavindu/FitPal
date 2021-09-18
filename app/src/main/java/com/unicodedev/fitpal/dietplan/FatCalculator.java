@@ -3,14 +3,23 @@ package com.unicodedev.fitpal.dietplan;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.unicodedev.fitpal.R;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class FatCalculator extends AppCompatActivity {
     EditText gender_input;
@@ -47,9 +56,11 @@ public class FatCalculator extends AppCompatActivity {
         String age = age_input.getText().toString();
         String height = height_input.getText().toString();
         String weight = weight_input.getText().toString();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Map<String, Object> diet = new HashMap<>();
 
         if(TextUtils.isEmpty(gender) || TextUtils.isEmpty(age) || TextUtils.isEmpty(height) || TextUtils.isEmpty(weight)){
-            Toast.makeText(this, "Please fill the field's", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Please fill the field's", Toast.LENGTH_SHORT).show();
         }
         else{
             double fatPercentage;
@@ -60,9 +71,41 @@ public class FatCalculator extends AppCompatActivity {
             if(gender.equals("male") || gender.equals("Male")){
                 fatPercentage = calc.calculateFatPercentageMale(weightTemp, heightTemp, ageTemp);
                 finalfatPercentage = Math.round(fatPercentage * 100.00) / 100.00;
+                diet.put("fatPercentage", finalfatPercentage);
+                db.collection("Fat-percentage").add(diet).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    private static final String TAG = "FatCalculator";
+
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d(TAG, "Document snapshot" + documentReference.getId() );
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    private static final String TAG = "FatCalculator";
+
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error", e);
+                    }
+                });
             }else if(gender.equals("female")|| gender.equals("Female")){
                 fatPercentage = calc.calculateFatPercentageFemale(weightTemp, heightTemp, ageTemp);
                 finalfatPercentage = Math.round(fatPercentage * 100.00) / 100.00;
+                diet.put("fatPercentage", finalfatPercentage);
+                db.collection("Fat-percentage").add(diet).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    private static final String TAG = "FatCalculator";
+
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d(TAG, "Document snapshot" + documentReference.getId() );
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    private static final String TAG = "FatCalculator";
+
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error", e);
+                    }
+                });
             }else{
                 Toast.makeText(this, "Enter a correct gender", Toast.LENGTH_SHORT).show();
                 finalfatPercentage = 0.0;
