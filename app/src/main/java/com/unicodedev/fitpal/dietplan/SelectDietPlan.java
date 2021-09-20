@@ -56,11 +56,11 @@ public class SelectDietPlan extends AppCompatActivity {
         radio_moderate = findViewById(R.id.radio_moderate);
         radio_beast = findViewById(R.id.radio_beast);
 
-        current_weight_input.addTextChangedListener(fieldWatcher);
-        target_weight_input.addTextChangedListener(fieldWatcher);
-        height1_input.addTextChangedListener(fieldWatcher);
-        age1_input.addTextChangedListener(fieldWatcher);
-        gender1_input.addTextChangedListener(fieldWatcher);
+//        current_weight_input.addTextChangedListener(fieldWatcher);
+//        target_weight_input.addTextChangedListener(fieldWatcher);
+//        height1_input.addTextChangedListener(fieldWatcher);
+//        age1_input.addTextChangedListener(fieldWatcher);
+//        gender1_input.addTextChangedListener(fieldWatcher);
 
     }
 

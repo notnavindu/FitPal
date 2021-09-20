@@ -147,5 +147,8 @@
     <string name="beginner">Beginner</string>
     <string name="moderate">Moderate</string>
     <string name="beast">Beast</string>
+    <string name="your_current_weight_is">Your current weight is:</string>
+    <string name="weight_70kg">Weight 70kg</string>
+    <string name="date_01_01_2021">Date: 01/01/2021</string>
 
 </resources>
