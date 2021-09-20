@@ -40,100 +40,108 @@
 
     </RelativeLayout>
 
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center_horizontal" android:paddingVertical="32dp" android:paddingHorizontal="32dp" android:layout_marginVertical="64dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textView17"
-            android:fontFamily="@font/poppins_semibold"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ask_your_question"
-            android:textColor="@color/black"
-            android:textSize="24sp"
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center_horizontal" android:paddingVertical="8dp" android:paddingHorizontal="32dp" android:layout_marginVertical="32dp">
 
-            />
-
-        <TextView
-            android:id="@+id/textView18"
-            android:paddingHorizontal="4dp"
-            android:fontFamily="@font/poppins"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ask_question_description"
-            android:textAlignment="center"
-            android:paddingTop="4dp"
-            />
-
-        <LinearLayout android:orientation="vertical" android:layout_height="wrap_content" android:layout_width="match_parent" android:paddingHorizontal="8dp" android:paddingVertical="24dp">
-
-
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
-
-                <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:paddingVertical="8dp"
-                    android:text="@string/question_topic"
-                    android:textColor="@color/orange_dark" />
-
-                <EditText
-                    android:id="@+id/questionInput"
-                    android:fontFamily="@font/poppins"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:inputType="text"
-                    android:textSize="12sp"
-                    android:hint="@string/question_topic"
-                    android:textColorHint="@color/orange_light"
-                    android:background="@drawable/input_field"
-                    android:paddingHorizontal="16dp"
-                    android:paddingVertical="4dp"
-                    android:importantForAutofill="no" />
-            </LinearLayout>
-
-
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
-                <TextView
-                    android:id="@+id/textView19"
-                    android:fontFamily="@font/poppins"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/description_hint"
-                    android:paddingVertical="8dp"
-                    android:textColor="@color/orange_dark"
-                    />
-
-                <EditText
-                    android:id="@+id/descriptionInput"
-                    android:fontFamily="@font/poppins"
-                    android:layout_width="match_parent"
-                    android:layout_height="92dp"
-                    android:inputType="textMultiLine"
-                    android:textSize="12sp"
-                    android:hint="@string/description_hint"
-                    android:textColorHint="@color/orange_light"
-                    android:background="@drawable/input_field"
-                    android:paddingHorizontal="16dp"
-                    android:importantForAutofill="no" />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/submit_btn"
+            <TextView
+                android:id="@+id/textView17"
                 android:fontFamily="@font/poppins_semibold"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:padding="4dp"
-                android:background="@drawable/button"
-                android:text="@string/ask_question"
-                android:textAllCaps="false"
-                app:backgroundTint="@color/orange_medium"/>
+                android:text="@string/ask_your_question"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+
+                />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:paddingHorizontal="4dp"
+                android:fontFamily="@font/poppins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ask_question_description"
+                android:textAlignment="center"
+                android:paddingTop="4dp"
+                />
+
+            <LinearLayout android:orientation="vertical" android:layout_height="wrap_content" android:layout_width="match_parent" android:paddingHorizontal="8dp" android:paddingVertical="24dp">
+
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins"
+                        android:paddingVertical="8dp"
+                        android:text="@string/question_topic"
+                        android:textColor="@color/orange_dark" />
+
+                    <EditText
+                        android:id="@+id/questionInput"
+                        android:fontFamily="@font/poppins"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:inputType="text"
+                        android:textSize="12sp"
+                        android:hint="@string/question_topic"
+                        android:textColorHint="@color/orange_light"
+                        android:background="@drawable/input_field"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="4dp"
+                        android:importantForAutofill="no" />
+                </LinearLayout>
+
+
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingVertical="4dp">
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:fontFamily="@font/poppins"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/description_hint"
+                        android:paddingVertical="8dp"
+                        android:textColor="@color/orange_dark"
+                        />
+
+                    <EditText
+                        android:id="@+id/descriptionInput"
+                        android:fontFamily="@font/poppins"
+                        android:layout_width="match_parent"
+                        android:layout_height="92dp"
+                        android:inputType="textMultiLine"
+                        android:textSize="12sp"
+                        android:hint="@string/description_hint"
+                        android:textColorHint="@color/orange_light"
+                        android:background="@drawable/input_field"
+                        android:paddingHorizontal="16dp"
+                        android:importantForAutofill="no" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/submit_btn"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:padding="4dp"
+                    android:background="@drawable/button"
+                    android:text="@string/ask_question"
+                    android:textAllCaps="false"
+                    app:backgroundTint="@color/orange_medium"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+
+    </ScrollView>
+
 
 </LinearLayout>
 

@@ -101,6 +101,8 @@ public class FirstVisit extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Void aVoid) {
                                         Log.d("FirebaseLog", "DocumentSnapshot successfully written!");
+                                        Intent i = new Intent(getApplicationContext(), ProfilePic.class);
+                                        startActivity(i);
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
@@ -110,8 +112,7 @@ public class FirstVisit extends AppCompatActivity {
                                     }
                                 });
 
-                        Intent i = new Intent(getApplicationContext(), HomeActivity.class);
-                        startActivity(i);
+
                     }
 
                 }
