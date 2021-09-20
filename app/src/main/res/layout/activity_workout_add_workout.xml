@@ -95,13 +95,13 @@
                 android:layout_below="@+id/exercise_name"
                 android:autofillHints="name"
                 android:background="@drawable/input_field"
+                android:fontFamily="@font/poppins"
                 android:hint="@string/bench_press"
                 android:inputType="text"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="4dp"
                 android:textColorHint="@color/orange_light"
-                android:textSize="12sp"
-                android:fontFamily="@font/poppins"/>
+                android:textSize="12sp" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -126,13 +126,13 @@
                 android:layout_below="@+id/repetition"
                 android:autofillHints="number"
                 android:background="@drawable/input_field"
+                android:fontFamily="@font/poppins"
                 android:hint="@string/repetition_hint"
                 android:inputType="text"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="4dp"
                 android:textColorHint="@color/orange_light"
-                android:textSize="12sp"
-                android:fontFamily="@font/poppins"/>
+                android:textSize="12sp" />
         </RelativeLayout>
 
         <RelativeLayout
