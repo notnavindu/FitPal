@@ -24,7 +24,6 @@ import com.unicodedev.fitpal.R;
 import com.unicodedev.models.Exercise;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class ExerciseActivity extends AppCompatActivity {
 
@@ -43,7 +42,7 @@ public class ExerciseActivity extends AppCompatActivity {
         setContentView(layout.activity_workout_exercises);
 
         progressDialog = new ProgressDialog(this);
-        progressDialog.setCancelable(false);
+        progressDialog.setCancelable(true);
         progressDialog.setMessage("Fetching Data...");
         progressDialog.show();
 
