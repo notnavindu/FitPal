@@ -119,6 +119,14 @@
                             android:textColor="@color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/target_weight_display"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/weight_50kg"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
 
 
                     </LinearLayout>

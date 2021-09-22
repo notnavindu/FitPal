@@ -18,6 +18,7 @@ import java.util.Objects;
 public class DietPlan extends AppCompatActivity {
     TextView goal;
     TextView current_weight_display;
+    TextView target_weight_display;
     String userId;
 
 
@@ -30,6 +31,7 @@ public class DietPlan extends AppCompatActivity {
         FloatingActionButton addFoodBtn = findViewById(R.id.add_food_btn);
         goal = findViewById(R.id.goal);
         current_weight_display = findViewById(R.id.current_weight_display);
+        target_weight_display = findViewById(R.id.target_weight_display);
 
         FirebaseAuth fAuth = FirebaseAuth.getInstance();
         userId = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
@@ -45,6 +47,7 @@ public class DietPlan extends AppCompatActivity {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                            goal.setText("Calorie goal :" + Objects.requireNonNull(document.getData().get("calories")).toString());
                            current_weight_display.setText("Current weight is :" + Objects.requireNonNull(document.getData().get("currentWeight")).toString());
+                           target_weight_display.setText("Target weight is :" + Objects.requireNonNull(document.getData().get("targetWeight")).toString());
                         }
                     }
                 });

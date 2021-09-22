@@ -71,6 +71,12 @@
             android:text="@string/move_towards_your_target_weight_according_to_your_preferred_intensity"
             android:textAlignment="center" />
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            tools:ignore="ScrollViewCount">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -284,6 +290,7 @@
 
 
         </RelativeLayout>
+        </ScrollView>
         <Button
             android:id="@+id/start_diet_btn"
             android:clickable="true"
@@ -297,6 +304,7 @@
             android:enabled="true"/>
 
     </LinearLayout>
+
 
     <!-- Taskbar -->
     <LinearLayout
