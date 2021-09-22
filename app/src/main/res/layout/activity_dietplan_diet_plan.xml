@@ -56,41 +56,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="8"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/day_count"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/day_range"
-                    android:textColor="@color/gray_dark" />
+                android:orientation="vertical"
+                tools:ignore="UselessParent">
 
                 <TextView
                     android:id="@+id/goal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/calorie_goal"
+                    android:hint="@string/calorie_goal"
                     android:textColor="@color/orange_medium"
-                    android:textSize="25sp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/start_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:padding="4dp"
-                android:text="@string/next"
-                android:textAllCaps="false" />
 
         </LinearLayout>
 
@@ -112,9 +99,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/food_item"
+                    android:baselineAligned="false"
                     android:elevation="3dp"
                     android:padding="10dp"
-                    android:baselineAligned="false">
+                    tools:ignore="UselessParent">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -124,145 +112,27 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/current_weight_display"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/calorie_goal"
+                            android:hint="@string/weight_70kg"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/target_weight_display"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/weight_50kg"
                             android:textColor="@color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/day_range"
-                            android:textColor="@color/gray_dark" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.floatingactionbutton.FloatingActionButton
-                            android:id="@+id/floatingActionButton1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="@color/gray_light"
-                            android:clickable="true"
-                            android:contentDescription="@string/add_btn"
-                            android:focusable="true"
-                            app:srcCompat="@drawable/ic_baseline_close_24"
-                            app:tint="@android:color/white"
-                            app:elevation="0dp" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/food_item"
-                    android:elevation="3dp"
-                    android:padding="10dp"
-                    android:baselineAligned="false">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:layout_weight="9"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/calorie_goal"
-                            android:textColor="@color/black"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/day_range"
-                            android:textColor="@color/gray_dark" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.floatingactionbutton.FloatingActionButton
-                            android:id="@+id/floatingActionButton2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:clickable="true"
-                            android:contentDescription="@string/add_btn"
-                            android:focusable="true"
-                            app:elevation="0dp"
-                            android:backgroundTint="@color/gray_light"
-                            app:srcCompat="@drawable/ic_baseline_close_24"
-                            app:tint="@android:color/white"
-                            />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/food_item"
-                    android:elevation="3dp"
-                    android:padding="10dp"
-                    android:baselineAligned="false">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:layout_weight="9"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/calorie_goal"
-                            android:textColor="@color/black"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/day_range"
-                            android:textColor="@color/gray_dark" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <com.google.android.material.floatingactionbutton.FloatingActionButton
-                            android:id="@+id/floatingActionButton3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:clickable="true"
-                            android:contentDescription="@string/add_btn"
-                            android:focusable="true"
-                            app:elevation="0dp"
-                            android:backgroundTint="@color/gray_light"
-                            app:tint="@android:color/white"
-                            app:srcCompat="@drawable/ic_baseline_close_24" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
 
             </LinearLayout>
 
@@ -285,8 +155,8 @@
                 android:clickable="true"
                 android:contentDescription="@string/add_btn"
                 android:focusable="true"
-                app:tint="@android:color/white"
                 app:srcCompat="@drawable/ic_baseline_add_24"
+                app:tint="@android:color/white"
 
                 />
 
