@@ -161,6 +161,12 @@
     <string name="your_current_weight_is">Your current weight is:</string>
     <string name="weight_70kg">Weight 70kg</string>
     <string name="date_01_01_2021">Date: 01/01/2021</string>
+    <string name="diet_plan2">Diet Plan</string>
+    <string name="add_your_weight">Add Your Weight</string>
+    <string name="update_your_weight_and_track_your_progress">Update your weight and track your progress.</string>
+    <string name="weight">Weight</string>
+    <string name="_80kg">80kg</string>
+    <string name="update">Update</string>
 
 
 </resources>

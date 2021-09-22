@@ -16,12 +16,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.unicodedev.fitpal.R;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class SelectDietPlan extends AppCompatActivity {
     EditText current_weight_input;
@@ -33,6 +35,7 @@ public class SelectDietPlan extends AppCompatActivity {
     RadioButton radio_moderate;
     RadioButton radio_beast;
     Button addFoodBtn;
+    String userId;
 
 
     @Override
@@ -56,11 +59,14 @@ public class SelectDietPlan extends AppCompatActivity {
         radio_moderate = findViewById(R.id.radio_moderate);
         radio_beast = findViewById(R.id.radio_beast);
 
-//        current_weight_input.addTextChangedListener(fieldWatcher);
-//        target_weight_input.addTextChangedListener(fieldWatcher);
-//        height1_input.addTextChangedListener(fieldWatcher);
-//        age1_input.addTextChangedListener(fieldWatcher);
-//        gender1_input.addTextChangedListener(fieldWatcher);
+        FirebaseAuth fAuth = FirebaseAuth.getInstance();
+        userId = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
+
+        current_weight_input.addTextChangedListener(fieldWatcher);
+        target_weight_input.addTextChangedListener(fieldWatcher);
+        height1_input.addTextChangedListener(fieldWatcher);
+        age1_input.addTextChangedListener(fieldWatcher);
+        gender1_input.addTextChangedListener(fieldWatcher);
 
     }
 
@@ -97,6 +103,8 @@ public class SelectDietPlan extends AppCompatActivity {
                     diet.put("height", heightTemp);
                     diet.put("intensity", intensity);
                     diet.put("calories", finalCalories);
+                    diet.put("userId", userId);
+
                 } else if (gender.equals("female") || gender.equals("Female")) {
                     intensity = radio_beginner.getText().toString();
                     calories = calc.calculateCaloriesBeginnerFemale(cweightTemp, heightTemp, ageTemp);
@@ -107,6 +115,8 @@ public class SelectDietPlan extends AppCompatActivity {
                     diet.put("height", heightTemp);
                     diet.put("intensity", intensity);
                     diet.put("calories", finalCalories);
+                    diet.put("userId", userId);
+
                 } else {
                     Toast.makeText(SelectDietPlan.this, "Enter a valid gender", Toast.LENGTH_SHORT).show();
                 }
@@ -121,6 +131,7 @@ public class SelectDietPlan extends AppCompatActivity {
                     diet.put("height", heightTemp);
                     diet.put("intensity", intensity);
                     diet.put("calories", finalCalories);
+                    diet.put("userId", userId);
                 } else if (gender.equals("female") || gender.equals("Female")) {
                     intensity = radio_moderate.getText().toString();
                     calories = calc.calculateCaloriesModerateFemale(cweightTemp, heightTemp, ageTemp);
@@ -131,6 +142,7 @@ public class SelectDietPlan extends AppCompatActivity {
                     diet.put("height", heightTemp);
                     diet.put("intensity", intensity);
                     diet.put("calories", finalCalories);
+                    diet.put("userId", userId);
                 } else {
                     Toast.makeText(SelectDietPlan.this, "Enter a valid gender", Toast.LENGTH_SHORT).show();
                 }
@@ -145,6 +157,7 @@ public class SelectDietPlan extends AppCompatActivity {
                     diet.put("height", heightTemp);
                     diet.put("intensity", intensity);
                     diet.put("calories", finalCalories);
+                    diet.put("userId", userId);
                 } else if (gender.equals("female") || gender.equals("Female")) {
                     intensity = radio_beast.getText().toString();
                     calories = calc.calculateCaloriesBeastFemale(cweightTemp, heightTemp, ageTemp);
@@ -155,6 +168,7 @@ public class SelectDietPlan extends AppCompatActivity {
                     diet.put("height", heightTemp);
                     diet.put("intensity", intensity);
                     diet.put("calories", finalCalories);
+                    diet.put("userId", userId);
                 } else {
                     Toast.makeText(SelectDietPlan.this, "Enter a valid gender", Toast.LENGTH_SHORT).show();
                 }
@@ -162,6 +176,8 @@ public class SelectDietPlan extends AppCompatActivity {
                 Toast.makeText(SelectDietPlan.this, "Please select an intensity", Toast.LENGTH_SHORT).show();
             }
         }
+
+
         db.collection("Diet-plan").add(diet).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             private static final String TAG = "DietPlan";
 
