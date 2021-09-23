@@ -6,21 +6,29 @@ import static com.unicodedev.fitpal.R.layout;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.unicodedev.adapters.DefaultExerciseAdapter;
+import com.unicodedev.fitpal.HomeActivity;
+import com.unicodedev.fitpal.Profile;
 import com.unicodedev.fitpal.R;
+import com.unicodedev.fitpal.forum.ForumMain;
+import com.unicodedev.fitpal.social.SocialHome;
 import com.unicodedev.models.Exercise;
 
 import java.util.ArrayList;
@@ -39,6 +47,35 @@ public class ExerciseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_workout_exercises);
+
+        //Bottom navigation bar
+        BottomNavigationView navbar = findViewById(R.id.bottom_navigation);
+        navbar.setSelectedItemId(R.id.other);
+
+        navbar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.social:
+                        startActivity(new Intent(getApplicationContext(), SocialHome.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.forum:
+                        startActivity(new Intent(getApplicationContext(), ForumMain.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), Profile.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                }
+                return false;
+            }
+        });
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);

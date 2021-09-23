@@ -2,10 +2,13 @@ package com.unicodedev.fitpal;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.unicodedev.fitpal.dietplan.DietPlanHome;
@@ -13,6 +16,7 @@ import com.unicodedev.fitpal.forum.ForumMain;
 import com.unicodedev.fitpal.social.SocialHome;
 import com.unicodedev.fitpal.workout.WorkoutPlan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeActivity extends AppCompatActivity {
@@ -23,8 +27,38 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        //Bottom navigation bar
+        BottomNavigationView navbar = findViewById(R.id.bottom_navigation);
+        navbar.setSelectedItemId(R.id.other);
+
+        navbar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.social:
+                        startActivity(new Intent(getApplicationContext(),SocialHome.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.home:
+                        return true;
+                    case R.id.forum:
+                        startActivity(new Intent(getApplicationContext(),ForumMain.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(),Profile.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    default: return true;
+                }
+            }
+        });
+
+
+
 
         if(user != null){
             String name= user.getDisplayName();
