@@ -223,10 +223,11 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/fat_percentage_output"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="25%"
+                android:hint="25%"
                 android:layout_marginTop="10dp"
                 android:textSize="50sp"
                 android:textColor="@color/orange_medium"/>
