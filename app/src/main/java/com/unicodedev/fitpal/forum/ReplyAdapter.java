@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,6 +34,7 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.MyViewHolder
     Context context;
     ArrayList<ReplyModal> replyArrayList;
 
+
     public ReplyAdapter(Context context, ArrayList<ReplyModal> replyArrayList) {
         this.context = context;
         this.replyArrayList = replyArrayList;
@@ -54,8 +56,9 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.MyViewHolder
 
 
         if(authorID != null){
-
             FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+
 
             //Getting user ID
             DocumentReference docRef = db.collection("Users").document(authorID);
@@ -80,6 +83,8 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.MyViewHolder
                     }
                 }
             });
+
+
 
             //Handle Likes
             db.collection("Replies").document(reply.getId()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -126,6 +131,12 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.MyViewHolder
             });
 
         }
+
+
+
+
+
+
         holder.time_ago.setText(reply.getTimeAgo());
 
         holder.text.setText(reply.getText());
@@ -140,7 +151,7 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.MyViewHolder
     public  static  class MyViewHolder extends RecyclerView.ViewHolder{
         LinearLayout upvote_area;
         TextView text, name, time_ago, upvote_count;
-        ImageView profile_image, upvote_btn;
+        ImageView profile_image, upvote_btn,best_ans_btn;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -152,6 +163,7 @@ public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.MyViewHolder
             upvote_area = itemView.findViewById(R.id.upvote_area);
             upvote_count = itemView.findViewById(R.id.upvote_count);
             upvote_btn = itemView.findViewById(R.id.upvote_btn);
+            best_ans_btn = itemView.findViewById(R.id.best_ans_btn);
 
         }
     }
