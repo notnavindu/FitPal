@@ -146,7 +146,6 @@ public class ForumQuestion extends AppCompatActivity {
                     data.put("text", reply);
                     data.put("publishedOn", date);
                     data.put("likes", likes);
-                    data.put("isBest", false);
 
                     db.collection("Replies").document()
                             .set(data)
@@ -216,6 +215,9 @@ public class ForumQuestion extends AppCompatActivity {
                         replyArrayList.add(reply);
                     }
                     if(dc.getType() == DocumentChange.Type.REMOVED){
+                        replyAdapter.notifyDataSetChanged();
+                    }
+                    if(dc.getType() == DocumentChange.Type.ADDED){
                         replyAdapter.notifyDataSetChanged();
                     }
 

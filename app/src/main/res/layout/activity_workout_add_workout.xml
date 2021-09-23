@@ -93,6 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_below="@+id/exercise_name"
+                android:layout_marginTop="-1dp"
                 android:autofillHints="name"
                 android:background="@drawable/input_field"
                 android:fontFamily="@font/poppins"
@@ -128,7 +129,7 @@
                 android:background="@drawable/input_field"
                 android:fontFamily="@font/poppins"
                 android:hint="@string/repetition_hint"
-                android:inputType="text"
+                android:inputType="number"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="4dp"
                 android:textColorHint="@color/orange_light"
@@ -154,12 +155,12 @@
                 android:id="@+id/setsInput"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:fontFamily="@font/poppins"
                 android:layout_below="@+id/sets"
                 android:autofillHints="number"
                 android:background="@drawable/input_field"
+                android:fontFamily="@font/poppins"
                 android:hint="@string/sets_hint"
-                android:inputType="text"
+                android:inputType="number"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="4dp"
                 android:textColorHint="@color/orange_light"
@@ -173,16 +174,6 @@
             android:layout_marginTop="32dp"
             android:padding="4dp"
             android:text="@string/add_workout_btn"
-            android:fontFamily="@font/poppins_semibold"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/finish_workout_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:backgroundTint="@color/gray_light"
-            android:text="@string/finish_workout_btn"
             android:fontFamily="@font/poppins_semibold"
             android:textAllCaps="false" />
 

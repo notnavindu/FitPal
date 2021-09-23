@@ -160,15 +160,17 @@
                         </LinearLayout>
 
                         <RelativeLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
+
                             android:paddingHorizontal="16dp"
                             android:paddingVertical="6dp">
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
                                 android:orientation="horizontal">
 
                                 <LinearLayout
@@ -180,14 +182,14 @@
                                     <ImageView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:src="@drawable/chat_icons"
-                                        android:contentDescription="@string/replyBtn" />
+                                        android:contentDescription="@string/replyBtn"
+                                        android:src="@drawable/chat_icons" />
 
                                     <TextView
                                         android:id="@+id/reply_count"
-                                        android:fontFamily="@font/poppins"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:fontFamily="@font/poppins"
                                         android:paddingStart="8dp"
                                         tools:ignore="RtlSymmetry" />
                                 </LinearLayout>
@@ -204,8 +206,8 @@
                                         android:id="@+id/upvote_btn"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:src="@drawable/upvote_icon"
-                                        android:contentDescription="@string/upvoteBtn" />
+                                        android:contentDescription="@string/upvoteBtn"
+                                        android:src="@drawable/upvote_icon" />
 
                                     <TextView
                                         android:id="@+id/upvote_count"
@@ -216,20 +218,6 @@
                                         android:text="@string/upvote_number" />
                                 </LinearLayout>
 
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentEnd="true"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:src="@drawable/tick_icon"
-                                    android:contentDescription="@string/answeredBtn"/>
 
                             </LinearLayout>
 

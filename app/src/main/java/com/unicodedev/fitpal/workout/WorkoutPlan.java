@@ -28,46 +28,46 @@ public class WorkoutPlan extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//        lowerBody.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
-//                intent.putExtra("pageTitle", "Lower Body");
-//                startActivity(intent);
-//            }
-//        });
-//        fullBody.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
-//                intent.putExtra("pageTitle", "Full Body");
-//                startActivity(intent);
-//            }
-//        });
-//        abWorkout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
-//                intent.putExtra("pageTitle", "Ab Workout");
-//                startActivity(intent);
-//            }
-//        });
-//        homeWorkout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
-//                intent.putExtra("pageTitle", "Home Workout");
-//                startActivity(intent);
-//            }
-//        });
-//        cardio.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
-//                intent.putExtra("pageTitle", "Cardio");
-//                startActivity(intent);
-//            }
-//        });
+        lowerBody.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
+                intent.putExtra("pageTitle", "Lower Body");
+                startActivity(intent);
+            }
+        });
+        fullBody.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
+                intent.putExtra("pageTitle", "Full Body");
+                startActivity(intent);
+            }
+        });
+        abWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
+                intent.putExtra("pageTitle", "Ab Workout");
+                startActivity(intent);
+            }
+        });
+        homeWorkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
+                intent.putExtra("pageTitle", "Home Workout");
+                startActivity(intent);
+            }
+        });
+        cardio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WorkoutPlan.this, ExerciseActivity.class);
+                intent.putExtra("pageTitle", "Cardio");
+                startActivity(intent);
+            }
+        });
 
         yourWorkouts.setOnClickListener(new View.OnClickListener() {
             @Override

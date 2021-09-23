@@ -77,68 +77,13 @@
             android:layout_marginVertical="10dp"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/singleWorkout"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/your_workouts_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/workout"
-                android:elevation="3dp"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:layout_marginTop="10dp">
 
-                <TextView
-                    android:id="@+id/exercise1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:text="@string/workout1"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/workout"
-                android:elevation="3dp"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <TextView
-                    android:id="@+id/exercise2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:text="@string/workout2"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/workout"
-                android:elevation="3dp"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <TextView
-                    android:id="@+id/exercise3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins"
-                    android:text="@string/workout3"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
+            </androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
 

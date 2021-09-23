@@ -38,7 +38,7 @@
 
     <!-- Add workouts -->
     <string name="add_workouts">Add Your Workouts</string>
-    <string name="add_workouts_description">Add your workouts one by one and click finish</string>
+    <string name="add_workouts_description">Add your workouts and click add workout</string>
     <string name="exercise_name">Exercise Name</string>
     <string name="exercise_repetition">Repetition</string>
     <string name="exercise_sets">Sets</string>
@@ -181,6 +181,7 @@
     <string name="_80kg">80kg</string>
     <string name="update">Update</string>
     <string name="weight_50kg">Weight 50kg</string>
+
 
 
 </resources>
