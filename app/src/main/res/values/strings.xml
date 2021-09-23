@@ -111,15 +111,22 @@
     <string name="caption">Caption</string>
     <string name="comments">Comments</string>
 
+
     <!--    Diet Plan-->
+
+    <!--Diet Planning-->
+
     <string name="diet_plan">Diet plan</string>
     <string name="diet_plan_2">Diet plan</string>
     <string name="start_your_diet_plan">Start your diet plan</string>
     <string name="start">Start</string>
     <string name="calculate_your_fat_percentage">Calculate Your Fat Percentage</string>
+
     <string name="get_an_idea_of_the_essential_and_stored_fat_in_your_body_and_see_where_your_dream_body_takes_you_to">
         Get an idea of the essential and stored fat in your body and see where your dream body takes you to
     </string>
+
+
     <string name="calculate">Calculate</string>
     <string name="meal_of_the_day">Meal of the day</string>
     <string name="meal_of_the_day_2">Meal of the day</string>
@@ -141,5 +148,40 @@
     <string name="add_image">Add Image</string>
     <string name="add_a_profile_pic">Add a Profile Pic</string>
     <string name="delete_button">Delete Button</string>
+
+
+    <string name="diet_plan_3">Diet Plan</string>
+    <string name="select_your_diet_plan">Select Your Diet Plan</string>
+    <string name="move_towards_your_target_weight_according_to_your_preferred_intensity">Move towards your target weight according to your preferred intensity.</string>
+    <string name="current_weight">Current Weight</string>
+    <string name="_140_kg">140 kg</string>
+    <string name="target_weight">Target Weight</string>
+    <string name="_60_kg">60 kg</string>
+    <string name="intensity">Intensity</string>
+    <string name="it_will_take">It will take</string>
+    <string name="_60_days">60 Days</string>
+    <string name="days">Days</string>
+    <string name="_60">60</string>
+    <string name="height1">Height</string>
+    <string name="age1">Age</string>
+    <string name="_150_cm">150 cm</string>
+    <string name="_10">10</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="beginner">Beginner</string>
+    <string name="moderate">Moderate</string>
+    <string name="beast">Beast</string>
+    <string name="your_current_weight_is">Your current weight is:</string>
+    <string name="weight_70kg">Weight 70kg</string>
+    <string name="date_01_01_2021">Date: 01/01/2021</string>
+    <string name="diet_plan2">Diet Plan</string>
+    <string name="add_your_weight">Add Your Weight</string>
+    <string name="update_your_weight_and_track_your_progress">Update your weight and track your progress.</string>
+    <string name="weight">Weight</string>
+    <string name="_80kg">80kg</string>
+    <string name="update">Update</string>
+    <string name="weight_50kg">Weight 50kg</string>
+
+
 
 </resources>

@@ -23,9 +23,6 @@ public class QuestionModal {
     Date publishedOn;
 
 
-
-
-
     public QuestionModal(){}
 
     public QuestionModal(String authorID, String question, String description, Date publishedOn) {
@@ -33,6 +30,7 @@ public class QuestionModal {
         this.question = question;
         this.description = description;
         this.publishedOn = publishedOn;
+
 
 
     }

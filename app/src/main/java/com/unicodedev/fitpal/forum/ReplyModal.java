@@ -7,16 +7,16 @@ import java.util.Date;
 public class ReplyModal {
      String authorID, questionID, text, id;
      Date publishedOn;
-     Boolean isBest;
 
     public ReplyModal(){}
 
-    public ReplyModal(String authorID, String questionID, String text, Date publishedOn, Boolean isBest) {
+    public ReplyModal(String authorID, String questionID, String text, String id, Date publishedOn) {
         this.authorID = authorID;
         this.questionID = questionID;
         this.text = text;
+        this.id = id;
         this.publishedOn = publishedOn;
-        this.isBest = isBest;
+
     }
 
     public String getId() {
@@ -59,13 +59,6 @@ public class ReplyModal {
         this.publishedOn = publishedOn;
     }
 
-    public Boolean getBest() {
-        return isBest;
-    }
-
-    public void setBest(Boolean best) {
-        isBest = best;
-    }
 
     public String getTimeAgo(){
         PrettyTime p = new PrettyTime();

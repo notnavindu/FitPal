@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="Diet Plan"
+            android:text="@string/diet_plan2"
             android:textColor="@color/black"
             android:textSize="18sp"
             tools:ignore="RelativeOverlap" />
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="Add Your Food Items"
+            android:text="@string/add_your_weight"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:paddingTop="4dp"
-            android:text="Add your daily intake and track exactly what you consume."
+            android:text="@string/update_your_weight_and_track_your_progress"
             android:textAlignment="center" />
 
         <RelativeLayout
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingVertical="8dp"
-                android:text="Food item"
+                android:text="@string/weight"
                 android:textColor="@color/orange_dark" />
 
             <EditText
@@ -92,7 +92,7 @@
                 android:layout_below="@+id/food_items"
                 android:autofillHints="name"
                 android:background="@drawable/input_field"
-                android:hint="Rice"
+                android:hint="@string/_80kg"
                 android:inputType="text"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="4dp"
@@ -100,34 +100,6 @@
                 android:textSize="12sp" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingVertical="4dp">
-
-            <TextView
-                android:id="@+id/quantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingVertical="8dp"
-                android:text="Quantity"
-                android:textColor="@color/orange_dark" />
-
-            <EditText
-                android:id="@+id/quantity_input"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_below="@+id/quantity"
-                android:autofillHints="number"
-                android:background="@drawable/input_field"
-                android:hint="500 g"
-                android:inputType="text"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="4dp"
-                android:textColorHint="@color/orange_light"
-                android:textSize="12sp" />
-        </RelativeLayout>
 
         <Button
             android:id="@+id/update_btn"
@@ -135,18 +107,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:padding="4dp"
-            android:text="Add"
-            android:textAllCaps="false" />
+            android:text="@string/update"
+            android:textAllCaps="false"
+            android:enabled="false"/>
 
-        <Button
-            android:id="@+id/finish_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:backgroundTint="@color/gray_light"
-            android:padding="4dp"
-            android:text="Finish"
-            android:textAllCaps="false" />
 
     </LinearLayout>
 
