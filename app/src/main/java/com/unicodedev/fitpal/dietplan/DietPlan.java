@@ -1,22 +1,30 @@
 package com.unicodedev.fitpal.dietplan;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.unicodedev.fitpal.HomeActivity;
+import com.unicodedev.fitpal.Profile;
 import com.unicodedev.fitpal.R;
+import com.unicodedev.fitpal.forum.ForumMain;
+import com.unicodedev.fitpal.social.SocialHome;
 
 public class DietPlan extends AppCompatActivity {
     Button update_btn;
@@ -30,6 +38,36 @@ public class DietPlan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diet_plan);
+
+        BottomNavigationView navbar = findViewById(R.id.bottom_navigation);
+        navbar.setSelectedItemId(R.id.other);
+
+        navbar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.social:
+                        startActivity(new Intent(getApplicationContext(), SocialHome.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.forum:
+                        startActivity(new Intent(getApplicationContext(), ForumMain.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), Profile.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    default: return true;
+                }
+            }
+        });
+
 
         calories_display = findViewById(R.id.calories_display);
         current_weight = findViewById(R.id.current_weight);
