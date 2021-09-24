@@ -18,7 +18,6 @@ import com.unicodedev.fitpal.R;
 import java.util.Objects;
 
 public class AddFood extends AppCompatActivity {
-//    fdsafasaa
     EditText currentWeight;
     Button addBtn;
     String userId;

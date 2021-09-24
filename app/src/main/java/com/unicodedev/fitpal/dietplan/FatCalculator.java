@@ -1,6 +1,7 @@
 package com.unicodedev.fitpal.dietplan;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -46,7 +47,9 @@ public class FatCalculator extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        update_btn.setOnClickListener(view -> calculateFatPercentage());
+        update_btn.setOnClickListener(view -> {
+            calculateFatPercentage();
+        });
     }
 
     @SuppressLint("SetTextI18n")

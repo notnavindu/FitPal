@@ -152,30 +152,6 @@
 
             </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/textViewCardTopic2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_semibold"
-                android:paddingTop="25dp"
-                android:text="@string/meal_of_the_day"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <ImageView
-                    android:id="@+id/mealOfTheDay"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/meal_of_the_day_2"
-                    android:src="@drawable/meal_of_the_day" />
-
-            </LinearLayout>
 
         </LinearLayout>
 

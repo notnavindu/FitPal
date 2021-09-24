@@ -36,6 +36,8 @@ public class SelectDietPlan extends AppCompatActivity {
     RadioButton radio_beast;
     Button addFoodBtn;
     String userId;
+    FirebaseFirestore db;
+
 
 
     @Override
@@ -59,8 +61,10 @@ public class SelectDietPlan extends AppCompatActivity {
         radio_moderate = findViewById(R.id.radio_moderate);
         radio_beast = findViewById(R.id.radio_beast);
 
+
+
         FirebaseAuth fAuth = FirebaseAuth.getInstance();
-        userId = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
+        userId = fAuth.getCurrentUser().getUid();
 
         current_weight_input.addTextChangedListener(fieldWatcher);
         target_weight_input.addTextChangedListener(fieldWatcher);
@@ -70,7 +74,6 @@ public class SelectDietPlan extends AppCompatActivity {
 
     }
 
-
     public void calculateCalories() {
         Calculations calc = new Calculations();
         String cweight = current_weight_input.getText().toString();
@@ -78,8 +81,8 @@ public class SelectDietPlan extends AppCompatActivity {
         String height = height1_input.getText().toString();
         String age = age1_input.getText().toString();
         String gender = gender1_input.getText().toString();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> diet = new HashMap<>();
+        db = FirebaseFirestore.getInstance();
 
         if (TextUtils.isEmpty(cweight) || TextUtils.isEmpty(tweight) || TextUtils.isEmpty(gender) || TextUtils.isEmpty(height) || TextUtils.isEmpty(age)) {
             Toast.makeText(SelectDietPlan.this, "Please fill the fields", Toast.LENGTH_SHORT).show();

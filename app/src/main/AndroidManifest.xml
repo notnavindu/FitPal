@@ -21,6 +21,9 @@
             android:name=".BottomNavbar"
             android:exported="true" />
         <activity
+            android:name=".dietplan.DietPlan"
+            android:exported="true" />
+        <activity
             android:name=".ProfilePic"
             android:exported="true" />
         <activity

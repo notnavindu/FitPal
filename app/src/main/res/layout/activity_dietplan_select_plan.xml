@@ -73,235 +73,243 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginBottom="10dp"
             tools:ignore="ScrollViewCount">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingVertical="2dp">
-
-            <TextView
-                android:id="@+id/current_weight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingVertical="8dp"
-                android:text="@string/current_weight"
-                android:textColor="@color/orange_dark" />
-
-            <EditText
-                android:id="@+id/current_weight_input"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_below="@+id/current_weight"
-                android:autofillHints="number"
-                android:background="@drawable/input_field"
-                android:hint="@string/_140_kg"
-                android:inputType="text"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="4dp"
-                android:textColorHint="@color/orange_light"
-                android:textSize="12sp"
-                tools:ignore="TextFields" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingVertical="2dp">
-
-            <TextView
-                android:id="@+id/target_weight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingVertical="8dp"
-                android:text="@string/target_weight"
-                android:textColor="@color/orange_dark" />
-
-            <EditText
-                android:id="@+id/target_weight_input"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_below="@+id/target_weight"
-                android:autofillHints="number"
-                android:background="@drawable/input_field"
-                android:hint="@string/_60_kg"
-                android:inputType="text"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="2dp"
-                android:textColorHint="@color/orange_light"
-                android:textSize="12sp"
-                tools:ignore="TextFields" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingVertical="2dp">
-
-            <TextView
-                android:id="@+id/height1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingVertical="8dp"
-                android:text="@string/height1"
-                android:textColor="@color/orange_dark" />
-
-            <EditText
-                android:id="@+id/height1_input"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_below="@+id/height1"
-                android:autofillHints="number"
-                android:background="@drawable/input_field"
-                android:hint="@string/_150_cm"
-                android:inputType="text"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="4dp"
-                android:textColorHint="@color/orange_light"
-                android:textSize="12sp"
-                tools:ignore="TextFields" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingVertical="4dp">
-
-            <TextView
-                android:id="@+id/age1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingVertical="8dp"
-                android:text="@string/age1"
-                android:textColor="@color/orange_dark" />
-
-            <EditText
-                android:id="@+id/age1_input"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_below="@+id/age1"
-                android:autofillHints="number"
-                android:background="@drawable/input_field"
-                android:hint="@string/_10"
-                android:inputType="text"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="4dp"
-                android:textColorHint="@color/orange_light"
-                android:textSize="12sp"
-                tools:ignore="TextFields" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingVertical="4dp">
-
-            <TextView
-                android:id="@+id/gender1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingVertical="8dp"
-                android:text="@string/gender"
-                android:textColor="@color/orange_dark" />
-
-            <EditText
-                android:id="@+id/gender1_input"
-                android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_below="@+id/gender1"
-                android:autofillHints="number"
-                android:background="@drawable/input_field"
-                android:hint="@string/male"
-                android:inputType="text"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="4dp"
-                android:textColorHint="@color/orange_light"
-                android:textSize="12sp"
-                tools:ignore="TextFields" />
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingVertical="2dp">
-
-            <TextView
-                android:id="@+id/intensity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingVertical="8dp"
-                android:text="@string/intensity"
-                android:textColor="@color/orange_dark" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingVertical="2dp">
-
-            <RadioGroup
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:orientation="horizontal"
-                tools:ignore="UselessParent">
+                android:orientation="vertical">
 
-
-                <RadioButton
-                    android:id="@+id/radio_beginner"
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="2dp"
-                    android:text="@string/beginner"
-                    android:textColor="@color/orange_dark"
-                    android:textSize="15sp"/>
+                    android:orientation="vertical"
+                    android:paddingVertical="2dp">
 
-                <RadioButton
-                    android:id="@+id/radio_moderate"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/current_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="8dp"
+                        android:text="@string/current_weight"
+                        android:textColor="@color/orange_dark" />
+
+                    <EditText
+                        android:id="@+id/current_weight_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:layout_below="@+id/current_weight"
+                        android:autofillHints="number"
+                        android:background="@drawable/input_field"
+                        android:hint="@string/_140_kg"
+                        android:inputType="number"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="4dp"
+                        android:textColorHint="@color/orange_light"
+                        android:textSize="12sp"
+                        tools:ignore="TextFields" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="2dp"
-                    android:text="@string/moderate"
-                    android:textColor="@color/orange_dark"
-                    android:textSize="15sp"/>
+                    android:orientation="vertical"
+                    android:paddingVertical="2dp">
 
-                <RadioButton
-                    android:id="@+id/radio_beast"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/target_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="8dp"
+                        android:text="@string/target_weight"
+                        android:textColor="@color/orange_dark" />
+
+                    <EditText
+                        android:id="@+id/target_weight_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:layout_below="@+id/target_weight"
+                        android:autofillHints="number"
+                        android:background="@drawable/input_field"
+                        android:hint="@string/_60_kg"
+                        android:inputType="number"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="2dp"
+                        android:textColorHint="@color/orange_light"
+                        android:textSize="12sp"
+                        tools:ignore="TextFields" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="2dp"
-                    android:text="@string/beast"
-                    android:textColor="@color/orange_dark"
-                    android:textSize="15sp"/>
+                    android:orientation="vertical"
+                    android:paddingVertical="2dp">
 
-            </RadioGroup>
+                    <TextView
+                        android:id="@+id/height1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="8dp"
+                        android:text="@string/height1"
+                        android:textColor="@color/orange_dark" />
+
+                    <EditText
+                        android:id="@+id/height1_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:layout_below="@+id/height1"
+                        android:autofillHints="number"
+                        android:background="@drawable/input_field"
+                        android:hint="@string/_150_cm"
+                        android:inputType="number"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="4dp"
+                        android:textColorHint="@color/orange_light"
+                        android:textSize="12sp"
+                        tools:ignore="TextFields" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="4dp">
+
+                    <TextView
+                        android:id="@+id/age1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="8dp"
+                        android:text="@string/age1"
+                        android:textColor="@color/orange_dark" />
+
+                    <EditText
+                        android:id="@+id/age1_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:layout_below="@+id/age1"
+                        android:autofillHints="number"
+                        android:background="@drawable/input_field"
+                        android:hint="@string/_10"
+                        android:inputType="number"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="4dp"
+                        android:textColorHint="@color/orange_light"
+                        android:textSize="12sp"
+                        tools:ignore="TextFields" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="4dp">
+
+                    <TextView
+                        android:id="@+id/gender1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="8dp"
+                        android:text="@string/gender"
+                        android:textColor="@color/orange_dark" />
+
+                    <EditText
+                        android:id="@+id/gender1_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:layout_below="@+id/gender1"
+                        android:autofillHints="number"
+                        android:background="@drawable/input_field"
+                        android:hint="@string/male"
+                        android:inputType="text"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="4dp"
+                        android:textColorHint="@color/orange_light"
+                        android:textSize="12sp"
+                        tools:ignore="TextFields" />
+                </RelativeLayout>
 
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="2dp">
 
-        </RelativeLayout>
+                    <TextView
+                        android:id="@+id/intensity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="8dp"
+                        android:text="@string/intensity"
+                        android:textColor="@color/orange_dark" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="2dp">
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="2dp"
+                        tools:ignore="UselessParent">
+
+
+                        <RadioButton
+                            android:id="@+id/radio_beginner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="@string/beginner"
+                            android:textColor="@color/orange_dark"
+                            android:textSize="15sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_moderate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="@string/moderate"
+                            android:textColor="@color/orange_dark"
+                            android:textSize="15sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_beast"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="2dp"
+                            android:text="@string/beast"
+                            android:textColor="@color/orange_dark"
+                            android:textSize="15sp" />
+
+                    </RadioGroup>
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
         </ScrollView>
+
         <Button
             android:id="@+id/start_diet_btn"
-            android:clickable="true"
-            android:focusable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:clickable="true"
+            android:enabled="false"
+            android:focusable="true"
             android:padding="4dp"
             android:text="@string/start_now"
-            android:textAllCaps="false"
-            android:enabled="true"/>
+            android:textAllCaps="false" />
 
     </LinearLayout>
 
