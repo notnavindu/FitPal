@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +29,8 @@ import java.util.Map;
 public class FirstVisit extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     final Calendar myCalendar = Calendar.getInstance();
+
+    ProgressDialog progressDialog;
 
     EditText nameInput, birthdayInput, genderInput, heightInput, weightInput;
     Button submitBtn;
@@ -77,6 +80,11 @@ public class FirstVisit extends AppCompatActivity {
 
                     isChecked = validateFields();
                     if(isChecked){
+                        progressDialog = new ProgressDialog(FirstVisit.this);
+                        progressDialog.setCancelable(false);
+                        progressDialog.setMessage("Creating Profile...");
+                        progressDialog.show();
+
                         String name = nameInput.getText().toString();
                         String birthday = birthdayInput.getText().toString();
                         String gender = genderInput.getText().toString();
@@ -101,6 +109,9 @@ public class FirstVisit extends AppCompatActivity {
                                     @Override
                                     public void onSuccess(Void aVoid) {
                                         Log.d("FirebaseLog", "DocumentSnapshot successfully written!");
+                                        if(progressDialog.isShowing()){
+                                            progressDialog.dismiss();
+                                        }
                                         Intent i = new Intent(getApplicationContext(), ProfilePic.class);
                                         startActivity(i);
                                     }
@@ -108,6 +119,9 @@ public class FirstVisit extends AppCompatActivity {
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
+                                        if(progressDialog.isShowing()){
+                                            progressDialog.dismiss();
+                                        }
                                         Log.w("FirebaseLog", "Error writing document", e);
                                     }
                                 });

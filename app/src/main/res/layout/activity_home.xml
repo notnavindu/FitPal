@@ -69,7 +69,6 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/font_poppins"
                     android:paddingTop="20dp"
-                    android:text="Hello John!"
                     android:textColor="@color/orange_medium"
                     android:textFontWeight="600"
                     android:textSize="30sp"

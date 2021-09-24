@@ -3,6 +3,7 @@ package com.unicodedev.fitpal.workout;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -14,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -23,7 +26,11 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.unicodedev.adapters.YourWorkoutsAdapter;
+import com.unicodedev.fitpal.HomeActivity;
+import com.unicodedev.fitpal.Profile;
 import com.unicodedev.fitpal.R;
+import com.unicodedev.fitpal.forum.ForumMain;
+import com.unicodedev.fitpal.social.SocialHome;
 import com.unicodedev.models.Workout;
 
 import java.util.ArrayList;
@@ -44,6 +51,36 @@ public class YourWorkoutsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_your_workouts);
+
+        //Bottom navigation bar
+        BottomNavigationView navbar = findViewById(R.id.bottom_navigation);
+        navbar.setSelectedItemId(R.id.other);
+
+        navbar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.social:
+                        startActivity(new Intent(getApplicationContext(), SocialHome.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.forum:
+                        startActivity(new Intent(getApplicationContext(), ForumMain.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), Profile.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    default: return true;
+                }
+            }
+        });
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(true);

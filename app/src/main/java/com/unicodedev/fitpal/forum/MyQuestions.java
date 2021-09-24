@@ -7,15 +7,22 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
@@ -25,9 +32,9 @@ import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.unicodedev.fitpal.HomeActivity;
+import com.unicodedev.fitpal.Signin;
 import com.unicodedev.fitpal.Profile;
 import com.unicodedev.fitpal.R;
 import com.unicodedev.fitpal.social.SocialHome;
@@ -40,7 +47,11 @@ public class MyQuestions extends AppCompatActivity {
     ArrayList<QuestionModal> questionArrayList;
     MyQuestionAdapter questionAdapter;
     FirebaseFirestore db;
+    FirebaseAuth mauth;
+    GoogleSignInClient mGoogleSignInClient;
     String userid;
+
+    ImageView logout_btn;
 
 
 
@@ -49,7 +60,19 @@ public class MyQuestions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_my_questions);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        logout_btn = findViewById(R.id.logout_btn);
+
+        mauth = FirebaseAuth.getInstance();
+
+        FirebaseUser user = mauth.getCurrentUser();
+
+        // Configure Google Sign In
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this,gso);
 
         //Bottom navigation bar
         BottomNavigationView navbar = findViewById(R.id.bottom_navigation);
@@ -105,6 +128,7 @@ public class MyQuestions extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), ForumMain.class);
                 startActivity(i);
+                overridePendingTransition(0,0);
             }
         });
 
@@ -114,6 +138,42 @@ public class MyQuestions extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), AddQuestion.class);
                 startActivity(i);
+
+            }
+        });
+
+
+        //Handle Logout
+        logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MyQuestions.this);
+                builder.setCancelable(true);
+                builder.setTitle("Logout");
+                builder.setMessage("Are you sure you want to log out?");
+                builder.setPositiveButton("Logout",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                mauth.signOut();
+                                mGoogleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        startActivity(new Intent(MyQuestions.this, Signin.class));
+                                    }
+                                });
+                            }
+                        });
+                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //If cancel is pressed
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
             }
         });
 
