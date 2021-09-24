@@ -3,6 +3,7 @@ package com.unicodedev.fitpal;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -38,6 +39,7 @@ import java.util.UUID;
 public class ProfilePic extends AppCompatActivity {
     ImageView profile_pic;
     Button submit_btn;
+    CardView profile_card;
     Uri imageUri, downloadUrl;
     FirebaseStorage storage;
     StorageReference storageReference;
@@ -51,8 +53,9 @@ public class ProfilePic extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         db = FirebaseFirestore.getInstance();
 
-        profile_pic = findViewById(R.id.profile_picture);
+        profile_pic = findViewById(R.id.profile_image);
         submit_btn = findViewById(R.id.submit_btn);
+        profile_card = findViewById(R.id.profile_card);
 
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
@@ -83,13 +86,13 @@ public class ProfilePic extends AppCompatActivity {
                                     }
                                 });
                     } else{
-                        Toast.makeText(ProfilePic.this, "NO Download URI", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProfilePic.this, "Image not Uploaded", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
 
 
-            profile_pic.setOnClickListener(new View.OnClickListener() {
+            profile_card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     choosePicture();
