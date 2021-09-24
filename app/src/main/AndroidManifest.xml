@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitPal">
         <activity
+            android:name=".dietplan.DietPlan"
+            android:exported="true" />
+        <activity
             android:name=".ProfilePic"
             android:exported="true" />
         <activity

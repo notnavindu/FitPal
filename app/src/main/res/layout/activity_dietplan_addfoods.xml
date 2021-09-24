@@ -93,7 +93,7 @@
                 android:autofillHints="name"
                 android:background="@drawable/input_field"
                 android:hint="@string/_80kg"
-                android:inputType="text"
+                android:inputType="number"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="4dp"
                 android:textColorHint="@color/orange_light"
