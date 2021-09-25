@@ -1,6 +1,9 @@
 package com.unicodedev.fitpal.forum;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,14 +33,19 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.squareup.picasso.Picasso;
+import com.unicodedev.fitpal.HomeActivity;
+import com.unicodedev.fitpal.Profile;
 import com.unicodedev.fitpal.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MyQuestionAdapter extends RecyclerView.Adapter<MyQuestionAdapter.MyViewHolder> {
 
     Context context;
+    ProgressDialog progressDialog;
     ArrayList<QuestionModal> questionArrayList;
 
 
@@ -61,7 +70,7 @@ public class MyQuestionAdapter extends RecyclerView.Adapter<MyQuestionAdapter.My
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        if(authorID != null){
+        if (authorID != null) {
             //Getting user ID
             DocumentReference docRef = db.collection("Users").document(authorID);
             docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -90,14 +99,14 @@ public class MyQuestionAdapter extends RecyclerView.Adapter<MyQuestionAdapter.My
                         @Override
                         public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
-                            if(error != null){
+                            if (error != null) {
                                 Log.e("Firestore Log", error.getMessage());
                                 return;
-                            }{
+                            }
+                            {
                                 String count = String.valueOf(value.size());
                                 holder.reply_count.setText(count);
                             }
-
 
 
                         }
@@ -110,19 +119,43 @@ public class MyQuestionAdapter extends RecyclerView.Adapter<MyQuestionAdapter.My
             holder.delete_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    db.collection("Forum").document(question.getId()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setCancelable(true);
+                    builder.setTitle("Are you sure you want to delete?");
+                    builder.setMessage("This will delete the question permanently");
+                    builder.setPositiveButton("Confirm",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                    db.collection("Forum").document(question.getId()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(context.getApplicationContext(), "Question Deleted", Toast.LENGTH_SHORT).show();
+                                            questionArrayList.remove(holder.getAdapterPosition());
+                                            notifyItemRemoved(holder.getAdapterPosition());
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(context.getApplicationContext(), "Failed to Delete", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+
+                                }
+                            });
+                    builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                         @Override
-                        public void onSuccess(Void unused) {
-                            Toast.makeText(context.getApplicationContext(), "Question Deleted", Toast.LENGTH_SHORT).show();
-                            questionArrayList.remove(holder.getAdapterPosition());
-                            notifyItemRemoved(holder.getAdapterPosition());
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(context.getApplicationContext(), "Failed to Delete", Toast.LENGTH_SHORT).show();
+                        public void onClick(DialogInterface dialog, int which) {
+
                         }
                     });
+
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+
 
                 }
             });
@@ -139,7 +172,6 @@ public class MyQuestionAdapter extends RecyclerView.Adapter<MyQuestionAdapter.My
         }
 
 
-
     }
 
     @Override
@@ -147,7 +179,7 @@ public class MyQuestionAdapter extends RecyclerView.Adapter<MyQuestionAdapter.My
         return questionArrayList.size();
     }
 
-    public  static  class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         CardView card;
         LinearLayout upvote_area;

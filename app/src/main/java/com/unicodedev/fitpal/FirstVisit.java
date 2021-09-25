@@ -92,7 +92,6 @@ public class FirstVisit extends AppCompatActivity {
                         String weight = weightInput.getText().toString();
 
                         // Add to database
-
                         String userId = user.getUid();
 
                         Map<String, Object> data = new HashMap<>();
