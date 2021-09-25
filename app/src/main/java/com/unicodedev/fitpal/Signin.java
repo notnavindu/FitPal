@@ -7,7 +7,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 
@@ -27,6 +30,9 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class Signin extends AppCompatActivity {
 
     public static final int RC_SIGN_IN = 123;
+
+    Animation anim;
+    LinearLayout layout_view;
 
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
@@ -67,6 +73,31 @@ public class Signin extends AppCompatActivity {
 
             }
         });
+
+        layout_view = findViewById(R.id.layout_view);
+        anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+
+        anim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+        layout_view.startAnimation(anim);
+
+
     }
 
     private void siginRequest() {
