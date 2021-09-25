@@ -106,7 +106,7 @@
 
     <!-- Social Home -->
     <string name="latest_title">Latest</string>
-    <string name="upload_photo_button">Upload Photo</string>
+    <string name="choose_photo_button">Choose Photo</string>
     <string name="create_post">Create Post</string>
     <string name="caption">Caption</string>
     <string name="comments">Comments</string>
