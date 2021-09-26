@@ -2,6 +2,7 @@ package com.unicodedev.fitpal.social;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -81,34 +82,41 @@ public class SocialHome extends AppCompatActivity {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
-                        if(error != null){
-                            if(progressDialog.isShowing()){
+                        if (error != null) {
+                            if (progressDialog.isShowing()) {
                                 progressDialog.dismiss();
                             }
                             Log.e("Firestore error", error.getMessage());
                             return;
                         }
 
-                        for(DocumentChange dc: value.getDocumentChanges()){
+                        for (DocumentChange dc : value.getDocumentChanges()) {
 
-                            if(dc.getType() == DocumentChange.Type.ADDED ){
+                            if (dc.getType() == DocumentChange.Type.ADDED) {
                                 PostModal question = dc.getDocument().toObject(PostModal.class);
                                 question.setId(dc.getDocument().getId());
                                 questionArrayList.add(question);
                             }
-                            if(dc.getType() == DocumentChange.Type.REMOVED){
+                            if (dc.getType() == DocumentChange.Type.REMOVED) {
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                    questionArrayList.removeIf(element -> (
+                                            element.getId().toString().equals(dc.getDocument().getId().toString())
+                                            )
+                                    );
+                                    questionAdapter.notifyDataSetChanged();
+                                }
                                 questionAdapter.notifyDataSetChanged();
                             }
 
                             questionAdapter.notifyDataSetChanged();
-                            if(progressDialog.isShowing()){
+                            if (progressDialog.isShowing()) {
                                 progressDialog.dismiss();
                             }
 
                         }
                     }
                 });
-        if(progressDialog.isShowing()){
+        if (progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
 

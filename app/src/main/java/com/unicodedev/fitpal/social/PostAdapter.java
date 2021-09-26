@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -100,7 +101,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                                 String count = String.valueOf(value.size());
                                 holder.reply_count.setText(count);
 
-                                Log.d("COUNTCHECK", count);
                             }
 
 
@@ -159,13 +159,17 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
                 holder.delete_btn.setVisibility(View.VISIBLE);
                 holder.delete_btn.setOnClickListener(view -> {
                     new AlertDialog.Builder(context)
-                            .setTitle("Title")
+                            .setTitle("Confirm Delete")
                             .setMessage("Do you really want to delete your post?")
                             .setIcon(R.drawable.outline_warning_24)
                             .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-
                                 public void onClick(DialogInterface dialog, int whichButton) {
-                                    Toast.makeText(context, "Yaay", Toast.LENGTH_SHORT).show();
+                                    db.collection("Social").document(question.getId()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            Toast.makeText(context, "Post Deleted!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
                                 }
                             })
                             .setNegativeButton("No", null).show();
