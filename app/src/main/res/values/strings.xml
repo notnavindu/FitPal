@@ -182,6 +182,18 @@
     <string name="update">Update</string>
     <string name="weight_50kg">Weight 50kg</string>
 
+    <string name="update_profile">Update Profile</string>
+    <string name="update_your_profile">Update your profile</string>
+    <string name="change_your_profile_pic_and_nickname_to_your_liking">Change your profile pic and nickname to your liking</string>
+    <string name="your_name">Your Name</string>
+    <string name="add_a_profile_picture">Add a profile picture2</string>
+    <string name="add_a_profile_picture_to_show_in_the_social_platform_and_forum">Add a profile picture to show in the social platform and forum</string>
+    <string name="add_a_profile_picture2">Add a profile picture</string>
+    <string name="upload_image">Upload Image</string>
+    <string name="forum2">Forum</string>
+
+    <string name="todo">TODO</string>
+
 
 
 </resources>

@@ -9,6 +9,20 @@
         android:roundIcon="@mipmap/app_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FitPal">
+        <activity android:name=".MainActivity" android:exported="true"> <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
+        <activity
+            android:name=".Profile"
+            android:exported="true" />
+        <activity
+            android:name=".BottomNavbar"
+            android:exported="true" />
+        <activity
+            android:name=".dietplan.DietPlan"
+            android:exported="true" />
         <activity
             android:name=".ProfilePic"
             android:exported="true" />
@@ -54,13 +68,8 @@
         <activity android:name=".FirstVisit" />
         <activity android:name=".forum.AddQuestion" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Signin"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

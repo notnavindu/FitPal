@@ -1,59 +1,110 @@
 package com.unicodedev.fitpal.dietplan;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.TextView;
-
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.unicodedev.fitpal.R;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import java.util.Objects;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.unicodedev.fitpal.HomeActivity;
+import com.unicodedev.fitpal.Profile;
+import com.unicodedev.fitpal.R;
+import com.unicodedev.fitpal.forum.ForumMain;
+import com.unicodedev.fitpal.social.SocialHome;
 
 public class DietPlan extends AppCompatActivity {
-    TextView goal;
-    TextView current_weight_display;
-    TextView target_weight_display;
+    Button update_btn;
+    TextView calories_display, current_weight, target_weight;
+    FirebaseFirestore db;
+    FirebaseAuth fAuth;
     String userId;
 
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dietplan_diet_plan);
+        setContentView(R.layout.activity_diet_plan);
 
-        FloatingActionButton addFoodBtn = findViewById(R.id.add_food_btn);
-        goal = findViewById(R.id.goal);
-        current_weight_display = findViewById(R.id.current_weight_display);
-        target_weight_display = findViewById(R.id.target_weight_display);
+        BottomNavigationView navbar = findViewById(R.id.bottom_navigation);
+        navbar.setSelectedItemId(R.id.other);
 
-        FirebaseAuth fAuth = FirebaseAuth.getInstance();
-        userId = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
+        navbar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.social:
+                        startActivity(new Intent(getApplicationContext(), SocialHome.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.forum:
+                        startActivity(new Intent(getApplicationContext(), ForumMain.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), Profile.class));
+                        overridePendingTransition(0,0);
+                        return true;
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    default: return true;
+                }
+            }
+        });
 
 
-        db.collection("Diet-plan")
-                .whereEqualTo("userId", userId)
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-                           goal.setText("Calorie goal :" + Objects.requireNonNull(document.getData().get("calories")).toString());
-                           current_weight_display.setText("Current weight is :" + Objects.requireNonNull(document.getData().get("currentWeight")).toString());
-                           target_weight_display.setText("Target weight is :" + Objects.requireNonNull(document.getData().get("targetWeight")).toString());
-                        }
+        calories_display = findViewById(R.id.calories_display);
+        current_weight = findViewById(R.id.current_weight);
+        target_weight = findViewById(R.id.target_weight);
+        update_btn = findViewById(R.id.update_btn);
+
+
+        db = FirebaseFirestore.getInstance();
+        fAuth = FirebaseAuth.getInstance();
+        userId = fAuth.getCurrentUser().getUid();
+
+        db.collection("Diet-plan").whereEqualTo("userId", userId).addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                if(error != null){
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                    return;
+
+                }else{
+                    for(QueryDocumentSnapshot doc : value){
+                        calories_display.setText("Calorie goal is: " + doc.getDouble("calories").toString());
+                        current_weight.setText("Current weight is: " + doc.getDouble("currentWeight").toString());
+                        target_weight.setText("Target weight is: " + doc.getDouble("targetWeight").toString());
                     }
-                });
-        addFoodBtn.setOnClickListener(view -> {
-            Intent i = new Intent(getApplicationContext(), AddFood.class);
-            startActivity(i);
+                }
+
+            }
+        });
+
+        update_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(DietPlan.this, AddFood.class);
+                startActivity(i);
+            }
         });
     }
+
+
 }

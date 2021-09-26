@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".dietplan.DietPlan">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="32dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/backBtn"
+            android:paddingTop="3dp"
+            android:src="@drawable/back_button" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:ignore="RelativeOverlap" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/notify"
+            android:src="@drawable/notify_button" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="100dp">
+
+        <TextView
+            android:id="@+id/calories_display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Calories"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            android:padding="10dp"
+            android:layout_marginLeft="20dp">
+
+        </TextView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:cardCornerRadius="4dp">
+
+            <TextView
+                android:id="@+id/current_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Current weight"
+                android:textColor="@color/orange_dark"
+                android:paddingLeft="10dp"
+                android:textSize="24sp"
+                android:fontFamily="@font/font_poppins"
+                android:background="@color/gray_lighter">
+
+            </TextView>
+        </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                app:cardCornerRadius="4dp"
+                >
+
+            <TextView
+                android:id="@+id/target_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Target weight"
+                android:textColor="@color/orange_dark"
+                android:paddingLeft="10dp"
+                android:textSize="24sp"
+                android:fontFamily="@font/font_poppins"
+                android:background="@color/gray_lighter">
+
+            </TextView>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="140dp"
+            android:paddingTop="250dp">
+            <Button
+                android:id="@+id/update_btn"
+                android:fontFamily="@font/poppins_semibold"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/button"
+                android:padding="4dp"
+                android:text="Update weight"
+                android:textAllCaps="false"
+                app:backgroundTint="@color/orange_medium"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="32dp"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/orange_medium"
+        app:itemIconTint="@drawable/selector"
+        app:itemIconSize="36dp"
+        app:itemTextColor="@drawable/selector"
+        app:menu="@menu/menu_navigation"
+        android:background="@color/orange_medium"
+        />
+
+
+</RelativeLayout>

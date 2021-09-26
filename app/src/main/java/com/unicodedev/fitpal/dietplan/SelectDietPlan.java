@@ -6,6 +6,7 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -16,10 +17,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.unicodedev.fitpal.HomeActivity;
+import com.unicodedev.fitpal.Profile;
 import com.unicodedev.fitpal.R;
+import com.unicodedev.fitpal.forum.ForumMain;
+import com.unicodedev.fitpal.social.SocialHome;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,12 +43,44 @@ public class SelectDietPlan extends AppCompatActivity {
     RadioButton radio_beast;
     Button addFoodBtn;
     String userId;
+    FirebaseFirestore db;
+
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dietplan_select_plan);
+
+        BottomNavigationView navbar = findViewById(R.id.bottom_navigation);
+        navbar.setSelectedItemId(R.id.other);
+
+        navbar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.social:
+                        startActivity(new Intent(getApplicationContext(), SocialHome.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.forum:
+                        startActivity(new Intent(getApplicationContext(), ForumMain.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.profile:
+                        startActivity(new Intent(getApplicationContext(), Profile.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    default: return true;
+                }
+            }
+        });
+
         addFoodBtn = findViewById(R.id.start_diet_btn);
         addFoodBtn.setOnClickListener(view -> {
                 calculateCalories();
@@ -59,8 +98,10 @@ public class SelectDietPlan extends AppCompatActivity {
         radio_moderate = findViewById(R.id.radio_moderate);
         radio_beast = findViewById(R.id.radio_beast);
 
+
+
         FirebaseAuth fAuth = FirebaseAuth.getInstance();
-        userId = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
+        userId = fAuth.getCurrentUser().getUid();
 
         current_weight_input.addTextChangedListener(fieldWatcher);
         target_weight_input.addTextChangedListener(fieldWatcher);
@@ -70,7 +111,6 @@ public class SelectDietPlan extends AppCompatActivity {
 
     }
 
-
     public void calculateCalories() {
         Calculations calc = new Calculations();
         String cweight = current_weight_input.getText().toString();
@@ -78,8 +118,8 @@ public class SelectDietPlan extends AppCompatActivity {
         String height = height1_input.getText().toString();
         String age = age1_input.getText().toString();
         String gender = gender1_input.getText().toString();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> diet = new HashMap<>();
+        db = FirebaseFirestore.getInstance();
 
         if (TextUtils.isEmpty(cweight) || TextUtils.isEmpty(tweight) || TextUtils.isEmpty(gender) || TextUtils.isEmpty(height) || TextUtils.isEmpty(age)) {
             Toast.makeText(SelectDietPlan.this, "Please fill the fields", Toast.LENGTH_SHORT).show();
