@@ -63,14 +63,6 @@ public class DietPlanHome extends AppCompatActivity {
 
         startBtn = findViewById(R.id.start_btn);
 
-        startBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), DietPlan.class);
-                startActivity(i);
-            }
-        });
-
         fAuth = FirebaseAuth.getInstance();
         String userId = fAuth.getCurrentUser().getUid();
         db = FirebaseFirestore.getInstance();
