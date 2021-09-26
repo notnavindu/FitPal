@@ -45,7 +45,7 @@
                 android:textColor="@color/black"
                 android:paddingHorizontal="10dp"
                 android:text=""
-                android:textSize="24sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <com.google.android.material.imageview.ShapeableImageView
