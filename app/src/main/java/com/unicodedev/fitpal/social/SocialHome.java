@@ -95,7 +95,8 @@ public class SocialHome extends AppCompatActivity {
                             if (dc.getType() == DocumentChange.Type.ADDED) {
                                 PostModal question = dc.getDocument().toObject(PostModal.class);
                                 question.setId(dc.getDocument().getId());
-                                questionArrayList.add(question);
+                                questionArrayList.add(dc.getNewIndex(), question);
+                                Log.d("UPDATETEST", "Added");
                             }
                             if (dc.getType() == DocumentChange.Type.REMOVED) {
                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
