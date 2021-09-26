@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -61,15 +62,7 @@ public class SocialHome extends AppCompatActivity {
                 startActivity(i);
             }
         });
-//
-//        CardView post = (CardView) findViewById(R.id.card_view);
-//        post.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent i = new Intent(getApplicationContext(), Comments.class);
-//                startActivity(i);
-//            }
-//        });
+
 
         db = FirebaseFirestore.getInstance();
         questionArrayList = new ArrayList<PostModal>();

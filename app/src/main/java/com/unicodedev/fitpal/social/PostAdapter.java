@@ -1,6 +1,9 @@
 package com.unicodedev.fitpal.social;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -30,10 +34,9 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder>{
+public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> {
     Context context;
     ArrayList<PostModal> questionArrayList;
-
 
 
     public PostAdapter(Context context, ArrayList<PostModal> questionArrayList) {
@@ -57,7 +60,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder>{
         PostModal question = questionArrayList.get(position);
         String authorID = question.getAuthorId();
 
-        if(authorID != null){
+        if (authorID != null) {
             //Getting user ID
             DocumentReference docRef = db.collection("Users").document(authorID);
             docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -82,34 +85,38 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder>{
                 }
             });
 
-            db.collection("Replies").whereEqualTo("questionID", question.getId())
+
+            // comment count
+            db.collection("Comments").whereEqualTo("postID", question.getId())
                     .addSnapshotListener(new EventListener<QuerySnapshot>() {
                         @Override
                         public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
-                            if(error != null){
+                            if (error != null) {
                                 Log.e("Firestore Log", error.getMessage());
                                 return;
-                            }{
+                            }
+                            {
                                 String count = String.valueOf(value.size());
                                 holder.reply_count.setText(count);
+
+                                Log.d("COUNTCHECK", count);
                             }
 
 
                         }
                     });
 
-
             //Handle Likes
             db.collection("Social").document(question.getId()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
                 @Override
                 public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                    if(value.exists()){
+                    if (value.exists()) {
                         Object likes = value.getData().get("likes");
                         List<String> likesArray = (List<String>) likes;
 
-                        if(likesArray != null){
-                            if(likesArray.contains(user.getUid())){
+                        if (likesArray != null) {
+                            if (likesArray.contains(user.getUid())) {
                                 // if user has liked
                                 holder.upvote_btn.setImageResource(R.drawable.upvote_icon_active);
                                 holder.upvote_btn.setOnClickListener(new View.OnClickListener() {
@@ -120,7 +127,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder>{
                                         db.collection("Social").document(question.getId()).update("likes", likesArray);
                                     }
                                 });
-                            } else{
+                            } else {
                                 // if user has not liked
                                 holder.upvote_btn.setImageResource(R.drawable.upvote_icon);
                                 holder.upvote_btn.setOnClickListener(new View.OnClickListener() {
@@ -146,15 +153,33 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder>{
 
             holder.title.setText(question.getTitle());
             holder.time_ago.setText(question.getTimeAgo());
-            Log.d("ASSSSS", "aa:" + question.getTitle());
             Picasso.get().load(question.getImageURL()).into(holder.post_image);
 
-//            holder.card.setOnClickListener(view -> {
-//
-//                Intent i = new Intent(context, ForumQuestion.class);
-//                i.putExtra("questionid", question.getId());
-//                context.startActivity(i);
-//            });
+            if (question.getAuthorId().equals(user.getUid())) {
+                holder.delete_btn.setVisibility(View.VISIBLE);
+                holder.delete_btn.setOnClickListener(view -> {
+                    new AlertDialog.Builder(context)
+                            .setTitle("Title")
+                            .setMessage("Do you really want to delete your post?")
+                            .setIcon(R.drawable.outline_warning_24)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    Toast.makeText(context, "Yaay", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .setNegativeButton("No", null).show();
+                });
+            } else {
+                holder.delete_btn.setVisibility(View.INVISIBLE);
+            }
+
+            holder.card.setOnClickListener(view -> {
+                Intent i = new Intent(context, Comments.class);
+                i.putExtra("postId", question.getId());
+                i.putExtra("image", question.getImageURL());
+                context.startActivity(i);
+            });
 
         }
     }
@@ -164,12 +189,12 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder>{
         return questionArrayList.size();
     }
 
-    public  static  class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         CardView card;
         RelativeLayout upvote_area;
         TextView title, name, time_ago, reply_count, upvote_count;
-        ImageView profile_image, upvote_btn, post_image;
+        ImageView profile_image, upvote_btn, post_image, delete_btn;
 
 
         public MyViewHolder(@NonNull View itemView) {
@@ -185,6 +210,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder>{
             upvote_area = itemView.findViewById(R.id.upvote_area);
             upvote_count = itemView.findViewById(R.id.upvote_count);
             post_image = itemView.findViewById(R.id.post_image);
+            delete_btn = itemView.findViewById(R.id.delete_btn);
 
         }
     }
