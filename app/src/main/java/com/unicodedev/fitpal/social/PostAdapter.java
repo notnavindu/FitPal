@@ -153,7 +153,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
 
             holder.title.setText(question.getTitle());
             holder.time_ago.setText(question.getTimeAgo());
-            Picasso.get().load(question.getImageURL()).into(holder.post_image);
+            Picasso.get().load(question.getImageURL()).placeholder(R.drawable.load_placeholder).into(holder.post_image);
 
             if (question.getAuthorId().equals(user.getUid())) {
                 holder.delete_btn.setVisibility(View.VISIBLE);
