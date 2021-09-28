@@ -200,12 +200,13 @@ public class ForumMain extends AppCompatActivity {
                             QuestionModal question = dc.getDocument().toObject(QuestionModal.class);
                             question.setId(dc.getDocument().getId());
                             questionArrayList.add(question);
+                            questionAdapter.notifyDataSetChanged();
                         }
                         if(dc.getType() == DocumentChange.Type.REMOVED){
                             questionAdapter.notifyDataSetChanged();
                         }
 
-                        questionAdapter.notifyDataSetChanged();
+//                        questionAdapter.notifyDataSetChanged();
                         if(progressDialog.isShowing()){
                            progressDialog.dismiss();
                        }
