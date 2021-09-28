@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -33,15 +32,12 @@ import com.unicodedev.fitpal.Profile;
 import com.unicodedev.fitpal.R;
 import com.unicodedev.fitpal.Signin;
 import com.unicodedev.fitpal.forum.ForumMain;
-import com.unicodedev.fitpal.forum.QuestionAdapter;
-import com.unicodedev.fitpal.forum.QuestionModal;
 
 import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,8 +45,8 @@ public class SocialHome extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     RecyclerView recyclerView;
-    ArrayList<PostModal> questionArrayList;
-    PostAdapter questionAdapter;
+    ArrayList<PostModal> postArrayList;
+    PostAdapter postAdapter;
     FirebaseFirestore db;
     FirebaseUser user;
     FirebaseAuth mauth;
@@ -164,16 +160,16 @@ public class SocialHome extends AppCompatActivity {
 
 
         db = FirebaseFirestore.getInstance();
-        questionArrayList = new ArrayList<PostModal>();
-        questionAdapter = new PostAdapter(SocialHome.this, questionArrayList);
+        postArrayList = new ArrayList<PostModal>();
+        postAdapter = new PostAdapter(SocialHome.this, postArrayList);
 
-        recyclerView.setAdapter(questionAdapter);
+        recyclerView.setAdapter(postAdapter);
 
-        getForumQuestions();
+        getSocialPosts();
 
     }
 
-    private void getForumQuestions() {
+    private void getSocialPosts() {
 
         db.collection("Social").orderBy("publishedOn", Query.Direction.DESCENDING)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
@@ -193,20 +189,21 @@ public class SocialHome extends AppCompatActivity {
                             if (dc.getType() == DocumentChange.Type.ADDED) {
                                 PostModal question = dc.getDocument().toObject(PostModal.class);
                                 question.setId(dc.getDocument().getId());
-                                questionArrayList.add(dc.getNewIndex(), question);
+                                postArrayList.add(dc.getNewIndex(), question);
+                                postAdapter.notifyDataSetChanged();
                             }
                             if (dc.getType() == DocumentChange.Type.REMOVED) {
                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                                    questionArrayList.removeIf(element -> (
+                                    postArrayList.removeIf(element -> (
                                             element.getId().toString().equals(dc.getDocument().getId().toString())
                                             )
                                     );
-                                    questionAdapter.notifyDataSetChanged();
+                                    postAdapter.notifyDataSetChanged();
                                 }
-                                questionAdapter.notifyDataSetChanged();
+                                postAdapter.notifyDataSetChanged();
                             }
 
-                            questionAdapter.notifyDataSetChanged();
+                            //postAdapter.notifyDataSetChanged();
                             if (progressDialog.isShowing()) {
                                 progressDialog.dismiss();
                             }
