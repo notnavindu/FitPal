@@ -88,7 +88,6 @@ public class CreatePost extends AppCompatActivity {
                         task.addOnSuccessListener(CreatePost.this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                Toast.makeText(CreatePost.this, "DONE", Toast.LENGTH_SHORT).show();
 
                             }
                         });
@@ -131,8 +130,8 @@ public class CreatePost extends AppCompatActivity {
                                                     Log.d("FirebaseLog", "DocumentSnapshot successfully written!");
                                                     pb.setVisibility(View.INVISIBLE);
                                                     createPost.setEnabled(true);
-                                                    Toast.makeText(CreatePost.this, "Successfully Posted!", Toast.LENGTH_SHORT).show();
-
+                                                    Toast.makeText(CreatePost.this, "Successfully Posted!", Toast.LENGTH_LONG).show();
+                                                    finish();
                                                 }
                                             })
                                             .addOnFailureListener(new OnFailureListener() {

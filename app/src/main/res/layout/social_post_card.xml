@@ -63,12 +63,12 @@
                     android:id="@+id/delete_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:minHeight="16dp"
                     android:layout_alignParentEnd="true"
-                    android:visibility="invisible"
-                    android:minWidth="16dp"
                     android:contentDescription="@string/delete_button"
-                    android:src="@drawable/delete_icon_lg" />
+                    android:minWidth="22dp"
+                    android:minHeight="22dp"
+                    android:src="@drawable/delete_icon_lg"
+                    android:visibility="invisible" />
 
                 <androidx.cardview.widget.CardView
                     app:cardCornerRadius = "180dp"

@@ -37,12 +37,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> {
     Context context;
-    ArrayList<PostModal> questionArrayList;
+    ArrayList<PostModal> postArrayList;
 
 
-    public PostAdapter(Context context, ArrayList<PostModal> questionArrayList) {
+    public PostAdapter(Context context, ArrayList<PostModal> postArrayList) {
         this.context = context;
-        this.questionArrayList = questionArrayList;
+        this.postArrayList = postArrayList;
     }
 
     @NonNull
@@ -58,7 +58,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        PostModal question = questionArrayList.get(position);
+        PostModal question = postArrayList.get(position);
         String authorID = question.getAuthorId();
 
         if (authorID != null) {
@@ -190,7 +190,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> 
 
     @Override
     public int getItemCount() {
-        return questionArrayList.size();
+        return postArrayList.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
